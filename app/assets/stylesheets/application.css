@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+body
+{
+  font-family: 'Lato', 'sans-serif';
+}
+.profile
+{
+  min-height: 355px;
+  display: inline-block;
+}
+.divider
+{
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+.emphasis
+{
+  border-top: 4px solid transparent;
+}
+.emphasis:hover
+{
+  border-top: 4px solid #1abc9c;
+}
+.emphasis h2
+{
+  margin-bottom:0;
+}
