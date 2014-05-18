@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>
+            Gem name
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Total Downloads
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @gems.each do |gem| %>
+          <tr class="info">
+            <td>
+              <%= link_to "#{gem.name}", gem %>
+            </td>
+            <td>
+              <%= gem.description %>
+            </td>
+            <td>
+              <%= gem.total_downloads %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
