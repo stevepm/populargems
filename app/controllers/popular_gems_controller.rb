@@ -1,7 +1,7 @@
 class PopularGemsController < ApplicationController
   def index
     @popular_gem = PopularGem.new
-    @gems = PopularGem.all
+    @gems = PopularGem.order(total_downloads: :desc).paginate_gems(params[:page])
   end
 
   def create
@@ -12,7 +12,7 @@ class PopularGemsController < ApplicationController
       @popular_gem = PopularGem.find_by_name(@popular_gem.name)
       redirect_to @popular_gem
     else
-      @gems = PopularGem.all
+      @gems = PopularGem.order(total_downloads: :desc).page params[:page]
       render :index, notice: "That gem does not exist"
     end
   end
