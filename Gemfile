@@ -36,6 +36,8 @@ group :test do
   gem 'webmock', '~> 1.18.0'
 end
 
+gem 'rails_12factor', group: :production
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 
 # Use ActiveModel has_secure_password
