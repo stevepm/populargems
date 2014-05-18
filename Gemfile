@@ -25,12 +25,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'faraday', '~> 0.9.0'
 gem 'kaminari', '~> 0.15.1'
+gem 'omniauth-github', '~> 1.1.2'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
   gem 'vcr', '~> 2.9.0'
   gem 'byebug', '~> 3.1.2'
+  gem 'dotenv-rails'
 end
 
 group :test do
