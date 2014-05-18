@@ -1,4 +1,4 @@
-class CreateRubygems < ActiveRecord::Migration
+class CreatePopularGems < ActiveRecord::Migration
   def change
     create_table :popular_gems do |t|
       t.string :name
