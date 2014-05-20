@@ -31,7 +31,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'capybara', '~> 2.2.1'
   gem 'vcr', '~> 2.9.0'
-  gem 'byebug', '~> 3.1.2'
+  # gem 'byebug', '~> 3.1.2'
   gem 'dotenv-rails'
 end
 
