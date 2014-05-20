@@ -1,4 +1,5 @@
 class PopularGem < ActiveRecord::Base
+  has_many :comments
   validates :name, uniqueness: true
 
   validate :gather_information

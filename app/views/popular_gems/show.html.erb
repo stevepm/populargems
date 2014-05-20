@@ -40,6 +40,22 @@
           </div>
         </div>
       </div>
+      <div class="">
+        <h1>Comments:</h1>
+        <% @comments.each do |comment| %>
+          <p><strong><%= comment.user.name %>:</strong> <%= comment.body %></p>
+        <% end %>
+        <% if current_user %>
+          <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>
+            <div class="form-group">
+              <%= f.text_area :body, class: "form-control", placeholder: 'Leave a comment' %>
+            </div>
+            <%= f.hidden_field :user, value: current_user.id %>
+            <%= f.hidden_field :popular_gem, value: @popular_gem.id %>
+            <%= f.submit :Comment, class: "btn btn-default pull-right" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
