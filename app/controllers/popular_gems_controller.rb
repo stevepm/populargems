@@ -27,7 +27,7 @@ class PopularGemsController < ApplicationController
   def edit
     @popular_gem = PopularGem.find(params[:id])
     @popular_gem.update(name: @popular_gem.name)
-    render :show
+    redirect_to @popular_gem
   end
 
   private
