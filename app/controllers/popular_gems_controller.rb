@@ -21,6 +21,12 @@ class PopularGemsController < ApplicationController
     @popular_gem = PopularGem.find(params[:id])
   end
 
+  def edit
+    @popular_gem = PopularGem.find(params[:id])
+    @popular_gem.update(name: @popular_gem.name)
+    render :show
+  end
+
   private
   def gem_params
     params.require(:popular_gem).permit(:name)

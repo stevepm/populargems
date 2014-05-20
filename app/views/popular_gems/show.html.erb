@@ -1,16 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+    <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
       <div class="well profile">
         <div class="col-sm-12">
           <div class="col-xs-12 col-sm-12">
-            <h2><%= @popular_gem.name %></h2>
+            <div class="col-xs-5">
+              <h2 class=""><%= @popular_gem.name %></h2>
+            </div>
+            <div class="col-xs-7">
+              <div class="col-xs-5 pull-right">
+                <%= link_to 'Update Now', edit_popular_gem_path, class: "btn btn-warning btn-block pull-right" %>
+              </div>
+              <small class="col-xs-5 pull-right">Last updated on <%= @popular_gem.updated_at.to_date %></small>
+            </div>
+            <div class="col-xs-12">
+              <p><strong>Version: </strong><%= @popular_gem.version %></p>
 
-            <p><strong>Version: </strong><%= @popular_gem.version %></p>
-
-            <p><strong>About: </strong><%= @popular_gem.description %></p>
+              <p><strong>About: </strong><%= @popular_gem.description %></p>
+            </div>
           </div>
-
         </div>
         <div class="col-xs-12 divider text-center">
           <div class="col-xs-12 col-sm-6 emphasis">

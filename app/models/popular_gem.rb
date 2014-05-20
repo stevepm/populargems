@@ -14,7 +14,7 @@ class PopularGem < ActiveRecord::Base
       self.version = body["version"]
       self.version_downloads = body["version_downloads"]
       self.url = body["project_uri"]
-      self.project_url = body["source_code_uri"]
+      self.project_url = body["homepage_uri"]
       if body["info"].length >= 250
         self.description = body["info"][0,250] + " ..."
       else

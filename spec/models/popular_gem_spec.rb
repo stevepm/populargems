@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe PopularGem do
+  let (:rails) {PopularGem.create(name: 'rails')}
+
   it 'adds all details of a gem to db, given a name' do
     VCR.use_cassette('models/popular_gems/create_gem') do
       faraday = PopularGem.create(name: 'faraday')
