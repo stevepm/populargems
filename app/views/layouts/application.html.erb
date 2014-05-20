@@ -29,6 +29,12 @@
             </li>
           </ul>
           <%= form_for PopularGem.new, html: {class: "navbar-form navbar-right", role: "search"} do |f| %>
+            <% if current_user %>
+              Welcome <%= current_user.name %>
+              <%= link_to 'Sign out', :signout %>
+            <% else %>
+              <%= link_to 'Sign in with Github', '/auth/github' %>
+            <% end %>
             <div class="form-group">
               <%= f.text_field :name, class: "form-control", placeholder: 'Search for a gem' %>
             </div>
@@ -37,17 +43,6 @@
         </div>
 
       </nav>
-      <div class="jumbotron">
-        <h1>
-          Hello, world!
-        </h1>
-        <% if current_user %>
-          Welcome <%= current_user.name %>
-          <%= link_to 'Sign out', :signout %>
-        <% else %>
-          <%= link_to 'Sign in with Github', '/auth/github' %>
-        <% end %>
-      </div>
     </div>
     <div class="row clearfix">
       <div class="col-md-12 column">
