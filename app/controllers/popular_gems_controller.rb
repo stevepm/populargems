@@ -20,6 +20,8 @@ class PopularGemsController < ApplicationController
 
   def show
     @popular_gem = PopularGem.find(params[:id])
+    @comments = @popular_gem.comments.all
+    @comment = Comment.new
   end
 
   def edit
