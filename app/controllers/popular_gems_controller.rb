@@ -13,7 +13,8 @@ class PopularGemsController < ApplicationController
       redirect_to @popular_gem
     else
       @gems = PopularGem.order(total_downloads: :desc).paginate_gems params[:page]
-      render :index, notice: "That gem does not exist"
+      flash[:notice] = "That gem does not exist"
+      render :index
     end
   end
 
