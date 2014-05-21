@@ -6,9 +6,9 @@ describe GemImporter do
       mock_gem
       faraday = PopularGem.find_by_name('faraday')
       expect(faraday.name).to eq('faraday')
-      expect(faraday.total_downloads).to eq(8708827)
+      expect(faraday.total_downloads).to eq(8708442)
       expect(faraday.version).to eq('0.9.0')
-      expect(faraday.version_downloads).to eq(679161)
+      expect(faraday.version_downloads).to eq(678949)
       expect(faraday.description).to eq('HTTP/REST API client library.')
       expect(faraday.url).to eq('http://rubygems.org/gems/faraday')
     end

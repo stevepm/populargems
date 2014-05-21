@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :comments
+  has_many :hearts
 
   def self.create_with_omniauth(auth)
     create! do |user|

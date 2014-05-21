@@ -10,7 +10,7 @@ feature 'Popular gems' do
     visit '/'
     expect(page).to have_content('faraday')
     expect(page).to have_content('HTTP/REST API client library.')
-    expect(page).to have_content('8708827')
+    expect(page).to have_content('8723613')
   end
 
   scenario 'a user can click on a gem' do

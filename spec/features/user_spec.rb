@@ -2,8 +2,10 @@ require 'spec_helper'
 
 feature 'User Profile' do
   scenario 'a user can view their comments' do
+    VCR.use_cassette('features/user/view_comments') do
+      mock_gem
+    end
     log_in
-    mock_gem
     click_on 'faraday'
     fill_in 'comment_body', with: "This is *bongos*, indeed."
     click_on 'Comment'

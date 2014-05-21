@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520044440) do
+ActiveRecord::Schema.define(version: 20140521203158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140520044440) do
 
   add_index "comments", ["popular_gem_id"], name: "index_comments_on_popular_gem_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "hearts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "popular_gem_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hearts", ["popular_gem_id"], name: "index_hearts_on_popular_gem_id", using: :btree
+  add_index "hearts", ["user_id"], name: "index_hearts_on_user_id", using: :btree
 
   create_table "popular_gems", force: true do |t|
     t.string   "name"
