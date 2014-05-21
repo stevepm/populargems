@@ -28,7 +28,7 @@
               <a href="#">Link</a>
             </li>
           </ul>
-          <%= form_for PopularGem.new, html: {class: "navbar-form navbar-right", role: "search"} do |f| %>
+          <%= form_tag "/search", method: 'get', class: "navbar-form navbar-right", role: "search" do %>
             <% if current_user %>
               Welcome <%= current_user.name %>
               <%= link_to 'Sign out', :signout %>
@@ -36,9 +36,9 @@
               <%= link_to 'Sign in with Github', '/auth/github' %>
             <% end %>
             <div class="form-group">
-              <%= f.text_field :name, class: "form-control", placeholder: 'Search for a gem' %>
+              <%= text_field_tag 'gem_name', nil, class: "form-control", placeholder: 'Search for a gem' %>
             </div>
-            <%= f.submit :Search, class: "btn btn-default" %>
+            <%= submit_tag :Search, class: "btn btn-default" %>
           <% end %>
         </div>
 

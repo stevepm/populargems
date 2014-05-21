@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/jkawkjdkjawd.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 May 2014 03:03:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 404 Not Found
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Cache-Control:
+      - no-cache
+      Set-Cookie:
+      - remember_token=; path=/; expires=Thu, 21-May-2015 03:03:49 GMT; secure
+      X-Request-Id:
+      - d4d1e67d87bd4f069ec8d80c3ed6f6c6
+      X-Runtime:
+      - '0.008626'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: This rubygem could not be found.
+    http_version: 
+  recorded_at: Wed, 21 May 2014 03:03:49 GMT
+recorded_with: VCR 2.9.0

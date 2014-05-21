@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'rubygems'
+
+Gem::SpecFetcher.new.available_specs(:latest).first.values.first.each do |gem|
+  GemImporter.seed_db(gem.name)
+end
