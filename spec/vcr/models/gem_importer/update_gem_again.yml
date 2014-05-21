@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 May 2014 03:13:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"31c3d80e9d468e061b6ee864a92ed957"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Thu, 21-May-2015 03:13:32 GMT; secure
+      X-Request-Id:
+      - 0f4c1827d617e113680fb3151881fbcb
+      X-Runtime:
+      - '0.034581'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rails","downloads":35349156,"version":"4.1.1","version_downloads":102480,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Ruby on Rails is a full-stack web framework optimized
+        for programmer happiness and sustainable productivity. It encourages beautiful
+        code by favoring convention over configuration.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rails","gem_uri":"http://rubygems.org/gems/rails-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":"http://wiki.rubyonrails.org","documentation_uri":"http://api.rubyonrails.org","mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk","source_code_uri":"http://github.com/rails/rails","bug_tracker_uri":"http://github.com/rails/rails/issues","dependencies":{"development":[],"runtime":[{"name":"actionmailer","requirements":"=
+        4.1.1"},{"name":"actionpack","requirements":"= 4.1.1"},{"name":"actionview","requirements":"=
+        4.1.1"},{"name":"activemodel","requirements":"= 4.1.1"},{"name":"activerecord","requirements":"=
+        4.1.1"},{"name":"activesupport","requirements":"= 4.1.1"},{"name":"bundler","requirements":"<
+        2.0, >= 1.3.0"},{"name":"railties","requirements":"= 4.1.1"},{"name":"sprockets-rails","requirements":"~>
+        2.0"}]}}'
+    http_version: 
+  recorded_at: Wed, 21 May 2014 03:13:32 GMT
+recorded_with: VCR 2.9.0
