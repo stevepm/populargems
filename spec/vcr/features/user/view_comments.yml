@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 21 May 2014 20:53:24 GMT
+      - Wed, 21 May 2014 20:57:42 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -36,22 +36,82 @@ http_interactions:
       - IE=Edge,chrome=1
       - IE=Edge,chrome=1
       Etag:
-      - '"555f0074b132cf3d7d03ed639d8c0fce"'
+      - '"ef881969129211cda2c0db19ce2df960"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - remember_token=; path=/; expires=Thu, 21-May-2015 20:53:24 GMT; secure
+      - remember_token=; path=/; expires=Thu, 21-May-2015 20:57:42 GMT; secure
       X-Request-Id:
-      - 9e8553b98af7cb44c3c3a72f9cdb9c88
+      - be0ef97b7239de80a27ee0efcb545bf8
       X-Runtime:
-      - '0.031403'
+      - '0.028183'
       X-Rack-Cache:
       - miss
     body:
       encoding: UTF-8
-      string: '{"name":"faraday","downloads":8723676,"version":"0.9.0","version_downloads":687305,"platform":"ruby","authors":"Rick
+      string: '{"name":"faraday","downloads":8723731,"version":"0.9.0","version_downloads":687333,"platform":"ruby","authors":"Rick
         Olson","info":"HTTP/REST API client library.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/faraday","gem_uri":"http://rubygems.org/gems/faraday-0.9.0.gem","homepage_uri":"https://github.com/lostisland/faraday","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"bundler","requirements":"~>
         1.0"}],"runtime":[{"name":"multipart-post","requirements":"< 3, >= 1.2"}]}}'
     http_version: 
-  recorded_at: Wed, 21 May 2014 20:53:24 GMT
+  recorded_at: Wed, 21 May 2014 20:57:42 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 21 May 2014 20:57:43 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"0f3f16a1ca560413612588ca309733ba"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Thu, 21-May-2015 20:57:43 GMT; secure
+      X-Request-Id:
+      - a0cbb1e25d2c082e4b92e7313cce7b9c
+      X-Runtime:
+      - '0.030367'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rails","downloads":35381857,"version":"4.1.1","version_downloads":109296,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Ruby on Rails is a full-stack web framework optimized
+        for programmer happiness and sustainable productivity. It encourages beautiful
+        code by favoring convention over configuration.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rails","gem_uri":"http://rubygems.org/gems/rails-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":"http://wiki.rubyonrails.org","documentation_uri":"http://api.rubyonrails.org","mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk","source_code_uri":"http://github.com/rails/rails","bug_tracker_uri":"http://github.com/rails/rails/issues","dependencies":{"development":[],"runtime":[{"name":"actionmailer","requirements":"=
+        4.1.1"},{"name":"actionpack","requirements":"= 4.1.1"},{"name":"actionview","requirements":"=
+        4.1.1"},{"name":"activemodel","requirements":"= 4.1.1"},{"name":"activerecord","requirements":"=
+        4.1.1"},{"name":"activesupport","requirements":"= 4.1.1"},{"name":"bundler","requirements":"<
+        2.0, >= 1.3.0"},{"name":"railties","requirements":"= 4.1.1"},{"name":"sprockets-rails","requirements":"~>
+        2.0"}]}}'
+    http_version: 
+  recorded_at: Wed, 21 May 2014 20:57:43 GMT
 recorded_with: VCR 2.9.0
