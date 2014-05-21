@@ -7,9 +7,7 @@ describe 'commenting' do
     end
   end
   it 'a user can leave a comment if logged in' do
-    visit '/'
-    mock_auth_hash
-    click_link 'Sign in with Github'
+    log_in
     click_link 'faraday'
     fill_in 'comment_body', with: "This is *bongos*, indeed."
     click_on 'Comment'
