@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :comments
   resource :search
   resources :user
+  resource :heart
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout
