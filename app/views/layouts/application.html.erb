@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <div class="container">
   <div class="row clearfix">
     <div class="col-md-12 column">
@@ -46,11 +45,13 @@
     </div>
     <div class="row clearfix">
       <div class="col-md-12 column">
+        <div class="col-md-10 col-md-offset-1">
+          <span class="alert-danger"><%= flash.now[:notice] %></span>
+        </div>
         <%= yield %>
       </div>
     </div>
   </div>
-
 </div>
 </body>
 </html>

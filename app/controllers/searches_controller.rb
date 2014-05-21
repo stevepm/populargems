@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
       redirect_to gem
     else
       flash[:notice] = "That gem does not exist"
-      redirect_to root_path
+      redirect_to :back
     end
   end
 end
