@@ -43,7 +43,7 @@
       <div class="">
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
-          <p><strong><%= comment.user.name %>:</strong> <%= comment.body %></p>
+          <p><strong><%= comment.user.name %>:</strong> <%= comment.body.html_safe %></p>
         <% end %>
         <% if current_user %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>

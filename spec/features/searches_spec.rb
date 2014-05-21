@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Searching for a gem' do
   scenario 'user searches for faraday' do
     VCR.use_cassette('features/gem_importer/create_gem') do
-      GemImporter.seed_db('faraday')
+      mock_gem
     end
     visit '/'
     fill_in 'gem_name', with: 'faraday'
