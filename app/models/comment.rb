@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
 
   def self.create_from_gem_page(params)
     create! do |comment|
-      comment.body = params[:body]
+      comment.body = ConvertFromMarkdown.new.render(params[:body])
       comment.user = User.find(params[:user])
       comment.popular_gem = PopularGem.find(params[:popular_gem])
     end

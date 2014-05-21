@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Popular gems' do
   before do
     VCR.use_cassette('features/popular_gem/view_gem') do
-      GemImporter.seed_db('faraday')
+      mock_gem
     end
   end
   scenario 'a user can view a gem' do

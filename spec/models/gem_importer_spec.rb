@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GemImporter do
   it 'adds all details of a gem to db, given a name' do
     VCR.use_cassette('models/gem_importer/create_gem') do
-      GemImporter.seed_db('faraday')
+      mock_gem
       faraday = PopularGem.find_by_name('faraday')
       expect(faraday.name).to eq('faraday')
       expect(faraday.total_downloads).to eq(8708827)
@@ -23,7 +23,7 @@ describe GemImporter do
 
   it 'can update the gem information' do
     VCR.use_cassette('models/gem_importer/update_gem') do
-      GemImporter.seed_db('rails')
+      mock_gem('rails')
       rails = PopularGem.find_by_name('rails')
       expect(rails.total_downloads).to eq(35349141)
       VCR.use_cassette('models/gem_importer/update_gem_again') do
