@@ -39,7 +39,7 @@
                   <%= gem.description %>
                 </td>
                 <td>
-                  <%= gem.total_downloads %>
+                  <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
                 </td>
               </tr>
             <% end %>
