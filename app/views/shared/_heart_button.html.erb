@@ -1,0 +1,14 @@
+<% if logged_in? %>
+  <% if current_user.hearts.where(popular_gem: gem).empty? %>
+    <% method = :post %>
+    <% button = 'btn-default' %>
+  <% else %>
+    <% method = :patch %>
+    <% button = 'btn-warning' %>
+  <% end %>
+  <%= button_to heart_path, :method => method, :class => "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
+    <span class="glyphicon glyphicon-star"></span>
+    <input type="hidden" value="<%= gem.id %>" name="popular_gem_id">
+    <input type="hidden" value="<%= current_user.id %>" name="user_id">
+  <% end %>
+<% end %>

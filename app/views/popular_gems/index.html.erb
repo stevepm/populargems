@@ -4,6 +4,11 @@
       <table class="table well profile table-hover">
         <thead>
         <tr>
+          <% if logged_in? %>
+            <th>
+              Star Gem
+            </th>
+          <% end %>
           <th>
             Gem name
           </th>
@@ -18,6 +23,11 @@
         <tbody>
         <% @gems.each do |gem| %>
           <tr class="info">
+            <% if logged_in? %>
+              <td>
+                <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+              </td>
+            <% end %>
             <td>
               <%= link_to "#{gem.name}", gem %>
             </td>

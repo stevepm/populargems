@@ -5,20 +5,7 @@
         <div class="col-sm-12">
           <div class="col-xs-12 col-sm-12">
             <div class="col-xs-5">
-              <% if logged_in? %>
-                <% if current_user.hearts.where(popular_gem: @popular_gem).empty? %>
-                  <% method = :post %>
-                  <% button = 'btn-default' %>
-                <% else %>
-                  <% method = :patch %>
-                  <% button = 'btn-warning' %>
-                <% end %>
-                <%= button_to heart_path, :method => method, :class => "btn #{button} btn-lg active", id: "heart_#{@popular_gem.name}" do %>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <input type="hidden" value="<%= @popular_gem.id %>" name="popular_gem_id">
-                  <input type="hidden" value="<%= current_user.id %>" name="user_id">
-                <% end %>
-              <% end %>
+              <%= render partial: 'shared/heart_button', locals: {gem: @popular_gem} %>
               <h2 class=""><%= @popular_gem.name %></h2>
             </div>
             <div class="col-xs-7">
