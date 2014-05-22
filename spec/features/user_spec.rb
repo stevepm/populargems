@@ -21,5 +21,10 @@ feature 'User Profile' do
     visit '/'
     click_on 'heart_faraday'
     expect(page).to have_content('You love faraday')
+    click_on 'stevepm'
+    within '#loved_gems' do
+      expect(page).to have_content('Loved Gems')
+      expect(page).to have_content('faraday')
+    end
   end
 end
