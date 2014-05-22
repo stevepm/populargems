@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-8">
       <table class="table table-striped table-hover well">
         <thead>
         <tr>
@@ -11,8 +11,30 @@
         <tbody>
         <% @comments.each do |comment| %>
           <tr class="success">
-            <td class=""><strong><%= link_to comment.popular_gem.name, comment.popular_gem %>: </strong></td>
+            <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
             <td><%= comment.body.html_safe %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-offset-1 col-md-3" id="loved_gems">
+      <table class="table table-striped table-hover well">
+        <thead>
+        <tr>
+          <th>Loved Gems</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @user.hearts.each do |heart| %>
+          <tr class="info">
+            <td><strong>
+              <%= link_to heart.popular_gem.name, heart.popular_gem %>
+            </strong></td>
+            <td>
+              <%= render partial: 'shared/heart_button', locals: {gem: heart.popular_gem} %>
+            </td>
           </tr>
         <% end %>
         </tbody>
