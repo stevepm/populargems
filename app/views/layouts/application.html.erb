@@ -29,7 +29,7 @@
           </ul>
           <%= form_tag "/search", method: 'get', class: "navbar-form navbar-right", role: "search" do %>
             <% if current_user %>
-              <%= link_to current_user.name, current_user, class: 'btn btn-success active' %>
+              <%= link_to current_user.name, current_user, class: 'btn btn-success active', id: 'user_profile' %>
               <%= link_to 'Sign out', :signout %>
             <% else %>
               <%= link_to 'Sign in with Github', '/auth/github' %>
