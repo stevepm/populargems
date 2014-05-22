@@ -18,6 +18,8 @@ feature 'User Profile' do
     expect(page).to have_content('You love faraday')
     click_on 'heart_faraday'
     expect(page).to have_content("You don't love faraday")
-
+    visit '/'
+    click_on 'heart_faraday'
+    expect(page).to have_content('You love faraday')
   end
 end
