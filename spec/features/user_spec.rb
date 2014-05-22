@@ -10,7 +10,7 @@ feature 'User Profile' do
     click_on 'faraday'
     fill_in 'comment_body', with: "This is *bongos*, indeed."
     click_on 'Comment'
-    click_on 'stevepm'
+    click_on 'user_profile'
     expect(page).to have_content('faraday')
     expect(page).to have_content('This is bongos, indeed.')
     click_on 'faraday'
@@ -21,7 +21,7 @@ feature 'User Profile' do
     visit '/'
     click_on 'heart_faraday'
     expect(page).to have_content('You love faraday')
-    click_on 'stevepm'
+    click_on 'user_profile'
     within '#loved_gems' do
       expect(page).to have_content('Loved Gems')
       expect(page).to have_content('faraday')

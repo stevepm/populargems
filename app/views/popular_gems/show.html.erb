@@ -44,9 +44,9 @@
       <div class="">
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
-          <p><strong><%= comment.user.name %>:</strong> <%= comment.body.html_safe %></p>
+          <p><strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.body.html_safe %></p>
         <% end %>
-        <% if current_user %>
+        <% if logged_in? %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group">
               <%= f.text_area :body, class: "form-control", placeholder: 'Leave a comment' %>
@@ -55,7 +55,9 @@
             <%= f.hidden_field :popular_gem, value: @popular_gem.id %>
             <%= f.submit :Comment, class: "btn btn-default pull-right" %>
           <% end %>
-        <% end %>
+        <% else %>
+          <span class="label label-warning"><strong>Sign in to leave a comment</strong></span>
+      <% end %>
       </div>
     </div>
   </div>

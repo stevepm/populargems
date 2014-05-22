@@ -1,47 +1,54 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <table class="table well profile table-hover">
-        <thead>
-        <tr>
-          <% if logged_in? %>
-            <th>
-              Star Gem
-            </th>
-          <% end %>
-          <th>
-            Gem name
-          </th>
-          <th>
-            Description
-          </th>
-          <th>
-            Total Downloads
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @gems.each do |gem| %>
-          <tr class="info">
-            <% if logged_in? %>
-              <td>
-                <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
-              </td>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Most downloaded gems</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table well profile table-hover">
+            <thead>
+            <tr>
+              <% if logged_in? %>
+                <th>
+                  Star Gem
+                </th>
+              <% end %>
+              <th>
+                Gem name
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Total Downloads
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @gems.each do |gem| %>
+              <tr class="info">
+                <% if logged_in? %>
+                  <td>
+                    <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+                  </td>
+                <% end %>
+                <td>
+                  <%= link_to "#{gem.name}", gem %>
+                </td>
+                <td>
+                  <%= gem.description %>
+                </td>
+                <td>
+                  <%= gem.total_downloads %>
+                </td>
+              </tr>
             <% end %>
-            <td>
-              <%= link_to "#{gem.name}", gem %>
-            </td>
-            <td>
-              <%= gem.description %>
-            </td>
-            <td>
-              <%= gem.total_downloads %>
-            </td>
-          </tr>
-        <% end %>
-        <%= paginate @gems %>
-        </tbody>
-      </table>
+            <%= paginate @gems %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
