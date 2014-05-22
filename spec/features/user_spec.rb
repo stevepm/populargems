@@ -15,12 +15,9 @@ feature 'User Profile' do
     expect(page).to have_content('This is bongos, indeed.')
     click_on 'faraday'
     click_on 'heart_faraday'
-    expect(page).to have_content('You love faraday')
     click_on 'heart_faraday'
-    expect(page).to have_content("You don't love faraday")
     visit '/'
     click_on 'heart_faraday'
-    expect(page).to have_content('You love faraday')
     click_on 'user_profile'
     within '#loved_gems' do
       expect(page).to have_content('Loved Gems')
