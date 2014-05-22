@@ -4,7 +4,7 @@ class GemImporter
       new_gem = PopularGem.new(name: name)
       if new_gem.valid?
         response = Faraday.get "https://rubygems.org/api/v1/gems/#{name}.json"
-        if response.body == "This rubygem could not be found."
+        if response.body == "This rubygem could not be found." || response.body == 'This gem does not exist.'
           puts "#{name} Gem does not exist"
         else
           body = JSON.parse(response.body)
