@@ -23,7 +23,7 @@
         </div>
         <div class="col-xs-12 divider text-center">
           <div class="col-xs-12 col-sm-6 emphasis">
-            <h2><strong><%= @popular_gem.total_downloads %></strong></h2>
+            <h2><strong><%= number_with_delimiter(@popular_gem.total_downloads, :delimiter => ',') %></strong></h2>
 
             <p>
               <small>Total Downloads</small>
@@ -32,7 +32,7 @@
 
           </div>
           <div class="col-xs-12 col-sm-6 emphasis">
-            <h2><strong><%= @popular_gem.version_downloads %></strong></h2>
+            <h2><strong><%= number_with_delimiter(@popular_gem.version_downloads, :delimiter => ',') %></strong></h2>
 
             <p>
               <small>Version Downloads</small>
