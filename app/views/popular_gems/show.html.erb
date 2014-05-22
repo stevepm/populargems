@@ -44,7 +44,9 @@
       <div class="">
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
-          <p><strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.body.html_safe %></p>
+          <blockquote>
+            <p><strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.body.html_safe %></p>
+          </blockquote>
         <% end %>
         <% if logged_in? %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>
@@ -57,7 +59,7 @@
           <% end %>
         <% else %>
           <span class="label label-warning"><strong>Sign in to leave a comment</strong></span>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
