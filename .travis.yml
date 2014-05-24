@@ -1,5 +1,12 @@
 language: ruby
 rvm:
-  - 2.1.1
+- 2.1.1
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:create db:migrate
+- RAILS_ENV=test bundle exec rake --trace db:create db:migrate
+deploy:
+  provider: heroku
+  api_key:
+    secure: T1EZcNsoB3uEFtnWgvbdMKSPRQDm2klpg2jnXzJFQhSkxvGACryWXS57+0RjiMElQ9t5bIsuLWw1xE//V02yPEQDbPsNb1iarJ40iqNBLp4r2SXm7FJS8H/TloEgZ2jsgEbLwcQLtztfIlL+JARzAVnF7uUz0BTh1fFlCEP/KSM=
+  app: popular-gems
+  on:
+    repo: stevepm/populargems
