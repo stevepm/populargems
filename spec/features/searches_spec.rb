@@ -12,8 +12,10 @@ feature 'Searching for a gem' do
 
   scenario 'user searches for gem that does not exist' do
     visit '/'
-    fill_in 'gem_name', with: 'jjkawjd'
-    click_on 'Search'
+    VCR.use_cassette('features/searching/invalid_gem_error') do
+      fill_in 'gem_name', with: 'jjkawjd'
+      click_on 'Search'
+    end
     expect(page).to have_content('That gem does not exist')
   end
 end

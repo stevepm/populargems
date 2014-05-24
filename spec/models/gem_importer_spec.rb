@@ -17,7 +17,7 @@ describe GemImporter do
   it 'returns an error if the gem is not found' do
     VCR.use_cassette('models/gem_importer/create_gem_error') do
       not_a_gem = GemImporter.seed_db('jkawkjdkjawd')
-      expect(not_a_gem).to eq(nil)
+      expect(not_a_gem).to eq(false)
     end
   end
 
