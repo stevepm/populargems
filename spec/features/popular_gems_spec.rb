@@ -42,7 +42,7 @@ feature 'Popular gems' do
       click_on 'View more'
     end
     within '#most_hearted' do
-      expect(page).to have_content('Most hearted gems')
+      expect(page).to have_content('Most loved gems')
     end
 
   end
