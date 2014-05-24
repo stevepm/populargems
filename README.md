@@ -1,6 +1,6 @@
-Listen to - RAILS
+Popular Gems - RAILS
 ======================================
-Listen to what Bebe listens to! This is an app that displays music that I enjoy listening to
+This app is built to allow people an easier way to discover new ruby gems.
 
 [![Code Climate](https://codeclimate.com/github/bebepeng/listen_to.png)](https://codeclimate.com/github/stevepm/populargems)
 [![Build Status](https://travis-ci.org/bebepeng/listen_to.svg?branch=master)](https://travis-ci.org/stevepm/populargems)
