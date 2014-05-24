@@ -5,8 +5,9 @@ class GemImporter
       if new_gem.valid?
         response = Faraday.get "https://rubygems.org/api/v1/gems/#{name}.json"
         if response.body == "This rubygem could not be found." || response.body == 'This gem does not exist.'
-          puts "#{name} Gem does not exist"
+          false
         else
+          puts "Gather data for #{name}....."
           body = JSON.parse(response.body)
           new_gem.update(total_downloads: body["downloads"])
           new_gem.update(version: body["version"])
@@ -14,6 +15,7 @@ class GemImporter
           new_gem.update(url: body["project_uri"])
           new_gem.update(project_url: body["homepage_uri"])
           new_gem.update(description: body["info"])
+          new_gem
         end
       end
     end
