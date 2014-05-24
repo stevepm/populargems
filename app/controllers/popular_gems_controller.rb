@@ -18,6 +18,10 @@ class PopularGemsController < ApplicationController
 
   def most_downloaded
     @gems = PopularGem.top_downloaded.pagination(params[:page])
+    end
+
+  def most_hearted
+    @gems = Kaminari.paginate_array(PopularGem.top_hearted).page(params[:page]).per(10)
   end
 
   private
