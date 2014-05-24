@@ -21,8 +21,8 @@ class GemImporter
     def update_gem(name)
       gem = PopularGem.find_by_name(name)
       response = Faraday.get "https://rubygems.org/api/v1/gems/#{name}.json"
-      if response.body == "This rubygem could not be found."
-        gem.errors.add(:name, "Gem does not exist")
+      if response.body == "This rubygem could not be found." || response.body == 'This gem does not exist.'
+        puts "#{name} Gem does not exist"
       else
         body = JSON.parse(response.body)
         gem.update(total_downloads: body["downloads"])

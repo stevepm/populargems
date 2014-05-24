@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 21 May 2014 20:51:07 GMT
+      - Thu, 22 May 2014 20:47:01 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -36,22 +36,604 @@ http_interactions:
       - IE=Edge,chrome=1
       - IE=Edge,chrome=1
       Etag:
-      - '"be886a1a26d6942156f8fb65c74ce33c"'
+      - '"4f76473a73428f60ec9f52ccd36bec14"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - remember_token=; path=/; expires=Thu, 21-May-2015 20:51:07 GMT; secure
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:01 GMT; secure
       X-Request-Id:
-      - 8e9708da729d2caedc5af36bab86ad15
+      - 6322a556981c9df522f334e4cc9840e9
       X-Runtime:
-      - '0.028715'
+      - '0.029029'
       X-Rack-Cache:
       - miss
     body:
       encoding: UTF-8
-      string: '{"name":"faraday","downloads":8723613,"version":"0.9.0","version_downloads":687268,"platform":"ruby","authors":"Rick
+      string: '{"name":"faraday","downloads":8743357,"version":"0.9.0","version_downloads":698138,"platform":"ruby","authors":"Rick
         Olson","info":"HTTP/REST API client library.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/faraday","gem_uri":"http://rubygems.org/gems/faraday-0.9.0.gem","homepage_uri":"https://github.com/lostisland/faraday","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"bundler","requirements":"~>
         1.0"}],"runtime":[{"name":"multipart-post","requirements":"< 3, >= 1.2"}]}}'
     http_version: 
-  recorded_at: Wed, 21 May 2014 20:51:07 GMT
+  recorded_at: Thu, 22 May 2014 20:47:01 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"53a3a4c825ee261e595fd42e10f1980d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:01 GMT; secure
+      X-Request-Id:
+      - dfbb2306faa27df519b27ebfe8e7d8b2
+      X-Runtime:
+      - '0.032693'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rails","downloads":35423201,"version":"4.1.1","version_downloads":117842,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Ruby on Rails is a full-stack web framework optimized
+        for programmer happiness and sustainable productivity. It encourages beautiful
+        code by favoring convention over configuration.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rails","gem_uri":"http://rubygems.org/gems/rails-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":"http://wiki.rubyonrails.org","documentation_uri":"http://api.rubyonrails.org","mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk","source_code_uri":"http://github.com/rails/rails","bug_tracker_uri":"http://github.com/rails/rails/issues","dependencies":{"development":[],"runtime":[{"name":"actionmailer","requirements":"=
+        4.1.1"},{"name":"actionpack","requirements":"= 4.1.1"},{"name":"actionview","requirements":"=
+        4.1.1"},{"name":"activemodel","requirements":"= 4.1.1"},{"name":"activerecord","requirements":"=
+        4.1.1"},{"name":"activesupport","requirements":"= 4.1.1"},{"name":"bundler","requirements":"<
+        2.0, >= 1.3.0"},{"name":"railties","requirements":"= 4.1.1"},{"name":"sprockets-rails","requirements":"~>
+        2.0"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:01 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rake.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"332e8d35be03a84784cf42fb84a2119d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:02 GMT; secure
+      X-Request-Id:
+      - 312c036ff6c476a5571b7e3d672226fe
+      X-Runtime:
+      - '0.028293'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rake","downloads":48536466,"version":"10.3.2","version_downloads":196715,"platform":"ruby","authors":"Eric
+        Hodel, Jim Weirich","info":"Rake is a Make-like program implemented in Ruby.
+        Tasks and dependencies are\nspecified in standard Ruby syntax.\n\nRake has
+        the following features:\n\n* Rakefiles (rake''s version of Makefiles) are
+        completely defined in\n  standard Ruby syntax.  No XML files to edit.  No
+        quirky Makefile\n  syntax to worry about (is that a tab or a space?)\n\n*
+        Users can specify tasks with prerequisites.\n\n* Rake supports rule patterns
+        to synthesize implicit tasks.\n\n* Flexible FileLists that act like arrays
+        but know about manipulating\n  file names and paths.\n\n* A library of prepackaged
+        tasks to make building rakefiles easier. For example,\n  tasks for building
+        tarballs and publishing to FTP or SSH sites.  (Formerly\n  tasks for building
+        RDoc and Gems were included in rake but they''re now\n  available in RDoc
+        and RubyGems respectively.)\n\n* Supports parallel execution of tasks.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rake","gem_uri":"http://rubygems.org/gems/rake-10.3.2.gem","homepage_uri":"https://github.com/jimweirich/rake","wiki_uri":"","documentation_uri":"https://github.com/jimweirich/rake","mailing_list_uri":"","source_code_uri":"https://github.com/jimweirich/rake","bug_tracker_uri":"https://github.com/jimweirich/rake/issues","dependencies":{"development":[{"name":"hoe","requirements":"~>
+        3.7"},{"name":"minitest","requirements":"~> 5.2"},{"name":"rdoc","requirements":"~>
+        4.0"}],"runtime":[]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:02 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/thor.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"e6301896b25100a2a72eaee8bbb936f6"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:02 GMT; secure
+      X-Request-Id:
+      - 2f8d418d186fdc7ec8c8e1fee295a997
+      X-Runtime:
+      - '0.025607'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"thor","downloads":43187146,"version":"0.19.1","version_downloads":1505322,"platform":"ruby","authors":"Yehuda
+        Katz, Jos\u00e9 Valim","info":"Thor is a toolkit for building powerful command-line
+        interfaces.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/thor","gem_uri":"http://rubygems.org/gems/thor-0.19.1.gem","homepage_uri":"http://whatisthor.com/","wiki_uri":"https://github.com/wycats/thor/wiki","documentation_uri":"http://rdoc.info/github/wycats/thor","mailing_list_uri":"","source_code_uri":"https://github.com/wycats/thor","bug_tracker_uri":"https://github.com/wycats/thor/issues","dependencies":{"development":[{"name":"bundler","requirements":"~>
+        1.0"}],"runtime":[]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:02 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/activesupport.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"70a8ecd36e94e4518e09afc87551159e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:02 GMT; secure
+      X-Request-Id:
+      - 4fd65b0c68f81ef702ee48a142ffd77b
+      X-Runtime:
+      - '0.094969'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"activesupport","downloads":40960821,"version":"4.1.1","version_downloads":176475,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"A toolkit of support libraries and Ruby core extensions
+        extracted from the Rails framework. Rich support for multibyte strings, internationalization,
+        time zones, and testing.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/activesupport","gem_uri":"http://rubygems.org/gems/activesupport-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"i18n","requirements":">=
+        0.6.9, ~> 0.6"},{"name":"json","requirements":">= 1.7.7, ~> 1.7"},{"name":"minitest","requirements":"~>
+        5.1"},{"name":"thread_safe","requirements":"~> 0.1"},{"name":"tzinfo","requirements":"~>
+        1.1"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:02 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/activerecord.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:02 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"c8cfd894ca39251e06091875fc5fa1b3"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:02 GMT; secure
+      X-Request-Id:
+      - edbfabdaa8c80a50ab37276d68f4e496
+      X-Runtime:
+      - '0.028708'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"activerecord","downloads":32528916,"version":"4.1.1","version_downloads":128916,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Databases on Rails. Build a persistent domain
+        model by mapping database tables to Ruby classes. Strong conventions for associations,
+        validations, aggregations, migrations, and testing come baked-in.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/activerecord","gem_uri":"http://rubygems.org/gems/activerecord-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"activemodel","requirements":"=
+        4.1.1"},{"name":"activesupport","requirements":"= 4.1.1"},{"name":"arel","requirements":"~>
+        5.0.0"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:02 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/actionpack.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"3e65fdca79d204912122a002be044e24"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:03 GMT; secure
+      X-Request-Id:
+      - d0be1a3f9dbce670d6e8ea20220eb928
+      X-Runtime:
+      - '0.030075'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"actionpack","downloads":31571779,"version":"4.1.1","version_downloads":123573,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Web apps on Rails. Simple, battle-tested conventions
+        for building and testing MVC web applications. Works with any Rack-compatible
+        server.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/actionpack","gem_uri":"http://rubygems.org/gems/actionpack-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"activemodel","requirements":"=
+        4.1.1"}],"runtime":[{"name":"actionview","requirements":"= 4.1.1"},{"name":"activesupport","requirements":"=
+        4.1.1"},{"name":"rack","requirements":"~> 1.5.2"},{"name":"rack-test","requirements":"~>
+        0.6.2"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:03 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/actionmailer.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"26e423938ee572e2d983ccfe36b1fadf"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:03 GMT; secure
+      X-Request-Id:
+      - c56207f13672177403f9cdfb724944fc
+      X-Runtime:
+      - '0.028073'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"actionmailer","downloads":30611473,"version":"4.1.1","version_downloads":118761,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Email on Rails. Compose, deliver, receive, and
+        test emails using the familiar controller/view pattern. First-class support
+        for multipart email and attachments.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/actionmailer","gem_uri":"http://rubygems.org/gems/actionmailer-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"actionpack","requirements":"=
+        4.1.1"},{"name":"actionview","requirements":"= 4.1.1"},{"name":"mail","requirements":"~>
+        2.5.4"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:03 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/activemodel.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"2f0a39966a1820cf36e4afdf3134b79e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:03 GMT; secure
+      X-Request-Id:
+      - 8d299f070a40f036d1830afca08376f3
+      X-Runtime:
+      - '0.025657'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"activemodel","downloads":29376251,"version":"4.1.1","version_downloads":142101,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"A toolkit for building modeling frameworks like
+        Active Record. Rich support for attributes, callbacks, validations, serialization,
+        internationalization, and testing.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/activemodel","gem_uri":"http://rubygems.org/gems/activemodel-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[],"runtime":[{"name":"activesupport","requirements":"=
+        4.1.1"},{"name":"builder","requirements":"~> 3.1"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:03 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/activeresource.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"5a9f116cb6e48d273687e2c4fe876beb"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:04 GMT; secure
+      X-Request-Id:
+      - d13c9748e1c2859ce0a2920b5fc8c39a
+      X-Runtime:
+      - '0.029289'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"activeresource","downloads":26624308,"version":"4.0.0","version_downloads":153972,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"REST on Rails. Wrap your RESTful web app with
+        Ruby classes and work with them like Active Record models.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/activeresource","gem_uri":"http://rubygems.org/gems/activeresource-4.0.0.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"mocha","requirements":">=
+        0.13.0"},{"name":"rake","requirements":">= 0"}],"runtime":[{"name":"activemodel","requirements":"~>
+        4.0"},{"name":"activesupport","requirements":"~> 4.0"},{"name":"rails-observers","requirements":"~>
+        0.1.1"}]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:04 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/addressable.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 22 May 2014 20:47:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"f9842c59bd246f1244ba295a626924d2"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Fri, 22-May-2015 20:47:04 GMT; secure
+      X-Request-Id:
+      - 7a63b58fde6f7dcc2e2fadcbd25d2374
+      X-Runtime:
+      - '0.029735'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"addressable","downloads":14191114,"version":"2.3.6","version_downloads":655978,"platform":"ruby","authors":"Bob
+        Aman","info":"Addressable is a replacement for the URI implementation that
+        is part of\nRuby''s standard library. It more closely conforms to the relevant
+        RFCs and\nadds support for IRIs and URI templates.\n","licenses":["Apache
+        License 2.0"],"project_uri":"http://rubygems.org/gems/addressable","gem_uri":"http://rubygems.org/gems/addressable-2.3.6.gem","homepage_uri":"http://addressable.rubyforge.org/","wiki_uri":"http://wiki.github.com/sporkmonger/addressable/","documentation_uri":"http://rubydoc.info/gems/addressable","mailing_list_uri":"","source_code_uri":"http://github.com/sporkmonger/addressable","bug_tracker_uri":"http://github.com/sporkmonger/addressable/issues","dependencies":{"development":[{"name":"launchy","requirements":">=
+        0.3.2"},{"name":"rake","requirements":">= 0.7.3"},{"name":"rspec","requirements":">=
+        2.9.0"}],"runtime":[]}}'
+    http_version: 
+  recorded_at: Thu, 22 May 2014 20:47:04 GMT
 recorded_with: VCR 2.9.0

@@ -1,6 +1,7 @@
 class PopularGemsController < ApplicationController
   def index
-    @gems = PopularGem.order(total_downloads: :desc).paginate_gems(params[:page])
+    @top_downloaded_gems = PopularGem.top_downloaded(10)
+    @top_hearted_gems = PopularGem.top_hearted(10)
   end
 
   def show
@@ -13,6 +14,10 @@ class PopularGemsController < ApplicationController
     @popular_gem = PopularGem.find(params[:id])
     GemImporter.update_gem(@popular_gem.name)
     redirect_to @popular_gem
+  end
+
+  def most_downloaded
+    @gems = PopularGem.top_downloaded.pagination(params[:page])
   end
 
   private
