@@ -11,5 +11,7 @@ describe 'commenting' do
     click_on 'Comment'
     expect(page).to have_content('stevepm:')
     expect(page).to have_content('This is bongos, indeed.')
+    click_on 'Delete comment'
+    expect(page).to_not have_content('This is bongos, indeed.')
   end
 end

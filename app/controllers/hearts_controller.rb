@@ -6,7 +6,7 @@ class HeartsController < ApplicationController
     redirect_to :back
   end
 
-  def update
+  def destroy
     user = User.find(params[:user_id])
     gem = PopularGem.find(params[:popular_gem_id])
     user.hearts.where(popular_gem: gem).destroy_all

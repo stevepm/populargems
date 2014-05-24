@@ -40,6 +40,7 @@
               <% if current_user %>
                 <li>
                   <%= link_to current_user.name, current_user, class: 'label label-success', id: 'user_profile' %>
+                  <%= current_user.points %>
                 </li>
                 <li>
                   <%= link_to 'Sign out', :signout %>

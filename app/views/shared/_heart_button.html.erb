@@ -3,7 +3,7 @@
     <% method = :post %>
     <% button = 'btn-default' %>
   <% else %>
-    <% method = :patch %>
+    <% method = :delete %>
     <% button = 'btn-warning' %>
   <% end %>
   <%= button_to heart_path, :method => method, :class => "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
