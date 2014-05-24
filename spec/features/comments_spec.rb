@@ -2,9 +2,7 @@ require 'spec_helper'
 
 describe 'commenting' do
   before do
-    VCR.use_cassette('features/comments/create_commment') do
-      mock_gem
-    end
+    mock_gem
   end
   it 'a user can leave a comment if logged in' do
     log_in

@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Wed, 21 May 2014 03:02:12 GMT
+      - Sat, 24 May 2014 03:01:32 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -36,22 +36,22 @@ http_interactions:
       - IE=Edge,chrome=1
       - IE=Edge,chrome=1
       Etag:
-      - '"15171f95f1139d861d666d2516b0402c"'
+      - '"0b762887d50a691c8215486f0956dadc"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - remember_token=; path=/; expires=Thu, 21-May-2015 03:02:12 GMT; secure
+      - remember_token=; path=/; expires=Sun, 24-May-2015 03:01:32 GMT; secure
       X-Request-Id:
-      - 559f2c556c35f178e4a6b50ada3a1f52
+      - de2e59b91f3075f1920b7b4cdf2eaf0b
       X-Runtime:
-      - '0.029165'
+      - '0.027672'
       X-Rack-Cache:
       - miss
     body:
       encoding: UTF-8
-      string: '{"name":"faraday","downloads":8708442,"version":"0.9.0","version_downloads":678949,"platform":"ruby","authors":"Rick
+      string: '{"name":"faraday","downloads":8765225,"version":"0.9.0","version_downloads":709933,"platform":"ruby","authors":"Rick
         Olson","info":"HTTP/REST API client library.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/faraday","gem_uri":"http://rubygems.org/gems/faraday-0.9.0.gem","homepage_uri":"https://github.com/lostisland/faraday","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"bundler","requirements":"~>
         1.0"}],"runtime":[{"name":"multipart-post","requirements":"< 3, >= 1.2"}]}}'
     http_version: 
-  recorded_at: Wed, 21 May 2014 03:02:12 GMT
+  recorded_at: Sat, 24 May 2014 03:01:32 GMT
 recorded_with: VCR 2.9.0

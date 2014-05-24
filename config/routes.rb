@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :popular_gems
   root to: 'popular_gems#index'
+  get '/downloads/', to: 'popular_gems#most_downloaded', as: :most_downloaded
   resources :comments
   resource :search
   resources :user
