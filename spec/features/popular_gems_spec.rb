@@ -31,6 +31,19 @@ feature 'Popular gems' do
     within '#most_downloaded' do
       click_on 'View more'
     end
-    expect(page).to have_link('Next ›')
+    within '#most_downloaded' do
+      expect(page).to have_content('Most downloaded gems')
+    end
+  end
+
+  scenario 'a user can view all popular gems based on hearts' do
+    visit '/'
+    within '#most_hearted' do
+      click_on 'View more'
+    end
+    within '#most_hearted' do
+      expect(page).to have_content('Most hearted gems')
+    end
+
   end
 end
