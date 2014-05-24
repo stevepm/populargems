@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_merit
+
   has_many :comments
   has_many :hearts
 
