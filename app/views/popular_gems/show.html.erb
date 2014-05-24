@@ -46,7 +46,9 @@
         <% @comments.each do |comment| %>
           <blockquote>
             <p><strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.body.html_safe %></p><br/>
-            <small><%= link_to 'Delete comment', comment, method: :delete %></small>
+            <% if current_user.comments.include?(comment) %>
+              <small><%= link_to 'Delete comment', comment, method: :delete %></small>
+            <% end %>
           </blockquote>
         <% end %>
         <% if logged_in? %>
