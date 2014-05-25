@@ -13,7 +13,6 @@ RSpec.configure do |config|
   config.include(CreateGemHelper)
   config.include(LogInHelper)
   config.include(CreateUserHelper)
-  config.include(CreateHeartHelper)
   config.include(CreateCommentHelper)
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true

@@ -5,7 +5,9 @@ feature 'User Profile' do
     mock_gem
     mock_gem('rails')
     log_in
-    click_on 'faraday'
+    within '#most_downloaded' do
+      click_link 'faraday'
+    end
     fill_in 'comment_body', with: "This is *bongos*, indeed."
     click_on 'Comment'
     click_on 'user_profile'
@@ -15,7 +17,9 @@ feature 'User Profile' do
     click_on 'heart_faraday'
     click_on 'heart_faraday'
     visit '/'
-    click_on 'heart_faraday'
+    within '#most_hearted' do
+      click_on 'heart_faraday'
+    end
     click_on 'user_profile'
     within '#loved_gems' do
       expect(page).to have_content('Loved Gems')
