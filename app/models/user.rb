@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   has_many :comments
-  has_many :hearts
 
   def self.create_with_omniauth(auth)
     create! do |user|

@@ -1,15 +1,15 @@
 require 'spec_helper'
 
-describe Heart do
+describe 'liking gems' do
   it 'can display the number of hearts for a gem' do
     faraday = mock_gem
     user = mock_user
-    expect(user.hearts.length).to eq(0)
-    expect(faraday.hearts.length).to eq(0)
-    heart(user, faraday)
+    expect(user.votes.for_type(PopularGem).size).to eq(0)
+    expect(faraday.votes_for.by_type(User).size).to eq(0)
+    user.likes faraday
     user.reload
     faraday.reload
-    expect(user.hearts.length).to eq(1)
-    expect(faraday.hearts.length).to eq(1)
+    expect(user.votes.for_type(PopularGem).size).to eq(1)
+    expect(faraday.votes_for.by_type(User).size).to eq(1)
   end
 end

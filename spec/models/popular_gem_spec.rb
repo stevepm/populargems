@@ -12,12 +12,12 @@ describe PopularGem do
   end
 
   it 'can return the top hearted gems in an array' do
-    heart(stevepm, faraday)
-    heart(stevepm, rails)
-    heart(stevepm, test)
-    heart(john, test)
-    heart(john, rails)
-    heart(adam, test)
-    expect(PopularGem.top_hearted(2)).to eq([test, rails])
+    stevepm.likes faraday
+    stevepm.likes rails
+    stevepm.likes test
+    john.likes test
+    john.likes rails
+    adam.likes test
+    expect(PopularGem.order('cached_votes_score').reverse[0..1]).to eq([test, rails])
   end
 end

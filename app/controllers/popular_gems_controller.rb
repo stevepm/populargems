@@ -1,7 +1,7 @@
 class PopularGemsController < ApplicationController
   def index
     @top_downloaded_gems = PopularGem.top_downloaded(10)
-    @top_hearted_gems = PopularGem.top_hearted(10)
+    @top_hearted_gems = PopularGem.order('cached_votes_score').reverse[0..9]
   end
 
   def show
@@ -21,7 +21,21 @@ class PopularGemsController < ApplicationController
     end
 
   def most_hearted
-    @gems = Kaminari.paginate_array(PopularGem.top_hearted).page(params[:page]).per(10)
+    @gems = Kaminari.paginate_array(PopularGem.order('cached_votes_score').reverse).page(params[:page]).per(10)
+  end
+
+  def like
+    user = User.find(params[:user_id])
+    gem = PopularGem.find(params[:id])
+    user.likes gem
+    redirect_to :back
+  end
+
+  def unlike
+    user = User.find(params[:user_id])
+    gem = PopularGem.find(params[:id])
+    user.dislikes gem
+    redirect_to :back
   end
 
   private

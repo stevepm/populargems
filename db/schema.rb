@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525013742) do
+ActiveRecord::Schema.define(version: 20140525101959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,7 +100,18 @@ ActiveRecord::Schema.define(version: 20140525013742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "project_url"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
+
+  add_index "popular_gems", ["cached_votes_down"], name: "index_popular_gems_on_cached_votes_down", using: :btree
+  add_index "popular_gems", ["cached_votes_score"], name: "index_popular_gems_on_cached_votes_score", using: :btree
+  add_index "popular_gems", ["cached_votes_total"], name: "index_popular_gems_on_cached_votes_total", using: :btree
+  add_index "popular_gems", ["cached_votes_up"], name: "index_popular_gems_on_cached_votes_up", using: :btree
+  add_index "popular_gems", ["cached_weighted_score"], name: "index_popular_gems_on_cached_weighted_score", using: :btree
 
   create_table "sashes", force: true do |t|
     t.datetime "created_at"

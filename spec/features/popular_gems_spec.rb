@@ -22,7 +22,9 @@ feature 'Popular gems' do
 
   scenario 'a user can click on a gem' do
     visit '/'
-    click_on 'thor'
+    within '#most_downloaded' do
+      click_link 'thor'
+    end
     expect(page).to have_content('Version Downloads')
   end
 
