@@ -6,7 +6,7 @@ class PopularGemsController < ApplicationController
 
   def show
     @popular_gem = PopularGem.find(params[:id])
-    @comments = @popular_gem.comments.order('cached_votes_score').reverse
+    @comments = @popular_gem.comments.order('cached_votes_score')
     @comment = Comment.new
   end
 
