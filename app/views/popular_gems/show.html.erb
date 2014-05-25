@@ -63,7 +63,7 @@
             </ul>
           </div>
           <div class="col-xs-11">
-            <strong><%= link_to comment.user.name, comment.user %>:</strong>
+            <strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.user.points %>
             <% if current_user.comments.include?(comment) %>
               <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
             <% end %>
