@@ -21,8 +21,8 @@ module Merit
       #
       score 3, :on => 'comments#create'
       score -3, :on => 'comments#destroy'
-      score 1, :on => 'hearts#create'
-      score -1, :on => 'hearts#destroy'
+      score 1, :on => 'popular_gems#like'
+      score -1, :on => 'popular_gems#unlike'
     end
   end
 end
