@@ -7,13 +7,7 @@ class GemImporter
           false
         else
           puts "Gather data for #{name}....."
-          body = JSON.parse(response.body)
-          new_gem.update(total_downloads: body["downloads"],
-                 version: body["version"],
-                 version_downloads: body["version_downloads"],
-                 url: body["project_uri"],
-                 project_url: body["homepage_uri"],
-                 description: body["info"])
+          update_info(JSON.parse(response.body), new_gem)
           new_gem
         end
       end
@@ -24,14 +18,19 @@ class GemImporter
       if response.status >= 300
         false
       else
-        body = JSON.parse(response.body)
-        PopularGem.find_by_name(name).update(total_downloads: body["downloads"],
-                                                   version: body["version"],
-                                                   version_downloads: body["version_downloads"],
-                                                   url: body["project_uri"],
-                                                   project_url: body["homepage_uri"],
-                                                   description: body["info"])
+        update_info(JSON.parse(response.body), PopularGem.find_by_name(name))
       end
+    end
+
+    private
+
+    def update_info(body, gem)
+      gem.update(total_downloads: body["downloads"],
+                 version: body["version"],
+                 version_downloads: body["version_downloads"],
+                 url: body["project_uri"],
+                 project_url: body["homepage_uri"],
+                 description: body["info"])
     end
   end
 end
