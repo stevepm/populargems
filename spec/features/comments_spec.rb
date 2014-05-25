@@ -29,13 +29,7 @@ describe 'commenting' do
     click_link 'faraday'
     expect(page).to have_content('stevepm:')
     expect(page).to have_content('This is bongos, indeed.')
-    click_on 'vote-up'
-    within '#votes' do
-      expect(page).to have_content ('1')
-    end
-    click_link 'vote-down'
-    within '#votes' do
-      expect(page).to have_content ('-1')
-    end
+    expect(page).to have_link 'vote-up'
+    expect(page).to have_link 'vote-down'
   end
 end
