@@ -1,20 +1,19 @@
 class GemImporter
   class << self
     def seed_db(name)
-      new_gem = PopularGem.new(name: name)
-      if new_gem.valid?
+      if (new_gem = PopularGem.new(name: name)).valid?
         response = Faraday.get "https://rubygems.org/api/v1/gems/#{name}.json"
         if !response.status.to_s.start_with?('2')
           false
         else
           puts "Gather data for #{name}....."
           body = JSON.parse(response.body)
-          new_gem.update(total_downloads: body["downloads"])
-          new_gem.update(version: body["version"])
-          new_gem.update(version_downloads: body["version_downloads"])
-          new_gem.update(url: body["project_uri"])
-          new_gem.update(project_url: body["homepage_uri"])
-          new_gem.update(description: body["info"])
+          new_gem.update(total_downloads: body["downloads"],
+                 version: body["version"],
+                 version_downloads: body["version_downloads"],
+                 url: body["project_uri"],
+                 project_url: body["homepage_uri"],
+                 description: body["info"])
           new_gem
         end
       end
