@@ -45,26 +45,24 @@
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
           <div class="col-xs-1">
-            <ul class="list-unstyled">
-              <% if logged_in? && !current_user.comments.include?(comment) %>
+            <% if logged_in? && !current_user.comments.include?(comment) %>
+              <ul class="list-unstyled">
                 <li>
-                  <small><%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
+                  <small>
+                    <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
                       <span class='glyphicon glyphicon-chevron-up'></span>
                     <% end %>
                   </small>
                 </li>
-              <% end %>
-              <li id="votes">
-                <small class="text-center"><%= comment.cached_votes_score %></small>
-              </li>
-              <% if logged_in? && !current_user.comments.include?(comment) %>
                 <li>
-                  <small><%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
+                  <small>
+                    <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
                       <span class='glyphicon glyphicon-chevron-down'></span>
-                    <% end %></small>
+                    <% end %>
+                  </small>
                 </li>
-              <% end %>
-            </ul>
+              </ul>
+            <% end %>
           </div>
           <div class="col-xs-11">
             <strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.user.points %>
