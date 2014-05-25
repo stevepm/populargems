@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/downloads/', to: 'popular_gems#most_downloaded', as: :most_downloaded
   get '/hearts/', to: 'popular_gems#most_hearted', as: :most_hearted
   resources :comments
+  post '/comments/:id/up_vote/:user_id', to: 'comments#up_vote', as: :up_vote_comment
+  post '/comments/:id/down_vote/:user_id', to: 'comments#down_vote', as: :down_vote_comment
   resource :search
   resources :user
   resource :heart
