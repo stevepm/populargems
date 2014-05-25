@@ -46,18 +46,23 @@
         <% @comments.each do |comment| %>
           <div class="col-xs-1">
             <% if logged_in? && !current_user.comments.include?(comment) %>
+              <% if current_user.liked? comment
+                   liked = 'text-primary bg-warning'
+                 elsif current_user.disliked? comment
+                   unliked = 'text-primary bg-warning'
+                 end %>
               <ul class="list-unstyled">
                 <li>
                   <small>
                     <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
-                      <span class='glyphicon glyphicon-chevron-up'></span>
+                      <span class='glyphicon glyphicon-chevron-up <%= liked %> h5'></span>
                     <% end %>
                   </small>
                 </li>
                 <li>
                   <small>
                     <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
-                      <span class='glyphicon glyphicon-chevron-down'></span>
+                      <span class='glyphicon glyphicon-chevron-down <%= unliked %> h5'></span>
                     <% end %>
                   </small>
                 </li>
