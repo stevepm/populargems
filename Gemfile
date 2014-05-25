@@ -15,6 +15,7 @@ gem 'kaminari', '~> 0.15.1'
 gem 'omniauth-github', '~> 1.1.2'
 gem 'redcarpet', '~> 3.1.2'
 gem 'yard', '~> 0.8.7.4'
+gem 'pygments.rb', '~> 0.5.4'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'

@@ -19,10 +19,10 @@ module Merit
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
       #
-      score 20, :on => 'comments#create'
-      score -10, :on => 'comments#destroy'
-      score 10, :on => 'hearts#create'
-      score -10, :on => 'hearts#destroy'
+      score 3, :on => 'comments#create'
+      score -3, :on => 'comments#destroy'
+      score 1, :on => 'hearts#create'
+      score -1, :on => 'hearts#destroy'
     end
   end
 end
