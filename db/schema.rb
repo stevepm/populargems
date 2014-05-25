@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140524233845) do
+ActiveRecord::Schema.define(version: 20140525013742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,18 @@ ActiveRecord::Schema.define(version: 20140524233845) do
     t.integer  "popular_gem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cached_votes_total",    default: 0
+    t.integer  "cached_votes_score",    default: 0
+    t.integer  "cached_votes_up",       default: 0
+    t.integer  "cached_votes_down",     default: 0
+    t.integer  "cached_weighted_score", default: 0
   end
 
+  add_index "comments", ["cached_votes_down"], name: "index_comments_on_cached_votes_down", using: :btree
+  add_index "comments", ["cached_votes_score"], name: "index_comments_on_cached_votes_score", using: :btree
+  add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total", using: :btree
+  add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up", using: :btree
+  add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score", using: :btree
   add_index "comments", ["popular_gem_id"], name: "index_comments_on_popular_gem_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
