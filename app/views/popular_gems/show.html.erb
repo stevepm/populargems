@@ -53,7 +53,7 @@
                 </small>
               </li>
               <li id="votes">
-                <small>&nbsp;<%= comment.get_likes.size - comment.get_dislikes.size %></small>
+                <small class="text-center"><%= comment.cached_votes_score %></small>
               </li>
               <li>
                 <small><%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>

@@ -12,16 +12,22 @@ class CommentsController < ApplicationController
   def up_vote
     comment = Comment.find(params[:id])
     user = User.find(params[:user_id])
-    comment.undisliked_by user
-    user.likes comment
+    if user.voted_for? comment
+      comment.undisliked_by user
+    else
+      user.likes comment
+    end
     redirect_to :back
   end
 
   def down_vote
     comment = Comment.find(params[:id])
     user = User.find(params[:user_id])
-    comment.unliked_by user
-    user.dislikes comment
+    if user.voted_for? comment
+      comment.unliked_by user
+    else
+      user.dislikes comment
+    end
     redirect_to :back
   end
 
