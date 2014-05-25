@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :popular_gem
+  acts_as_votable
 
   def self.create_from_gem_page(params)
     create! do |comment|

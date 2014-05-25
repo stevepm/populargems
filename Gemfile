@@ -29,3 +29,4 @@ end
 
 gem 'rails_12factor', group: :production
 gem 'merit'
+gem 'acts_as_votable', '~> 0.9.0'

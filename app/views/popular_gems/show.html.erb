@@ -44,12 +44,33 @@
       <div class="">
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
-          <blockquote>
-            <p><strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.body.html_safe %></p><br/>
+          <div class="col-xs-1">
+            <ul class="list-unstyled">
+              <li>
+                <small><%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
+                    <span class='glyphicon glyphicon-chevron-up'></span>
+                  <% end %>
+                </small>
+              </li>
+              <li id="votes">
+                <small>&nbsp;<%= comment.get_likes.size - comment.get_dislikes.size %></small>
+              </li>
+              <li>
+                <small><%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
+                    <span class='glyphicon glyphicon-chevron-down'></span>
+                  <% end %></small>
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs-11">
+            <strong><%= link_to comment.user.name, comment.user %>:</strong>
             <% if current_user.comments.include?(comment) %>
-              <small><%= link_to 'Delete comment', comment, method: :delete %></small>
+              <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
             <% end %>
-          </blockquote>
+            <blockquote>
+              <%= comment.body.html_safe %>
+            </blockquote>
+          </div>
         <% end %>
         <% if logged_in? %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_merit
+  acts_as_voter
 
   has_many :comments
   has_many :hearts
