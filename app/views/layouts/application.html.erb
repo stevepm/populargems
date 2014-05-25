@@ -9,7 +9,7 @@
 <body>
 <div class="container">
   <div class="row clearfix">
-    <div class="col-md-12 column">
+    <div class="col-lg-12 column">
       <nav class="navbar navbar-default navbar" role="navigation">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -36,7 +36,7 @@
             </li>
           </ul>
           <div class="nav navbar-nav navbar-right">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb text-center">
               <% if current_user %>
                 <li>
                   <%= link_to current_user.name, current_user, class: 'label label-success', id: 'user_profile' %>

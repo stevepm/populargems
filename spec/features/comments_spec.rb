@@ -23,7 +23,7 @@ describe 'commenting' do
     end
     click_link 'vote-down'
     within '#votes' do
-      expect(page).to have_content ('-1')
+      expect(page).to have_content ('0')
     end
     click_on 'Delete comment'
     within '#points' do
