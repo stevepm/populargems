@@ -13,7 +13,7 @@ describe 'commenting' do
     fill_in 'comment_body', with: "This is *bongos*, indeed."
     click_on 'Comment'
     within '#points' do
-      expect(page).to have_content('20')
+      expect(page).to have_content('3')
     end
     expect(page).to have_content('stevepm:')
     expect(page).to have_content('This is bongos, indeed.')
@@ -27,13 +27,13 @@ describe 'commenting' do
     end
     click_on 'Delete comment'
     within '#points' do
-      expect(page).to have_content('10')
+      expect(page).to have_content('0')
     end
     expect(page).to_not have_content('This is bongos, indeed.')
     click_on 'Sign out'
     log_in
     within '#points' do
-      expect(page).to have_content('10')
+      expect(page).to have_content('0')
     end
     click_on 'Sign out'
     log_in('test')
