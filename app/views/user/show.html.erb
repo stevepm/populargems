@@ -29,7 +29,10 @@
         <% @loved_gems.each do |gem| %>
           <tr class="info">
             <td><strong>
-              <%= link_to gem.name, gem %>
+              <%= link_to gem.name, gem %> |
+              <%= link_to gem_likes_path(gem) do %>
+                <span class="label label-success"><%= gem.get_likes.size %></span>
+              <% end %>
             </strong></td>
             <td>
               <%= render partial: 'shared/heart_button', locals: {gem: gem} %>

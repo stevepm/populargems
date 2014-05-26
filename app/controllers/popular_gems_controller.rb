@@ -38,6 +38,11 @@ class PopularGemsController < ApplicationController
     redirect_to :back
   end
 
+  def likes
+    @gem = PopularGem.find(params[:id])
+    @users = @gem.votes_for.up.by_type(User).voters
+  end
+
   private
   def gem_params
     params.require(:popular_gem).permit(:name)
