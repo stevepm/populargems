@@ -19,10 +19,10 @@ module Merit
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
       #
-      score 3, :on => 'comments#create'
-      score -3, :on => 'comments#destroy'
-      score 1, :on => 'popular_gems#like'
-      score -1, :on => 'popular_gems#unlike'
+      score 3, on: 'comments#create', to: :action_user
+      score -3, on: 'comments#destroy', to: :action_user
+      score 1, on: 'popular_gems#like', to: :action_user
+      score -1, on: 'popular_gems#unlike', to: :action_user
     end
   end
 end

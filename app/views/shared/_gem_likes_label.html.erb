@@ -1,0 +1,5 @@
+<% if gem.get_likes.size > 0 %>
+  <%= link_to gem_likes_path(gem) do %>
+    <span class="label label-success"><%= gem.get_likes.size %></span>
+  <% end %>
+<% end %>
