@@ -2,26 +2,38 @@ class PopularGemsController < ApplicationController
   def index
     @top_downloaded_gems = PopularGem.top_downloaded(10)
     @top_hearted_gems = PopularGem.order('cached_votes_score').reverse[0..9]
+    set_meta_tags :title => 'Home',
+                  :description => 'View the most downloaded and most loved Ruby Gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
   def show
-    @popular_gem = PopularGem.find(params[:id])
-    @comments = @popular_gem.comments.order('cached_votes_score').reverse
+    @gem = PopularGem.find(params[:id])
+    @comments = @gem.comments.order('cached_votes_score').reverse
     @comment = Comment.new
+    set_meta_tags :title => "#{@gem.name}",
+                  :description => "#{@gem.description}",
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}"
   end
 
   def edit
-    @popular_gem = PopularGem.find(params[:id])
-    GemImporter.update_gem(@popular_gem.name)
-    redirect_to @popular_gem
+    gem = PopularGem.find(params[:id])
+    GemImporter.update_gem(gem.name)
+    redirect_to gem
   end
 
   def most_downloaded
     @gems = PopularGem.top_downloaded.pagination(params[:page])
-    end
+    set_meta_tags :title => 'Most downloaded',
+                  :description => 'View the most downloaded Ruby Gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails'
+  end
 
   def most_hearted
     @gems = Kaminari.paginate_array(PopularGem.order('cached_votes_score').reverse).page(params[:page]).per(10)
+    set_meta_tags :title => 'Most loved',
+                  :description => 'View the most loved Ruby Gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
   def like
@@ -41,6 +53,9 @@ class PopularGemsController < ApplicationController
   def likes
     @gem = PopularGem.find(params[:id])
     @users = @gem.votes_for.up.by_type(User).voters
+    set_meta_tags :title => "#{@gem.name} likes",
+                  :description => "Users that like #{@gem.name}",
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}"
   end
 
   private
