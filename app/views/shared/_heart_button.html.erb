@@ -6,9 +6,14 @@
     <% path = unlike_gem_path(gem.id, current_user.id) %>
     <% button = 'btn-warning' %>
   <% end %>
-  <%= button_to path, :method => :post, :class => "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
+  <%= link_to path, method: :post, class: "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
     <span class="glyphicon glyphicon-star"></span>
     <input type="hidden" value="<%= gem.id %>" name="popular_gem_id">
     <input type="hidden" value="<%= current_user.id %>" name="user_id">
+  <% end %>
+<% end %>
+<% if gem.get_likes.size > 0 %>
+  <%= link_to gem_likes_path(gem) do %>
+    <span class="label label-success"><%= gem.get_likes.size %></span>
   <% end %>
 <% end %>

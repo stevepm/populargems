@@ -6,11 +6,6 @@
           <div class="col-xs-12">
             <div class="col-xs-5">
               <%= render partial: 'shared/heart_button', locals: {gem: @popular_gem} %>
-              <% if @popular_gem.get_likes.size > 0 %>
-                <%= link_to gem_likes_path(@popular_gem) do %>
-                  <span class="label label-success"><%= @popular_gem.get_likes.size %></span>
-                <% end %>
-              <% end %>
               <h2><%= @popular_gem.name %></h2>
             </div>
             <div class="col-xs-7 text-center">
