@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <table class="table table-striped table-hover well">
+        <thead>
+        <tr>
+          <th>Other users that like <%= @gem.name %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr class="success">
+            <td><strong><%= link_to user.name, user %></strong></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

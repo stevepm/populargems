@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'popular_gems#index'
   get '/downloads/', to: 'popular_gems#most_downloaded', as: :most_downloaded
   get '/hearts/', to: 'popular_gems#most_hearted', as: :most_hearted
+  get '/popular_gems/:id/likes', to: 'popular_gems#likes', as: :gem_likes
 
   resources :comments
   post '/comments/:id/up_vote/:user_id', to: 'comments#up_vote', as: :up_vote_comment
