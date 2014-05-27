@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525101959) do
+ActiveRecord::Schema.define(version: 20140527103055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,19 @@ ActiveRecord::Schema.define(version: 20140525101959) do
   add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score", using: :btree
   add_index "comments", ["popular_gem_id"], name: "index_comments_on_popular_gem_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "hearts", force: true do |t|
     t.integer  "user_id"
@@ -105,6 +118,7 @@ ActiveRecord::Schema.define(version: 20140525101959) do
     t.integer  "cached_votes_up",       default: 0
     t.integer  "cached_votes_down",     default: 0
     t.integer  "cached_weighted_score", default: 0
+    t.string   "slug"
   end
 
   add_index "popular_gems", ["cached_votes_down"], name: "index_popular_gems_on_cached_votes_down", using: :btree
@@ -112,6 +126,7 @@ ActiveRecord::Schema.define(version: 20140525101959) do
   add_index "popular_gems", ["cached_votes_total"], name: "index_popular_gems_on_cached_votes_total", using: :btree
   add_index "popular_gems", ["cached_votes_up"], name: "index_popular_gems_on_cached_votes_up", using: :btree
   add_index "popular_gems", ["cached_weighted_score"], name: "index_popular_gems_on_cached_weighted_score", using: :btree
+  add_index "popular_gems", ["slug"], name: "index_popular_gems_on_slug", unique: true, using: :btree
 
   create_table "sashes", force: true do |t|
     t.datetime "created_at"
@@ -126,7 +141,10 @@ ActiveRecord::Schema.define(version: 20140525101959) do
     t.datetime "updated_at"
     t.integer  "sash_id"
     t.integer  "level",      default: 0
+    t.string   "slug"
   end
+
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
 
   create_table "votes", force: true do |t|
     t.integer  "votable_id"

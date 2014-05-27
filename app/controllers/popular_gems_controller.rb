@@ -8,7 +8,7 @@ class PopularGemsController < ApplicationController
   end
 
   def show
-    @gem = PopularGem.find(params[:id])
+    @gem = PopularGem.friendly.find(params[:id])
     @comments = @gem.comments.order('cached_votes_score').reverse
     @comment = Comment.new
     set_meta_tags :title => "#{@gem.name}",
@@ -17,7 +17,7 @@ class PopularGemsController < ApplicationController
   end
 
   def edit
-    gem = PopularGem.find(params[:id])
+    gem = PopularGem.friendly.find(params[:id])
     GemImporter.update_gem(gem.name)
     redirect_to gem
   end
@@ -38,20 +38,20 @@ class PopularGemsController < ApplicationController
 
   def like
     user = User.find(params[:user_id])
-    gem = PopularGem.find(params[:id])
+    gem = PopularGem.friendly.find(params[:id])
     user.likes gem
     redirect_to :back
   end
 
   def unlike
     user = User.find(params[:user_id])
-    gem = PopularGem.find(params[:id])
+    gem = PopularGem.friendly.find(params[:id])
     user.dislikes gem
     redirect_to :back
   end
 
   def likes
-    @gem = PopularGem.find(params[:id])
+    @gem = PopularGem.friendly.find(params[:id])
     @users = @gem.votes_for.up.by_type(User).voters
     set_meta_tags :title => "#{@gem.name} likes",
                   :description => "Users that like #{@gem.name}",
