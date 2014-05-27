@@ -12,7 +12,7 @@
           <% @comments.each do |comment| %>
             <tr class="success">
               <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
-              <td><%= comment.body.html_safe %></td>
+              <td class="break-word"><%= comment.body.html_safe %></td>
             </tr>
           <% end %>
         <% else %>
