@@ -44,7 +44,7 @@ feature 'Calculating users score' do
     fill_in 'comment_body', with: 'this is a comment'
     click_on 'Comment'
     click_on 'Sign out'
-    log_in('new')
+    log_in('nekawkdkjw')
     within '#most_downloaded' do
       click_on 'faraday'
     end
@@ -55,7 +55,7 @@ feature 'Calculating users score' do
       expect(page).to have_content('13')
     end
     click_on 'Sign out'
-    log_in('new')
+    log_in('newjkwje')
     within '#most_downloaded' do
       click_on 'faraday'
     end
