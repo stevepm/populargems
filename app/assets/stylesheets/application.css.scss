@@ -14,6 +14,10 @@
  *= require_self
  *= require bootstrap.min
  */
+
+.break-word{
+  word-break: break-word;
+}
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: font-url('glyphicons-halflings-regular.eot');
@@ -48,7 +52,4 @@ body
 .emphasis h2
 {
   margin-bottom:0;
-}
-.break-word{
-  word-break: break-word;
 }
