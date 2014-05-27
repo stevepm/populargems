@@ -7,7 +7,7 @@
     <% button = 'btn-warning' %>
   <% end %>
   <%= link_to path, method: :post, class: "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
-    <span class="glyphicon glyphicon-star"></span>
+    <span class="glyphicon glyphicon-heart"></span>
     <input type="hidden" value="<%= gem.id %>" name="popular_gem_id">
     <input type="hidden" value="<%= current_user.id %>" name="user_id">
   <% end %>
