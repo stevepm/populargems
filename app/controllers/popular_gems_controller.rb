@@ -3,7 +3,7 @@ class PopularGemsController < ApplicationController
     @top_downloaded_gems = PopularGem.top_downloaded(10)
     @top_hearted_gems = PopularGem.order('cached_votes_score').reverse[0..9]
     set_meta_tags :title => 'Home',
-                  :description => 'View the most downloaded and most loved Ruby Gems',
+                  :description => 'Discover the most downloaded and most loved Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
@@ -25,14 +25,14 @@ class PopularGemsController < ApplicationController
   def most_downloaded
     @gems = PopularGem.top_downloaded.pagination(params[:page])
     set_meta_tags :title => 'Most downloaded',
-                  :description => 'View the most downloaded Ruby Gems',
+                  :description => 'Discover the most downloaded Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
   def most_hearted
     @gems = Kaminari.paginate_array(PopularGem.order('cached_votes_score').reverse).page(params[:page]).per(10)
     set_meta_tags :title => 'Most loved',
-                  :description => 'View the most loved Ruby Gems',
+                  :description => 'Discover the most loved Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
