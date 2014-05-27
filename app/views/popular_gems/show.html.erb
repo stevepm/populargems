@@ -75,7 +75,7 @@
             <% if logged_in? && current_user.comments.include?(comment) %>
               <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
             <% end %>
-            <blockquote>
+            <blockquote class="break-word">
               <%= comment.body.html_safe %>
             </blockquote>
           </div>
