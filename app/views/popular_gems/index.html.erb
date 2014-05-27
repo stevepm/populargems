@@ -8,7 +8,7 @@
       <div class="panel panel-default" id="most_downloaded">
         <div class="panel-heading">
           <h3 class="panel-title"><strong>Most downloaded gems</strong>
-            <small><%= link_to('View more', most_downloaded_path) %></small>
+            <small><%= link_to('View more', most_downloaded_path(page: 2)) %></small>
           </h3>
         </div>
         <div class="panel-body">
@@ -58,7 +58,7 @@
       <div class="panel panel-default" id="most_hearted">
         <div class="panel-heading">
           <h3 class="panel-title"><strong>Most loved gems</strong>
-            <small><%= link_to('View more', most_hearted_path) %></small>
+            <small><%= link_to('View more', most_hearted_path(page: 2)) %></small>
           </h3>
         </div>
         <div class="panel-body">
