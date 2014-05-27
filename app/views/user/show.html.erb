@@ -8,10 +8,16 @@
         </tr>
         </thead>
         <tbody>
-        <% @comments.each do |comment| %>
+        <% if @comments.size > 0 %>
+          <% @comments.each do |comment| %>
+            <tr class="success">
+              <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
+              <td><%= comment.body.html_safe %></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr class="success">
-            <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
-            <td><%= comment.body.html_safe %></td>
+            <td><strong>You haven't left any comments yet!</strong></td>
           </tr>
         <% end %>
         </tbody>
@@ -26,15 +32,21 @@
         </tr>
         </thead>
         <tbody>
-        <% @loved_gems.each do |gem| %>
+        <% if @loved_gems.size > 0 %>
+          <% @loved_gems.each do |gem| %>
+            <tr class="info">
+              <td><strong>
+                <%= link_to gem.name, gem %>
+              </strong></td>
+              <td>
+                <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+                <%= render partial: 'shared/gem_likes_label', locals: {gem: gem} %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr class="info">
-            <td><strong>
-              <%= link_to gem.name, gem %>
-            </strong></td>
-            <td>
-              <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
-              <%= render partial: 'shared/gem_likes_label', locals: {gem: gem} %>
-            </td>
+            <td><strong>You haven't loved any gems yet!</strong></td>
           </tr>
         <% end %>
         </tbody>

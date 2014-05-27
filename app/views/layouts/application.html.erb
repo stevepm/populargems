@@ -22,12 +22,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <a href="#">Link</a>
-            </li>
-            <li>
-              <a href="#">Link</a>
-            </li>
-            <li>
               <%= form_tag "/search", method: 'get', class: "navbar-form", role: "search" do %>
                 <div class="form-group">
                   <%= text_field_tag 'gem_name', nil, class: "form-control", placeholder: 'Search for a gem' %>
