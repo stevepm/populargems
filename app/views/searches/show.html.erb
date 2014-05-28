@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default" id="search_results">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Results for <%= params[:gem_name] %></strong></h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <% if logged_in? %>
+                <th>
+                </th>
+              <% end %>
+              <th>
+                Gem name
+              </th>
+              <th>
+                Description
+              </th>
+              <th>
+                Total Downloads
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @results.each do |gem| %>
+              <tr class="info">
+                <% if logged_in? %>
+                  <td>
+                    <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+                  </td>
+                <% end %>
+                <td>
+                  <%= link_to "#{gem.name}", gem %>
+                </td>
+                <td>
+                  <%= gem.description %>
+                </td>
+                <td>
+                  <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
