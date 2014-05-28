@@ -21,7 +21,6 @@ gem 'sitemap_generator'
 gem 'friendly_id', '~> 5.0.3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'better_errors'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
@@ -29,6 +28,7 @@ group :test, :development do
   gem 'vcr', '~> 2.9.0'
   gem 'dotenv-rails'
   gem 'launchy', '~> 2.4.2'
+  gem 'better_errors'
 end
 
 group :test do
