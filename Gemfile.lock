@@ -31,6 +31,9 @@ GEM
     addressable (2.3.6)
     ambry (0.3.1)
     arel (5.0.1.20140414130214)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     builder (3.2.2)
     capybara (2.2.1)
       mime-types (>= 1.16)
@@ -38,6 +41,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -53,6 +57,19 @@ GEM
     dotenv-deployment (0.0.2)
     dotenv-rails (0.11.1)
       dotenv (= 0.11.1)
+    elasticsearch (1.0.2)
+      elasticsearch-api (= 1.0.2)
+      elasticsearch-transport (= 1.0.2)
+    elasticsearch-api (1.0.2)
+      multi_json
+    elasticsearch-model (0.1.2)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.2)
+    elasticsearch-transport (1.0.2)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.9.0)
@@ -201,9 +218,12 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.9.0)
+  better_errors
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
   dotenv-rails
+  elasticsearch-model
+  elasticsearch-rails
   faraday (~> 0.9.0)
   friendly_id (~> 5.0.3)
   jbuilder (~> 2.0)

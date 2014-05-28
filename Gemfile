@@ -19,6 +19,9 @@ gem 'pygments.rb', '~> 0.5.4'
 gem 'meta-tags'
 gem 'sitemap_generator'
 gem 'friendly_id', '~> 5.0.3'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'better_errors'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
