@@ -21,5 +21,8 @@ module PopularGems
         true
       end
     }
+
+    config.rubygems = OpenStruct.new
+    config.rubygems.api_key = ENV['RUBYGEMS_KEY']
   end
 end
