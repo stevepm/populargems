@@ -6,7 +6,7 @@
           <h3 class="panel-title"><strong>Results for <%= params[:gem_name] %></strong></h3>
         </div>
         <div class="panel-body">
-          <table class="table table-hover">
+          <table class="table table-hover table-striped table-bordered">
             <thead>
             <tr>
               <% if logged_in? %>
@@ -26,7 +26,7 @@
             </thead>
             <tbody>
             <% @results.each do |gem| %>
-              <tr class="info">
+              <tr>
                 <% if logged_in? %>
                   <td>
                     <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
