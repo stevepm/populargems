@@ -12,7 +12,7 @@
           </h3>
         </div>
         <div class="panel-body">
-          <table class="table table-hover">
+          <table class="table table-hover table-striped table-bordered">
             <thead>
             <tr>
               <% if logged_in? %>
@@ -32,7 +32,7 @@
             </thead>
             <tbody>
             <% @top_downloaded_gems.each do |gem| %>
-              <tr class="info">
+              <tr>
                 <% if logged_in? %>
                   <td>
                     <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
@@ -62,7 +62,7 @@
           </h3>
         </div>
         <div class="panel-body">
-          <table class="table table-hover">
+          <table class="table table-hover table-striped table-bordered">
             <thead>
             <tr>
               <% if logged_in? %>
@@ -82,7 +82,7 @@
             </thead>
             <tbody>
             <% @top_hearted_gems.each do |gem| %>
-              <tr class="info">
+              <tr>
                 <% if logged_in? %>
                   <td>
                     <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
