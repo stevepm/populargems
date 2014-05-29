@@ -10,4 +10,8 @@ class Comment < ActiveRecord::Base
       comment.popular_gem = PopularGem.find(params[:popular_gem])
     end
   end
+
+  def self.recent_comments
+    all.sort_by(&:created_at).map(&:popular_gem).uniq[0..9]
+  end
 end
