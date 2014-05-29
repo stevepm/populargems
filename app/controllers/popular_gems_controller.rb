@@ -3,7 +3,7 @@ class PopularGemsController < ApplicationController
     @top_downloaded_gems = PopularGem.top_downloaded(10)
     @top_hearted_gems = PopularGem.order('cached_votes_score').reverse[0..9]
     @recent_comments = Comment.recent_comments
-    set_meta_tags :title => 'Home',
+    set_meta_tags :title => 'Ruby Gem discovery engine',
                   :description => 'Discover the most downloaded and most loved Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
   end
