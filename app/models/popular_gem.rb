@@ -7,6 +7,14 @@ class PopularGem < ActiveRecord::Base
   acts_as_votable
   validates :name, uniqueness: true
 
+  settings index: { number_of_shards: 1 } do
+    mappings dynamic: 'false' do
+      indexes :name, analyzer: 'english', index_options: 'offsets'
+      indexes :description, analyzer: 'english', index_options: 'offsets'
+      indexes :total_downloads
+    end
+  end
+
   def self.search(query)
     __elasticsearch__.search(
       {
