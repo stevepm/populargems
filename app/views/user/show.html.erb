@@ -10,7 +10,7 @@
         <tbody>
         <% if @comments.size > 0 %>
           <% @comments.each do |comment| %>
-            <tr class="success">
+            <tr class="info">
               <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
               <td class="break-word"><%= comment.body.html_safe %></td>
             </tr>
