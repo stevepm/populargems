@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row clearfix">
     <div class="col-lg-12 column">
-      <nav class="navbar navbar-default navbar" role="navigation">
+      <nav class="navbar navbar-default navbar" role="navigation" id="header">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
@@ -35,7 +35,7 @@
               <% if current_user %>
                 <li>
                   <%= link_to current_user.name, current_user, class: 'label label-success', id: 'user_profile' %>
-                  <span class="badge alert-warning" id="points"><%= current_user.points%></span>
+                  <span class="badge alert-warning" id="points"><%= current_user.points %></span>
                 </li>
                 <li>
                   <%= link_to 'Sign out', :signout %>
@@ -50,13 +50,19 @@
         </div>
       </nav>
     </div>
-    <div class="row clearfix">
+    <div class="row clearfix" id="wrapper">
       <div class="col-md-12 column">
         <div class="col-md-10 col-md-offset-1">
           <span class="alert-danger"><%= flash.now[:notice] %></span>
         </div>
         <%= yield %>
       </div>
+    </div>
+  </div>
+  <div class="col-lg-12 column">
+    <div class="text-center">
+      <p class="muted">Made with <span class="glyphicon glyphicon-heart"></span> by
+        <a href="https://twitter.com/stevepmag">stevepmag</a></p>
     </div>
   </div>
 </div>

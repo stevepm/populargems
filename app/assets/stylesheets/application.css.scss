@@ -15,6 +15,11 @@
  *= require bootstrap.min
  */
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .break-word{
   word-break: break-word;
 }
@@ -52,4 +57,16 @@ body
 .emphasis h2
 {
   margin-bottom:0;
+}
+
+#header{
+  margin-bottom: 60px;
+}
+
+.line-number{
+  width: 20px;
+}
+
+#comments {
+  min-height: 78px;
 }

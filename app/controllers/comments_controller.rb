@@ -1,7 +1,47 @@
+require 'embedly'
+
 class CommentsController < ApplicationController
   def create
-    Comment.create_from_gem_page(comment_params)
+    comment = params[:comment][:body]
+    if comment.starts_with?("http")
+      user = User.find(params[:comment][:user])
+      gem = PopularGem.find(params[:comment][:popular_gem])
+      embedly_api = Embedly::API.new :key => ENV['EMBEDLY'], :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
+      obj = embedly_api.oembed :url => params[:comment][:body], maxwidth: 500
+      if obj.first.provider_name == 'Imgur'
+        Comment.create(body: "<img src=#{obj.first.thumbnail_url}>",
+                       user: user,
+                       popular_gem: gem)
+      elsif obj.first.provider_name == 'GitHub' || obj.first.provider_name == 'YouTube'
+        Comment.create(body: obj.first.html,
+                       user: user,
+                       popular_gem: gem)
+      else
+        @comment = Comment.create_from_gem_page(comment_params)
+        if !@comment.valid?
+          @gem = PopularGem.friendly.find(params[:comment][:popular_gem])
+          @comments = @gem.comments.order('cached_votes_score').reverse
+          render "popular_gems/show"
+        end
+      end
+    else
+      @comment = Comment.create_from_gem_page(comment_params)
+      if !@comment.valid?
+        @gem = PopularGem.friendly.find(params[:comment][:popular_gem])
+        @comments = @gem.comments.order('cached_votes_score').reverse
+        render "popular_gems/show"
+      end
+    end
     redirect_to :back
+  end
+
+  def create_embed
+    embedly_api = Embedly::API.new :key => ENV['EMBEDLY'], :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
+    obj = embedly_api.oembed :url => params[:comment][:body], maxwidth: 500
+    user = User.find(params[:comment][:user])
+    gem = PopularGem.find(params[:comment][:popular_gem])
+    Comment.create(body: obj.first.html, user: user, popular_gem: gem)
+    redirect_to gem
   end
 
   def destroy

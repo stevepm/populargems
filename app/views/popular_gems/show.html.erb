@@ -11,7 +11,7 @@
             </div>
             <div class="col-xs-7 text-center">
               <div class="col-xs-5 pull-right">
-                <%= link_to 'Update Now', edit_popular_gem_path, class: "btn btn-warning btn-block pull-right active" %>
+                <%= link_to 'Update Now', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block pull-right active" %>
               </div>
               <small class="col-xs-5 pull-right">Last updated on <%= @gem.updated_at.to_date %></small>
             </div>
@@ -45,39 +45,43 @@
       <div>
         <h1>Comments:</h1>
         <% @comments.each do |comment| %>
-          <div class="col-xs-1">
-            <% if logged_in? && !current_user.comments.include?(comment) %>
-              <% if current_user.liked? comment
-                   liked = 'text-primary bg-warning'
-                 elsif current_user.disliked? comment
-                   unliked = 'text-primary bg-warning'
-                 end %>
-              <ul class="list-unstyled">
-                <li>
-                  <small>
-                    <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
-                      <span class='glyphicon glyphicon-chevron-up <%= liked %> h5'></span>
-                    <% end %>
-                  </small>
-                </li>
-                <li>
-                  <small>
-                    <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
-                      <span class='glyphicon glyphicon-chevron-down <%= unliked %> h5'></span>
-                    <% end %>
-                  </small>
-                </li>
-              </ul>
-            <% end %>
-          </div>
-          <div class="col-xs-11">
-            <strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.user.points %>
-            <% if logged_in? && current_user.comments.include?(comment) %>
-              <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
-            <% end %>
-            <blockquote class="break-word">
-              <%= comment.body.html_safe %>
-            </blockquote>
+          <div id="comments">
+            <div class="col-xs-1">
+              <% if logged_in? && !current_user.comments.include?(comment) %>
+                <% if current_user.liked? comment
+                     liked = 'text-primary bg-warning'
+                   elsif current_user.disliked? comment
+                     unliked = 'text-primary bg-warning'
+                   end %>
+
+                <ul class="list-unstyled">
+                  <li>
+                    <small>
+                      <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
+                        <span class='glyphicon glyphicon-chevron-up <%= liked %> h5'></span>
+                      <% end %>
+                    </small>
+                  </li>
+                  <li>
+                    <small>
+                      <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
+                        <span class='glyphicon glyphicon-chevron-down <%= unliked %> h5'></span>
+                      <% end %>
+                    </small>
+                  </li>
+                </ul>
+              <% end %>
+            </div>
+
+            <div class="col-xs-11">
+              <strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.user.points %>
+              <% if logged_in? && current_user.comments.include?(comment) %>
+                <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
+              <% end %>
+              <div class="break-word">
+                <%= comment.body.html_safe %>
+              </div>
+            </div>
           </div>
         <% end %>
         <% if logged_in? %>
