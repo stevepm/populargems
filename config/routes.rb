@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :comments
   post '/comments/:id/up_vote/:user_id', to: 'comments#up_vote', as: :up_vote_comment
   post '/comments/:id/down_vote/:user_id', to: 'comments#down_vote', as: :down_vote_comment
-  post '/comments/create_embed', to: 'comments#create_embed', as: :create_embed
 
   resource :search
 

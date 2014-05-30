@@ -35,15 +35,6 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
-  def create_embed
-    embedly_api = Embedly::API.new :key => ENV['EMBEDLY'], :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
-    obj = embedly_api.oembed :url => params[:comment][:body], maxwidth: 500
-    user = User.find(params[:comment][:user])
-    gem = PopularGem.find(params[:comment][:popular_gem])
-    Comment.create(body: obj.first.html, user: user, popular_gem: gem)
-    redirect_to gem
-  end
-
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to :back
