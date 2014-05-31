@@ -10,7 +10,7 @@ class PopularGemsController < ApplicationController
 
   def show
     @gem = PopularGem.friendly.find(params[:id])
-    @comments = @gem.comments.order('cached_votes_score').reverse
+    @comments = @gem.comments.order(cached_votes_score: :desc)
     @comment = Comment.new
     set_meta_tags :title => "#{@gem.name}",
                   :description => "#{@gem.description}",
