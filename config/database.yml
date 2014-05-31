@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: popular_gems_production
-  username: popular_gems
-  password: <%= ENV['POPULAR_GEMS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
