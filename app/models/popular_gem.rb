@@ -28,29 +28,31 @@ class PopularGem < ActiveRecord::Base
           from: 0,
           size: 150,
           query: {
-            bool: {
-              should: [
-                function_score: {
-                  query: {
-                    multi_match: {
-                      query: query,
-                      fields: ['name^3', 'description']
-                    }
-                  },
-                  functions: [
-                    script_score: {
-                      script: "_score * doc['total_downloads'].value / 2**3.1"
-                    }
-                  ],
-                  score_mode: "sum"
-                }
-              ]
-            },
             filtered: {
+              query: {
+                bool: {
+                  should: [
+                    function_score: {
+                      query: {
+                        multi_match: {
+                          query: query,
+                          fields: ['name^3', 'description']
+                        }
+                      },
+                      functions: [
+                        script_score: {
+                          script: "_score * doc['total_downloads'].value / 2**3.1"
+                        }
+                      ],
+                      score_mode: "sum"
+                    }
+                  ]
+                }
+              },
               filter: {
                 range: {
                   total_downloads: {
-                    from: 1000
+                    gt: 1000
                   }
                 }
               }
