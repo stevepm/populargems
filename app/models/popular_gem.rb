@@ -7,7 +7,7 @@ class PopularGem < ActiveRecord::Base
   acts_as_votable
   validates :name, uniqueness: true
 
-  settings index: { number_of_shards: 1 } do
+  settings index: {number_of_shards: 1} do
     mappings dynamic: 'false' do
       indexes :name, analyzer: 'english', index_options: 'offsets'
       indexes :description, analyzer: 'english', index_options: 'offsets'
@@ -15,45 +15,57 @@ class PopularGem < ActiveRecord::Base
     end
   end
 
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        from: 0,
-        size: 150,
-        query: {
-          bool: {
-            should: [
-              function_score: {
-                query: {
-                  multi_match: {
-                    query: query,
-                    fields: ['name^3', 'description']
+  class << self
+    attr_reader :downloaded
+
+    def initialize
+      @downloaded = []
+    end
+
+    def search(query)
+      __elasticsearch__.search(
+        {
+          from: 0,
+          size: 150,
+          query: {
+            bool: {
+              should: [
+                function_score: {
+                  query: {
+                    multi_match: {
+                      query: query,
+                      fields: ['name^3', 'description']
+                    }
+                  },
+                  functions: [
+                    script_score: {
+                      script: "_score * doc['total_downloads'].value / 2**3.1"
+                    }
+                  ],
+                  score_mode: "sum"
+                }
+              ]
+            },
+            filtered: {
+              filter: {
+                range: {
+                  total_downloads: {
+                    from: 1000
                   }
-                },
-                functions: [
-                  script_score: {
-                    script: "_score * doc['total_downloads'].value / 2**3.1"
-                  }
-                ],
-                score_mode: "sum"
-              }
-            ]
-          },
-          filtered: {
-            filter: {
-              range: {
-                total_downloads: {
-                  from: 1000
                 }
               }
             }
           }
         }
-      }
-    )
-  end
+      )
+    end
 
-  def self.top_downloaded(limit = nil)
-    order(total_downloads: :desc).limit(limit)
+    def top_downloaded(limit = nil)
+      @downloaded = order(total_downloads: :desc).limit(limit)
+    end
+
+    def top_hearted(limit = nil)
+      @downloaded = order(cached_votes_score: :desc).limit(limit)
+    end
   end
 end
