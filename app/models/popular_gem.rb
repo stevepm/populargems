@@ -11,7 +11,7 @@ class PopularGem < ActiveRecord::Base
     mappings dynamic: 'false' do
       indexes :name, analyzer: 'english', index_options: 'offsets'
       indexes :description, analyzer: 'english', index_options: 'offsets'
-      indexes :total_downloads
+      indexes :total_downloads, type: 'long'
     end
   end
 
