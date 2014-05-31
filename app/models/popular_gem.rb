@@ -52,7 +52,7 @@ class PopularGem < ActiveRecord::Base
               filter: {
                 range: {
                   total_downloads: {
-                    gt: 1000
+                    from: 1000
                   }
                 }
               }
