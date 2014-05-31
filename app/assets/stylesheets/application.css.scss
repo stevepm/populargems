@@ -23,6 +23,9 @@ html {
 .break-word{
   word-break: break-word;
 }
+.change-width{
+  max-width: 100px;
+}
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: font-url('glyphicons-halflings-regular.eot');
