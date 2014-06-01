@@ -37,7 +37,7 @@ class PopularGem < ActiveRecord::Base
                         multi_match: {
                           query: query,
                           fields: ['name^10', 'description'],
-                          type: "phrase_prefix"
+                          type: "phrase"
                         }
                       },
                       functions: [
