@@ -9,8 +9,8 @@ class PopularGem < ActiveRecord::Base
 
   settings index: {number_of_shards: 1} do
     mappings dynamic: 'false' do
-      indexes :name, analyzer: 'english', index_options: 'offsets'
-      indexes :description, analyzer: 'english', index_options: 'offsets'
+      indexes :name, analyzer: 'standard', index_options: 'offsets'
+      indexes :description, analyzer: 'standard', index_options: 'offsets'
       indexes :total_downloads, type: 'long'
     end
   end
