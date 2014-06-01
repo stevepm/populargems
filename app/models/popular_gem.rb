@@ -32,7 +32,7 @@ class PopularGem < ActiveRecord::Base
               query: {
                 bool: {
                   should: [
-                    function_score: {
+                    {function_score: {
                       query: {
                         multi_match: {
                           query: query,
@@ -45,7 +45,11 @@ class PopularGem < ActiveRecord::Base
                           script: "_score * doc['total_downloads'].value / 2**3.1"
                         }
                       ],
-                      score_mode: "max"
+                      score_mode: "avg"
+                    }},
+                    {term: {name:
+                              {value: query,
+                               boost: 2.0}}
                     }
                   ]
                 }
