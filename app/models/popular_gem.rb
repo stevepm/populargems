@@ -7,8 +7,6 @@ class PopularGem < ActiveRecord::Base
   acts_as_votable
   validates :name, uniqueness: true
 
-  after_save { logger.debug ["Updating document... ", index_document].join }
-
   settings index: {number_of_shards: 1} do
     mappings dynamic: 'false' do
       indexes :name, analyzer: 'standard', index_options: 'offsets'
