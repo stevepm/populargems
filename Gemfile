@@ -22,6 +22,7 @@ gem 'friendly_id', '~> 5.0.3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'embedly'
+gem 'seed_dump'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'

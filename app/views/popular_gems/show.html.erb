@@ -75,6 +75,7 @@
 
             <div class="col-xs-11">
               <strong><%= link_to comment.user.name, comment.user %>:</strong> <%= comment.user.points %>
+              <span class="badge alert-warning" id="points"><%= comment.user.points %></span>
               <% if logged_in? && current_user.comments.include?(comment) %>
                 <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
               <% end %>

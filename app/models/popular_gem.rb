@@ -36,8 +36,8 @@ class PopularGem < ActiveRecord::Base
                       query: {
                         multi_match: {
                           query: query,
-                          fields: ['name^5', 'description'],
-                          type: "phrase"
+                          fields: ['name^10', 'description'],
+                          type: "most_fields",
                         }
                       },
                       functions: [
@@ -45,7 +45,7 @@ class PopularGem < ActiveRecord::Base
                           script: "_score * doc['total_downloads'].value / 2**3.1"
                         }
                       ],
-                      score_mode: "avg"
+                      score_mode: "sum"
                     }},
                     {term: {name:
                               {value: query,
