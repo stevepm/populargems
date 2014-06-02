@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   friendly_id :name, use: :slugged
   has_merit
   acts_as_voter
-
   has_many :comments
 
   def self.create_with_omniauth(auth)

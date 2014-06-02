@@ -23,6 +23,8 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'embedly'
 gem 'seed_dump'
+gem 'acts_as_commentable_with_threading'
+gem "awesome_nested_set", "~> 3.0.0.rc.3"
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
@@ -32,6 +34,7 @@ group :test, :development do
   gem 'launchy', '~> 2.4.2'
   gem 'better_errors'
   gem 'selenium-webdriver'
+  gem 'byebug'
 end
 
 group :test do

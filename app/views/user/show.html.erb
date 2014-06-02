@@ -11,8 +11,9 @@
         <tbody>
         <% if @comments.size > 0 %>
           <% @comments.each do |comment| %>
+            <% gem = PopularGem.find(comment.commentable_id) %>
             <tr>
-              <td><strong><%= link_to comment.popular_gem.name, comment.popular_gem %></strong></td>
+              <td><strong><%= link_to gem.name, gem %></strong></td>
               <td class="break-word"><%= comment.body.html_safe %></td>
             </tr>
           <% end %>

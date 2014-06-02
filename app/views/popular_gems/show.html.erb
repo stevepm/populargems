@@ -49,7 +49,7 @@
           <% @comments.each do |comment| %>
             <hr/>
             <div class="col-xs-1">
-              <% if logged_in? && !current_user.comments.include?(comment) %>
+              <% if logged_in? && !Comment.find_comments_by_user(current_user).include?(comment) %>
                 <% if current_user.liked? comment
                      liked = 'text-primary bg-warning'
                    elsif current_user.disliked? comment
@@ -87,7 +87,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-4 col-xs-offset-8">
-                  <% if logged_in? && current_user.comments.include?(comment) %>
+                  <% if logged_in? && Comment.find_comments_by_user(current_user).include?(comment) %>
                     <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
                   <% end %>
                 </div>

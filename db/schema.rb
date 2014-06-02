@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527103055) do
+ActiveRecord::Schema.define(version: 20140602210149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,9 +28,15 @@ ActiveRecord::Schema.define(version: 20140527103055) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "comments", force: true do |t|
+    t.integer  "commentable_id",        default: 0
+    t.string   "commentable_type"
+    t.string   "title"
     t.text     "body"
-    t.integer  "user_id"
-    t.integer  "popular_gem_id"
+    t.string   "subject"
+    t.integer  "user_id",               default: 0, null: false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cached_votes_total",    default: 0
@@ -45,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140527103055) do
   add_index "comments", ["cached_votes_total"], name: "index_comments_on_cached_votes_total", using: :btree
   add_index "comments", ["cached_votes_up"], name: "index_comments_on_cached_votes_up", using: :btree
   add_index "comments", ["cached_weighted_score"], name: "index_comments_on_cached_weighted_score", using: :btree
-  add_index "comments", ["popular_gem_id"], name: "index_comments_on_popular_gem_id", using: :btree
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "friendly_id_slugs", force: true do |t|
