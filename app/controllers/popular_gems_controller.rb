@@ -41,8 +41,10 @@ class PopularGemsController < ApplicationController
     gem = PopularGem.friendly.find(params[:id])
     if current_user.liked?(gem)
       current_user.dislikes gem
+      current_user.subtract_points(1)
     else
       current_user.likes gem
+      current_user.add_points(1)
     end
     render json: { gem: gem, likes: current_user.liked?(gem)}
   end

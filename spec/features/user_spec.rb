@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'User Profile' do
-  scenario 'a user can view their comments' do
+  scenario 'a user can view their comments', js: true do
     mock_gem
     mock_gem('rails')
     log_in

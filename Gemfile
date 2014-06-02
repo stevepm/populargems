@@ -31,10 +31,12 @@ group :test, :development do
   gem 'dotenv-rails'
   gem 'launchy', '~> 2.4.2'
   gem 'better_errors'
+  gem 'selenium-webdriver'
 end
 
 group :test do
   gem 'webmock', '~> 1.18.0'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 gem 'rails_12factor', group: :production

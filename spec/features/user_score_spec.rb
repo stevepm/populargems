@@ -1,18 +1,22 @@
 require 'spec_helper'
 
 feature 'Calculating users score' do
-  scenario 'Adds and subtracts points when liking gems' do
+  scenario 'Adds and subtracts points when liking gems', js: true do
     mock_gem
     log_in
+    click_on 'GemBundle'
     within '#most_downloaded' do
       click_on 'heart_faraday'
     end
+    click_on 'stevepm'
+    click_on 'GemBundle'
     within '#points' do
       expect(page).to have_content('1')
     end
     within '#most_downloaded' do
       click_on 'heart_faraday'
     end
+    click_on 'stevepm'
     within '#points' do
       expect(page).to have_content('0')
     end
