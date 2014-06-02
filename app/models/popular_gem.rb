@@ -16,17 +16,12 @@ class PopularGem < ActiveRecord::Base
   end
 
   class << self
-    attr_reader :downloaded
-
-    def initialize
-      @downloaded = []
-    end
 
     def search(query)
       __elasticsearch__.search(
         {
           from: 0,
-          size: 150,
+          size: 50,
           query: {
             filtered: {
               query: {
@@ -68,11 +63,11 @@ class PopularGem < ActiveRecord::Base
     end
 
     def top_downloaded(limit = nil)
-      @downloaded = order(total_downloads: :desc).limit(limit)
+      order(total_downloads: :desc).limit(limit)
     end
 
     def top_hearted(limit = nil)
-      @downloaded = order(cached_votes_score: :desc).limit(limit)
+      order(cached_votes_score: :desc).limit(limit)
     end
   end
 end
