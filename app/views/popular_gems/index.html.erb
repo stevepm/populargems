@@ -42,7 +42,7 @@
                   <%= link_to "#{gem.name}", gem %>
                 </td>
                 <td>
-                  <%= gem.description %>
+                  <%= truncate(gem.description, length: 200, separator: ' ') %>
                 </td>
                 <td>
                   <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
@@ -92,7 +92,7 @@
                   <%= link_to "#{gem.name}", gem %>
                 </td>
                 <td>
-                  <%= gem.description %>
+                  <%= truncate(gem.description, length: 200, separator: ' ') %>
                 </td>
                 <td>
                   <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
@@ -142,7 +142,7 @@
                   <%= link_to "#{gem.name}", gem %>
                 </td>
                 <td>
-                  <%= gem.description %>
+                  <%= truncate(gem.description, length: 200, separator: ' ') %>
                 </td>
                 <td>
                   <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
