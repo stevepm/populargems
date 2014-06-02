@@ -44,8 +44,10 @@
       </div>
       <div>
         <h1>Comments:</h1>
-        <% @comments.each do |comment| %>
-          <div id="comments">
+
+        <div id="comments">
+          <% @comments.each do |comment| %>
+            <hr/>
             <div class="col-xs-1">
               <% if logged_in? && !current_user.comments.include?(comment) %>
                 <% if current_user.liked? comment
@@ -73,18 +75,26 @@
               <% end %>
             </div>
 
-            <div class="col-xs-11">
-              <strong><%= link_to comment.user.name, comment.user %>:</strong>
-              <span class="badge alert-warning" id="points"><%= comment.user.points %></span>
-              <% if logged_in? && current_user.comments.include?(comment) %>
-                <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
-              <% end %>
+            <div class="col-xs-11 comment">
               <div class="break-word">
                 <%= comment.body.html_safe %>
               </div>
+              <div class="row">
+                <div class="col-xs-4 col-xs-offset-8">
+                  <strong><%= link_to comment.user.name, comment.user %>:</strong>
+                  <span class="badge alert-warning" id="points"><%= comment.user.points %></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-4 col-xs-offset-8">
+                  <% if logged_in? && current_user.comments.include?(comment) %>
+                    <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
+                  <% end %>
+                </div>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
         <% if logged_in? %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group">

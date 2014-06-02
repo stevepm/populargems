@@ -38,17 +38,13 @@ class PopularGemsController < ApplicationController
   end
 
   def like
-    user = User.find(params[:user_id])
     gem = PopularGem.friendly.find(params[:id])
-    user.likes gem
-    redirect_to :back
-  end
-
-  def unlike
-    user = User.find(params[:user_id])
-    gem = PopularGem.friendly.find(params[:id])
-    user.dislikes gem
-    redirect_to :back
+    if current_user.liked?(gem)
+      current_user.dislikes gem
+    else
+      current_user.likes gem
+    end
+    render json: { gem: gem, likes: current_user.liked?(gem)}
   end
 
   def likes

@@ -1,12 +1,27 @@
+<script>
+  $(function() {
+    return $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+      var id, likes;
+      id = "heart_" + data.gem.name;
+      likes = data.likes;
+      if (likes) {
+        $("#" + id).removeClass("btn-default");
+        $("#" + id).addClass("btn-warning");
+      } else {
+        $("#" + id).removeClass("btn-warning");
+        $("#" + id).addClass("btn-default");
+      }
+    });
+  });
+</script>
+
 <% if logged_in? %>
   <% if !(current_user.voted_up_on? gem) %>
-    <% path = like_gem_path(gem.id, current_user.id) %>
     <% button = 'btn-default' %>
   <% else %>
-    <% path = unlike_gem_path(gem.id, current_user.id) %>
     <% button = 'btn-warning' %>
   <% end %>
-  <%= link_to path, method: :post, class: "btn #{button} btn-sm active", id: "heart_#{gem.name}" do %>
+  <%= link_to like_gem_path(gem.id, current_user.id), method: :put, class: "btn #{button} btn-sm active", id: "heart_#{gem.name}", remote: true do %>
     <span class="glyphicon glyphicon-heart"></span>
     <input type="hidden" value="<%= gem.id %>" name="popular_gem_id">
     <input type="hidden" value="<%= current_user.id %>" name="user_id">

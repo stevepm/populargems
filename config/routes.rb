@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :popular_gems
-  post '/popular_gems/:id/like/:user_id', to: 'popular_gems#like', as: :like_gem
-  post '/popular_gems/:id/unlike/:user_id', to: 'popular_gems#unlike', as: :unlike_gem
+  put '/popular_gems/:id/like/:user_id', to: 'popular_gems#like', as: :like_gem
+  put '/popular_gems/:id/unlike/:user_id', to: 'popular_gems#unlike', as: :unlike_gem
   root to: 'popular_gems#index'
   get '/downloads/', to: 'popular_gems#most_downloaded', as: :most_downloaded
   get '/hearts/', to: 'popular_gems#most_hearted', as: :most_hearted
