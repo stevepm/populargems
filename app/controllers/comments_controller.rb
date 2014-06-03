@@ -62,13 +62,13 @@ class CommentsController < ApplicationController
     user = User.find(params[:user_id])
     if user.voted_down_on? comment
       user.likes comment
-      comment.user.add_points(20)
+      comment.user.add_points(12)
     elsif user.voted_up_on? comment
       comment.unliked_by user
-      comment.user.subtract_points(10)
+      comment.user.subtract_points(6)
     else
       user.likes comment
-      comment.user.add_points(10)
+      comment.user.add_points(6)
     end
     redirect_to :back
   end
@@ -78,13 +78,13 @@ class CommentsController < ApplicationController
     user = User.find(params[:user_id])
     if user.voted_up_on? comment
       user.dislikes comment
-      comment.user.subtract_points(20)
+      comment.user.subtract_points(12)
     elsif user.voted_down_on? comment
       comment.undisliked_by user
-      comment.user.add_points(10)
+      comment.user.add_points(6)
     else
       user.dislikes comment
-      comment.user.subtract_points(10)
+      comment.user.subtract_points(6)
     end
     redirect_to :back
   end

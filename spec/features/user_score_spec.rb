@@ -56,7 +56,7 @@ feature 'Calculating users score' do
     click_on 'Sign out'
     log_in('steve', '1234')
     within '#points' do
-      expect(page).to have_content('13')
+      expect(page).to have_content('9')
     end
     click_on 'Sign out'
     log_in('newjkwje')
