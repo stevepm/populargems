@@ -47,49 +47,51 @@
 
         <div id="comments">
           <% @comments.each do |comment| %>
-            <hr/>
-            <div class="col-xs-1">
-              <% if logged_in? && !Comment.find_comments_by_user(current_user).include?(comment) %>
-                <% if current_user.liked? comment
-                     liked = 'text-primary bg-warning'
-                   elsif current_user.disliked? comment
-                     unliked = 'text-primary bg-warning'
-                   end %>
+            <div id="single_comment">
+              <hr/>
+              <div class="col-xs-1">
+                <% if logged_in? && !Comment.find_comments_by_user(current_user).include?(comment) %>
+                  <% if current_user.liked? comment
+                       liked = 'text-primary bg-warning'
+                     elsif current_user.disliked? comment
+                       unliked = 'text-primary bg-warning'
+                     end %>
 
-                <ul class="list-unstyled">
-                  <li>
-                    <small>
-                      <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
-                        <span class='glyphicon glyphicon-chevron-up <%= liked %> h5'></span>
-                      <% end %>
-                    </small>
-                  </li>
-                  <li>
-                    <small>
-                      <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
-                        <span class='glyphicon glyphicon-chevron-down <%= unliked %> h5'></span>
-                      <% end %>
-                    </small>
-                  </li>
-                </ul>
-              <% end %>
-            </div>
-
-            <div class="col-xs-11 comment">
-              <div class="break-word">
-                <%= comment.body.html_safe %>
+                  <ul class="list-unstyled">
+                    <li>
+                      <small>
+                        <%= link_to up_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-up" do %>
+                          <span class='glyphicon glyphicon-chevron-up <%= liked %> h5'></span>
+                        <% end %>
+                      </small>
+                    </li>
+                    <li>
+                      <small>
+                        <%= link_to down_vote_comment_path(comment.id, current_user.id), method: :post, id: "vote-down" do %>
+                          <span class='glyphicon glyphicon-chevron-down <%= unliked %> h5'></span>
+                        <% end %>
+                      </small>
+                    </li>
+                  </ul>
+                <% end %>
               </div>
-              <div class="row">
-                <div class="col-xs-4 col-xs-offset-8">
-                  <strong><%= link_to comment.user.name, comment.user %>:</strong>
-                  <span class="badge alert-warning" id="comment_points"><%= comment.user.points %></span>
+
+              <div class="col-xs-11 comment">
+                <div class="break-word">
+                  <%= comment.body.html_safe %>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-4 col-xs-offset-8">
-                  <% if logged_in? && Comment.find_comments_by_user(current_user).include?(comment) %>
-                    <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
-                  <% end %>
+                <div class="row">
+                  <div class="col-xs-4 col-xs-offset-8">
+                    <strong><%= link_to comment.user.name, comment.user %>:</strong>
+                    <span class="badge alert-warning" id="comment_points"><%= comment.user.points %></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-4 col-xs-offset-8">
+                    <% if logged_in? && Comment.find_comments_by_user(current_user).include?(comment) %>
+                      <small><%= link_to '[Delete comment]', comment, method: :delete %></small>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -98,7 +100,7 @@
         <% if logged_in? %>
           <%= form_for @comment, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group">
-              <%= f.text_area :body, class: "form-control", placeholder: 'Leave a comment' %>
+              <%= f.text_area :body, class: "wysihtml5 form-control", placeholder: 'Leave a comment' %>
             </div>
             <%= f.hidden_field :user, value: current_user.id %>
             <%= f.hidden_field :popular_gem, value: @gem.id %>
@@ -107,6 +109,15 @@
         <% else %>
           <span class="label label-warning"><strong>Sign in to leave a comment</strong></span>
         <% end %>
+        <script type="text/javascript">
+          $(document).ready(function () {
+
+            $('.wysihtml5').each(function (i, elem) {
+              $(elem).wysihtml5();
+            });
+
+          })
+        </script>
       </div>
     </div>
   </div>

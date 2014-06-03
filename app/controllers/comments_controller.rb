@@ -1,49 +1,13 @@
-require 'embedly'
-
 class CommentsController < ApplicationController
   def create
     comment = params[:comment][:body]
-    if comment.blank?
-      @comment = Comment.new
+    @comment = Comment.create_from_gem_page(comment_params)
+    if !@comment.valid? || comment.blank?
       @gem = PopularGem.friendly.find(params[:comment][:popular_gem])
-      @comments = @gem.comments.order(cached_votes_score: :desc)
+      @comments = @gem.comment_threads.order(cached_votes_score: :desc)
       render "popular_gems/show"
     else
-      if comment.starts_with?("http")
-        user_id = params[:comment][:user]
-        gem = PopularGem.find(params[:comment][:popular_gem])
-        embedly_api = Embedly::API.new :key => ENV['EMBEDLY'], :user_agent => 'Mozilla/5.0 (compatible; mytestapp/1.0; my@email.com)'
-        obj = embedly_api.oembed :url => params[:comment][:body], maxwidth: 500
-        if obj.first.provider_name == 'Imgur'
-          Comment.create_from_imgur(
-            "<img src=#{obj.first.thumbnail_url}>",
-            user_id: user_id,
-            commentable: gem
-          )
-        elsif obj.first.provider_name == 'GitHub' || obj.first.provider_name == 'YouTube'
-          Comment.create_from_gist_youtube(
-            obj.first.html,
-            user_id,
-            gem
-          )
-        else
-          @comment = Comment.create_from_gem_page(comment_params)
-          if !@comment.valid?
-            @gem = PopularGem.friendly.find(params[:comment][:popular_gem])
-            @comments = @gem.comments.order(cached_votes_score: :desc)
-            render "popular_gems/show"
-          end
-          current_user.add_points(3)
-        end
-      else
-        @comment = Comment.create_from_gem_page(comment_params)
-        if !@comment.valid?
-          @gem = PopularGem.friendly.find(params[:comment][:popular_gem])
-          @comments = @gem.comments.order(cached_votes_score: :desc)
-          render "popular_gems/show"
-        end
-        current_user.add_points(3)
-      end
+      current_user.add_points(3)
       gem = PopularGem.friendly.find(params[:comment][:popular_gem])
       redirect_to gem
     end

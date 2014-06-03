@@ -7,34 +7,30 @@ class Comment < ActiveRecord::Base
 
   belongs_to :commentable, :polymorphic => true
 
-  # NOTE: Comments belong to a user
   belongs_to :user
 
-  # Helper class method that allows you to build a comment
-  # by passing a commentable object, a user_id, and comment text
-  # example in readme
   def self.create_from_gem_page(params)
+    body = check_embedly(params[:body])
     create(
       :commentable => PopularGem.find(params[:popular_gem]),
-      :body        => "<blockquote>#{ConvertFromMarkdown.new.render(params[:body])}</blockquote>",
-      :user_id     => params[:user]
+      :body => "<blockquote>#{ConvertFromMarkdown.new.render(body)}</blockquote>",
+      :user_id => params[:user]
     )
   end
 
-  def self.create_from_gist_youtube(body, user_id, commentable)
-    create(
-      :commentable => commentable,
-      :body        => body,
-      :user_id     => user_id
-    )
+  def self.check_embedly(body)
+    body_links(body).each do |link|
+      body.sub!(link, EmbedlyApi.new(url_for(link).first.first).output)
+    end
+    body
   end
 
-  def self.create_from_imgur(body, user_id, commentable)
-    create(
-      :commentable => commentable,
-      :body        => body,
-      :user_id     => user_id
-    )
+  def self.body_links(body)
+    body.scan(/<a href=.*?<\/a>/)
+  end
+
+  def self.url_for(link)
+    link.scan(/<a href="(.*?)"/)
   end
 
   #helper method to check if a comment has children
@@ -61,6 +57,6 @@ class Comment < ActiveRecord::Base
   end
 
   def self.recent_comments
-    all.sort_by(&:created_at).map(&:commentable_id).uniq[0..9].map {|id| PopularGem.find(id)}
+    all.sort_by(&:created_at).map(&:commentable_id).uniq[0..9].map { |id| PopularGem.find(id) }
   end
 end
