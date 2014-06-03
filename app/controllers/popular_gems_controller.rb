@@ -14,7 +14,8 @@ class PopularGemsController < ApplicationController
     @comment = Comment.new
     set_meta_tags :title => "#{@gem.name}",
                   :description => "#{@gem.description}",
-                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}"
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}",
+                  :reverse => true
   end
 
   def edit
