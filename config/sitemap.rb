@@ -24,4 +24,7 @@ SitemapGenerator::Sitemap.create do
   #   Article.find_each do |article|
   #     add article_path(article), :lastmod => article.updated_at
   #   end
+  PopularGem.find_each do |gem|
+    add popular_gem_path(gem), :lastmod => gem.updated_at
+  end
 end
