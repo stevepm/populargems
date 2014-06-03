@@ -69,5 +69,9 @@ class PopularGem < ActiveRecord::Base
     def top_hearted(limit = nil)
       order(cached_votes_score: :desc).limit(limit)
     end
+
+    def top_weekly_downloads(limit = nil)
+      where('created_at >= ?', 1.week.ago.utc).order('version_downloads desc').limit(limit)
+    end
   end
 end
