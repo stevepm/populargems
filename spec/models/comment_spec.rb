@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Comment do
-  let (:text) { 'lorem ipsum <a href=\"https://gist.github.com/stevepm/4562475bd1f4d57e7f9f\" target=\"_blank\" rel=\"nofollow\">https://gist.github.com/stevepm/4562475bd1f4d57e7f9f</a>' }
+  let (:text) { "lorem ipsum <a href=\"https://gist.github.com/stevepm/4562475bd1f4d57e7f9f\" target=\"_blank\" rel=\"nofollow\">https://gist.github.com/stevepm/4562475bd1f4d57e7f9f</a>" }
   let (:link) { Comment.body_links(text) }
   it 'can find links in a long string' do
-    expect(link).to eq(['<a href=\"https://gist.github.com/stevepm/4562475bd1f4d57e7f9f\" target=\"_blank\" rel=\"nofollow\">https://gist.github.com/stevepm/4562475bd1f4d57e7f9f</a>'])
+    expect(link).to eq(["<a href=\"https://gist.github.com/stevepm/4562475bd1f4d57e7f9f\" target=\"_blank\" rel=\"nofollow\">https://gist.github.com/stevepm/4562475bd1f4d57e7f9f</a>"])
   end
 
   it 'can find a url from a link' do

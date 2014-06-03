@@ -8,7 +8,9 @@ feature 'User Profile' do
     within '#most_downloaded' do
       click_link 'faraday'
     end
-    fill_in 'comment_body', with: "This is *bongos*, indeed."
+
+    page.execute_script("editor.composer.commands.exec('insertHTML', 'This is bongos, indeed.');")
+
     click_on 'Comment'
     click_on 'user_profile'
     expect(page).to have_content('faraday')
