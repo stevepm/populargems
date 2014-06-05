@@ -5,56 +5,6 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <div class="panel panel-default" id="most_downloaded">
-        <div class="panel-heading">
-          <h3 class="panel-title"><strong>Most downloaded gems</strong>
-            <small><%= link_to('View more', most_downloaded_path(page: 2)) %></small>
-          </h3>
-        </div>
-        <div class="panel-body">
-          <table class="table table-hover table-striped table-bordered">
-            <thead>
-            <tr>
-              <% if logged_in? %>
-                <th class="col-sm-1">
-                </th>
-              <% end %>
-              <th class="col-sm-2">
-                Gem name
-              </th>
-              <th class="col-sm-7">
-                Description
-              </th>
-              <th class="col-sm-2">
-                Total Downloads
-              </th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @top_downloaded_gems.each do |gem| %>
-              <tr>
-                <% if logged_in? %>
-                  <td>
-                    <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
-                  </td>
-                <% end %>
-                <td>
-                  <%= link_to "#{gem.name}", gem %>
-                </td>
-                <td>
-                  <%= truncate(gem.description, length: 200, separator: ' ') %>
-                </td>
-                <td>
-                  <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
-                </td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default" id="most_hearted">
         <div class="panel-heading">
           <h3 class="panel-title"><strong>Most loved gems</strong>
@@ -104,6 +54,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default" id="recent_comments">
         <div class="panel-heading">
@@ -132,6 +84,58 @@
             </thead>
             <tbody>
             <% @recent_comments.each do |gem| %>
+              <tr>
+                <% if logged_in? %>
+                  <td>
+                    <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+                  </td>
+                <% end %>
+                <td>
+                  <%= link_to "#{gem.name}", gem %>
+                </td>
+                <td>
+                  <%= truncate(gem.description, length: 200, separator: ' ') %>
+                </td>
+                <td>
+                  <%= number_with_delimiter(gem.total_downloads, :delimiter => ',') %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default" id="most_downloaded">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Most downloaded gems</strong>
+            <small><%= link_to('View more', most_downloaded_path(page: 2)) %></small>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <table class="table table-hover table-striped table-bordered">
+            <thead>
+            <tr>
+              <% if logged_in? %>
+                <th class="col-sm-1">
+                </th>
+              <% end %>
+              <th class="col-sm-2">
+                Gem name
+              </th>
+              <th class="col-sm-7">
+                Description
+              </th>
+              <th class="col-sm-2">
+                Total Downloads
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @top_downloaded_gems.each do |gem| %>
               <tr>
                 <% if logged_in? %>
                   <td>
