@@ -107,7 +107,7 @@
             <%= f.submit :Comment, class: "btn btn-default pull-right" %>
           <% end %>
         <% else %>
-          <span class="label label-warning"><strong>Sign in to leave a comment</strong></span>
+          <span class="label label-warning"><strong><%= link_to 'Sign in', '/auth/github'%> to leave a comment</strong></span>
         <% end %>
         <script type="text/javascript">
           $(document).ready(function () {
