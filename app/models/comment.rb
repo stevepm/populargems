@@ -57,6 +57,6 @@ class Comment < ActiveRecord::Base
   end
 
   def self.recent_comments
-    all.sort_by(&:created_at).map(&:commentable_id).uniq[0..9].map { |id| PopularGem.find(id) }
+    all.sort_by(&:created_at).map(&:commentable_id).uniq[0..9].map { |id| PopularGem.find(id) }.reverse
   end
 end
