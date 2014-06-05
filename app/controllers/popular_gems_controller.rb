@@ -5,7 +5,9 @@ class PopularGemsController < ApplicationController
     @recent_comments = Comment.recent_comments
     set_meta_tags :title => 'Ruby Gem discovery engine',
                   :description => 'Discover the most downloaded and most loved Ruby Gems',
-                  :keywords => 'Ruby, gems, ruby gems, rails'
+                  :keywords => 'Ruby, gems, ruby gems, rails, top ruby gems, top rubygems,
+ top rails gems, popular rubygems, popular ruby gems, popular gems, top gems, popular rails gems,
+list of top gems, list of top ruby gems, list of top rubygems, list of top rails gems'
   end
 
   def show
@@ -47,7 +49,7 @@ class PopularGemsController < ApplicationController
       current_user.likes gem
       current_user.add_points(1)
     end
-    render json: { gem: gem, likes: current_user.liked?(gem)}
+    render json: {gem: gem, likes: current_user.liked?(gem)}
   end
 
   def likes
