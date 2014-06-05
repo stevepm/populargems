@@ -2,7 +2,7 @@
   <%= render(partial: 'gem_table', locals: {gem_id: 'most_downloaded',
                                             path_for_gems: most_downloaded_path(page: 2),
                                             gems: @top_downloaded_gems,
-                                            view_more: true,
+                                            view_more: false,
                                             title: 'Most downloaded gems',
                                             use_pagination: true})
   %>
