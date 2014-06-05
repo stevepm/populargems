@@ -25,14 +25,14 @@ class PopularGemsController < ApplicationController
   end
 
   def most_downloaded
-    @gems = PopularGem.top_downloaded.pagination(params[:page])
+    @top_downloaded_gems = PopularGem.top_downloaded.pagination(params[:page])
     set_meta_tags :title => 'Most downloaded',
                   :description => 'Discover the most downloaded Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
   end
 
   def most_hearted
-    @gems = PopularGem.top_hearted.pagination(params[:page])
+    @top_hearted_gems = PopularGem.top_hearted.pagination(params[:page])
     set_meta_tags :title => 'Most loved',
                   :description => 'Discover the most loved Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails'
