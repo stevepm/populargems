@@ -54,7 +54,11 @@
       <div class="col-md-12 column">
         <div class="col-md-10 col-md-offset-1">
           <% unless logged_in? %>
-            <span class="alert alert-danger"><strong><%= link_to 'Sign in', '/auth/github'%></strong> to keep track of your favorite gems</span>
+            <div class="row">
+              <div class="alert alert-danger col-xs-4 col-xs-offset-4"><strong><%= link_to 'Sign in', '/auth/github' %></strong> to keep track of
+                your favorite gems
+              </div>
+            </div>
           <% end %>
         </div>
         <%= yield %>
