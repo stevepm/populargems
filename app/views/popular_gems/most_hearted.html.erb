@@ -1,9 +1,10 @@
 <div class="container">
-  <%= render(partial: 'gem_table', locals: {gem_id: 'most_hearted',
-                                            path_for_gems: most_hearted_path(page: 2),
-                                            gems: @top_hearted_gems,
-                                            view_more: false,
-                                            title: 'Most loved gems',
-                                            use_pagination: true})
+  <%= render(partial: 'gem_table', locals: {
+    gem_id: 'most_hearted',
+    path_for_gems: most_hearted_path(page: 2),
+    gems: @top_hearted_gems,
+    view_more: false,
+    title: 'Most loved gems',
+    use_pagination: true})
   %>
 </div>
