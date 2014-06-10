@@ -13,7 +13,7 @@ class Comment < ActiveRecord::Base
     body = check_embedly(params[:body])
     create(
       :commentable => PopularGem.find(params[:popular_gem]),
-      :body => "<blockquote>#{ConvertFromMarkdown.new.render(body)}</blockquote>",
+      :body => ConvertFromMarkdown.new.render(body),
       :user_id => params[:user]
     )
   end

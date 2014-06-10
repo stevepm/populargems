@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+    <div class="col-md-9">
       <div class="well profile">
         <div class="col-sm-12">
           <div class="col-xs-12">
@@ -10,10 +10,14 @@
               <h2><%= @gem.name %></h2>
             </div>
             <div class="col-xs-7 text-center">
-              <div class="col-xs-5 pull-right">
-                <%= link_to 'Update Now', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block pull-right active" %>
+              <div class="row">
+                <div class="col-xs-5 pull-right">
+                  <%= link_to 'Update Now', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block pull-right active" %>
+                </div>
               </div>
-              <small class="col-xs-5 pull-right">Last updated on <%= @gem.updated_at.to_date %></small>
+              <div class="row">
+                <small class="col-xs-5 pull-right">Last updated on <%= @gem.updated_at.to_date %></small>
+              </div>
             </div>
             <div class="col-xs-12">
               <p><strong>Version: </strong><%= @gem.version %></p>
@@ -107,7 +111,7 @@
             <%= f.submit :Comment, class: "btn btn-default pull-right" %>
           <% end %>
         <% else %>
-          <span class="label label-warning"><strong><%= link_to 'Sign in', '/auth/github'%> to leave a comment</strong></span>
+          <span class="label label-warning"><strong><%= link_to 'Sign in', '/auth/github' %> to leave a comment</strong></span>
         <% end %>
         <script type="text/javascript">
           $(document).ready(function () {

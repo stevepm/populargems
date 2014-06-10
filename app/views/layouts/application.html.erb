@@ -10,7 +10,7 @@
 <body>
 <div class="container">
   <div class="row clearfix">
-    <div class="col-lg-12 column">
+    <div class="col-xs-12 column">
       <nav class="navbar navbar-default navbar" role="navigation" id="header">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -21,6 +21,12 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
+            <li>
+              <%= link_to('Most downloaded gems', most_downloaded_path) %>
+            </li>
+            <li>
+              <%= link_to('Most liked gems', most_hearted_path) %>
+            </li>
             <li>
               <%= form_tag "/search", method: 'get', class: "navbar-form", role: "search" do %>
                 <div class="form-group">
@@ -55,13 +61,28 @@
         <div class="col-md-10 col-md-offset-1">
           <% unless logged_in? %>
             <div class="row">
-              <div class="alert alert-danger col-xs-4 col-xs-offset-4"><strong><%= link_to 'Sign in', '/auth/github' %></strong> to keep track of
+              <div class="alert alert-danger col-xs-4 col-xs-offset-4">
+                <strong><%= link_to 'Sign in', '/auth/github' %></strong> to keep track of
                 your favorite gems
               </div>
             </div>
           <% end %>
         </div>
-        <%= yield %>
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+        <div class="col-md-2">
+          <%= render(partial: 'shared/sidebar_table', locals: {
+            gem_id: 'recently_liked',
+            gems: @recently_liked,
+            title: 'Recently liked gems'})
+          %>
+          <%= render(partial: 'shared/sidebar_table', locals: {
+            gem_id: 'recently_updated',
+            gems: @recently_updated,
+            title: 'Recently updated gems'})
+          %>
+        </div>
       </div>
     </div>
   </div>

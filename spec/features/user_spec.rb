@@ -5,6 +5,7 @@ feature 'User Profile' do
     mock_gem
     mock_gem('rails')
     log_in
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_link 'faraday'
     end
@@ -15,16 +16,19 @@ feature 'User Profile' do
     click_on 'user_profile'
     expect(page).to have_content('faraday')
     expect(page).to have_content('This is bongos, indeed.')
-    click_on 'faraday'
+    within '#user_comments' do
+      click_on 'faraday'
+    end
     click_on 'heart_faraday'
     click_on 'heart_faraday'
     visit '/'
+    click_on 'Most liked gems'
     within '#most_hearted' do
       click_on 'heart_faraday'
     end
     click_on 'user_profile'
     within '#loved_gems' do
-      expect(page).to have_content('Loved Gems')
+      expect(page).to have_content('Gem Bundle')
       expect(page).to have_content('faraday')
     end
   end

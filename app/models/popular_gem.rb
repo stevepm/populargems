@@ -73,5 +73,13 @@ class PopularGem < ActiveRecord::Base
     def top_weekly_downloads(limit = nil)
       where('created_at >= ?', 1.week.ago.utc).order('version_downloads desc').limit(limit)
     end
+
+    def recently_liked(limit = nil)
+      all.joins('inner join votes v on popular_gems.id = v.votable_id').where(v: {vote_flag: true, votable_type: 'PopularGem'}).group("popular_gems.id").order('max(v.updated_at) DESC').limit(limit)
+    end
+
+    def featured
+      where(featured: true).order(updated_at: :desc)
+    end
   end
 end

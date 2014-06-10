@@ -4,7 +4,7 @@ feature 'Calculating users score' do
   scenario 'Adds and subtracts points when liking gems', js: true do
     mock_gem
     log_in
-    click_on 'GemBundle'
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'heart_faraday'
     end
@@ -13,6 +13,7 @@ feature 'Calculating users score' do
     within '#points' do
       expect(page).to have_content('1')
     end
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'heart_faraday'
     end
@@ -25,6 +26,7 @@ feature 'Calculating users score' do
   scenario 'Adds and subtracts points when commenting' do
     mock_gem
     log_in
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'faraday'
     end
@@ -42,6 +44,7 @@ feature 'Calculating users score' do
   scenario 'Adds and subtracts points to commenter when upvoting/downvoting' do
     mock_gem
     log_in('steve', '1234')
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'faraday'
     end
@@ -49,6 +52,7 @@ feature 'Calculating users score' do
     click_on 'Comment'
     click_on 'Sign out'
     log_in('nekawkdkjw')
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'faraday'
     end
@@ -60,6 +64,7 @@ feature 'Calculating users score' do
     end
     click_on 'Sign out'
     log_in('newjkwje')
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_on 'faraday'
     end

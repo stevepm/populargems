@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
+  before_action :sidebar
 
   def log_in(user)
     session[:user_id] = user.id
@@ -22,5 +23,10 @@ class ApplicationController < ActionController::Base
 
   def logged_in_user_id
     session[:user_id]
+  end
+
+  def sidebar
+    @recently_liked = PopularGem.recently_liked(10)
+    @recently_updated = PopularGem.all.limit(10).order(updated_at: :desc)
   end
 end

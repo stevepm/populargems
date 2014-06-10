@@ -6,6 +6,7 @@ describe 'commenting' do
   end
   it 'a user can leave a comment if logged in' do
     log_in
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_link 'faraday'
     end
@@ -28,6 +29,7 @@ describe 'commenting' do
     click_on 'Comment'
     click_on 'Sign out'
     log_in('test')
+    click_on 'Most downloaded gems'
     within '#most_downloaded' do
       click_link 'faraday'
     end

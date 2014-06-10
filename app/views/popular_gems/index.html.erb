@@ -1,30 +1,14 @@
-<div class="page-header blockquote-reverse">
+<div class="page-header blockquote-reverse col-md-11">
   <h1><span class="label label-info"><strong>a discovery engine for ruby gems</strong></span></h1>
 </div>
 
 <div class="container">
   <%= render(partial: 'gem_table', locals: {
-    gem_id: 'most_hearted',
-    path_for_gems: most_hearted_path(page: 2),
-    gems: @top_hearted_gems,
-    view_more: true,
-    title: 'Most loved gems',
-    use_pagination: false})
-  %>
-  <%= render(partial: 'gem_table', locals: {
-    gem_id: 'recent_comments',
+    gem_id: 'featured_gems',
     path_for_gems: nil,
-    gems: @recent_comments,
+    gems: @featured_gems,
     view_more: false,
-    title: 'Recently commented on gems',
-    use_pagination: false})
-  %>
-  <%= render(partial: 'gem_table', locals: {
-    gem_id: 'most_downloaded',
-    path_for_gems: most_downloaded_path(page: 2),
-    gems: @top_downloaded_gems,
-    view_more: true,
-    title: 'Most downloaded gems',
+    title: 'Featured gems of the week',
     use_pagination: false})
   %>
 </div>

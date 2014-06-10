@@ -3,6 +3,7 @@ class PopularGemsController < ApplicationController
     @top_downloaded_gems = PopularGem.top_downloaded(10)
     @top_hearted_gems = PopularGem.top_hearted(10)
     @recent_comments = Comment.recent_comments
+    @featured_gems = PopularGem.featured
     set_meta_tags :title => 'Ruby Gem discovery engine',
                   :description => 'Discover the most downloaded and most loved Ruby Gems',
                   :keywords => 'Ruby, gems, ruby gems, rails, top ruby gems, top rubygems,
@@ -42,13 +43,17 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
 
   def like
     gem = PopularGem.friendly.find(params[:id])
-    if current_user.liked?(gem)
-      current_user.dislikes gem
-      current_user.subtract_points(1)
-    else
-      current_user.likes gem
-      current_user.add_points(1)
+
+    PopularGem.without_timestamps do
+      if current_user.liked?(gem)
+        current_user.dislikes gem
+        current_user.subtract_points(1)
+      else
+        current_user.likes gem
+        current_user.add_points(1)
+      end
     end
+
     render json: {gem: gem, likes: current_user.liked?(gem)}
   end
 
