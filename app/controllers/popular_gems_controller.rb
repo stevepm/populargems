@@ -29,16 +29,18 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
 
   def most_downloaded
     @top_downloaded_gems = PopularGem.top_downloaded.pagination(params[:page])
-    set_meta_tags :title => 'Most downloaded',
-                  :description => 'Discover the most downloaded Ruby Gems',
-                  :keywords => 'Ruby, gems, ruby gems, rails'
+    set_meta_tags :title => 'Most downloaded ruby gems',
+                  :description => 'Discover the most downloaded ruby gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails',
+                  :reverse => true
   end
 
   def most_hearted
     @top_hearted_gems = PopularGem.top_hearted.pagination(params[:page])
-    set_meta_tags :title => 'Most loved',
-                  :description => 'Discover the most loved Ruby Gems',
-                  :keywords => 'Ruby, gems, ruby gems, rails'
+    set_meta_tags :title => 'Most loved ruby gems',
+                  :description => 'Discover the most loved ruby gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails',
+                  :reverse => true
   end
 
   def like
@@ -62,7 +64,8 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
     @users = @gem.votes_for.up.by_type(User).voters
     set_meta_tags :title => "#{@gem.name} likes",
                   :description => "Users that like #{@gem.name}",
-                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}"
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}",
+                  :reverse => true
   end
 
   private
