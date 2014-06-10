@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resource :search
 
   resources :user
+  get '/user/:id/comments', to: 'user#all_comments', as: :user_comments
+  get '/user/:id/likes', to: 'user#all_likes', as: :user_likes
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signout' => 'sessions#destroy', :as => :signout

@@ -28,7 +28,6 @@ feature 'User Profile' do
     end
     click_on 'user_profile'
     within '#loved_gems' do
-      expect(page).to have_content('Gem Bundle')
       expect(page).to have_content('faraday')
     end
   end

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8" id="loved_gems">
+      <table class="table table-striped table-bordered table-responsive table-hover well">
+        <thead>
+        <tr>
+          <th class="col-sm-3"><%= link_to @user.name, @user %>'s likes</th>
+          <th class="col-sm-10">
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if @loved_gems.size > 0 %>
+          <% @loved_gems.each do |gem| %>
+            <tr>
+              <td>
+                <%= render partial: 'shared/heart_button', locals: {gem: gem} %>
+                <%= render partial: 'shared/gem_likes_label', locals: {gem: gem} %>
+              </td>
+              <td><strong>
+                <%= link_to gem.name, gem %>
+              </strong></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr class="info">
+            <td><strong>You haven't loved any gems yet!</strong></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <%= paginate(@loved_gems) %>
+    </div>
+  </div>
+</div>
