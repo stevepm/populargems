@@ -12,7 +12,7 @@
             <div class="col-xs-7 text-center">
               <div class="row">
                 <div class="col-xs-5 pull-right">
-                  <%= link_to 'Update Now', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block pull-right active" %>
+                  <%= link_to 'Update Now', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block pull-right" %>
                 </div>
               </div>
               <div class="row">
@@ -33,7 +33,7 @@
             <p>
               <small>Total Downloads</small>
             </p>
-            <a href="<%= @gem.url %>" class="btn btn-success btn-block active">View on Rubygems</a>
+            <a href="<%= @gem.url %>" class="btn btn-success btn-block">View on Rubygems</a>
 
           </div>
           <div class="col-xs-12 col-sm-6 emphasis">
@@ -42,7 +42,7 @@
             <p>
               <small>Version Downloads</small>
             </p>
-            <a href="<%= @gem.project_url %>" class="btn btn-info btn-block active">View Project</a>
+            <a href="<%= @gem.project_url %>" class="btn btn-info btn-block">View Project</a>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@
                 <div class="row">
                   <div class="col-xs-4 col-xs-offset-8">
                     <strong><%= link_to comment.user.name, comment.user %>:</strong>
-                    <span class="badge alert-warning" id="comment_points"><%= comment.user.points %></span>
+                    <span class="badge danger" id="comment_points"><%= comment.user.points %></span>
                   </div>
                 </div>
                 <div class="row">

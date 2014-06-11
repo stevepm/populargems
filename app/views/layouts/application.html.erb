@@ -36,12 +36,13 @@
               <% end %>
             </li>
           </ul>
-          <div class="nav navbar-nav navbar-right">
-            <ol class="breadcrumb text-center">
+          <div class="">
+            <ul class="nav navbar-nav navbar-right navbar-link">
               <% if logged_in? %>
                 <li>
-                  <%= link_to current_user.name, current_user, class: 'label label-success', id: 'user_profile' %>
-                  <span class="badge alert-warning" id="points"><%= current_user.points %></span>
+                  <%= link_to current_user, id: 'user_profile' do %>
+                    <%= current_user.name %> <span class="badge danger"><%= current_user.points %></span>
+                  <% end %>
                 </li>
                 <li>
                   <%= link_to 'Sign out', :signout %>
@@ -51,23 +52,13 @@
                   <%= link_to 'Sign in with Github', '/auth/github' %>
                 </li>
               <% end %>
-            </ol>
+            </ul>
           </div>
         </div>
       </nav>
     </div>
     <div class="row clearfix" id="wrapper">
       <div class="col-md-12 column">
-        <div class="col-md-10 col-md-offset-1">
-          <% unless logged_in? %>
-            <div class="row">
-              <div class="alert alert-danger col-xs-4 col-xs-offset-4">
-                <strong><%= link_to 'Sign in', '/auth/github' %></strong> to keep track of
-                your favorite gems
-              </div>
-            </div>
-          <% end %>
-        </div>
         <div class="col-md-10">
           <%= yield %>
         </div>

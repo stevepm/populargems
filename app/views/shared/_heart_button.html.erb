@@ -21,7 +21,7 @@
   <% else %>
     <% button = 'btn-warning' %>
   <% end %>
-  <%= link_to like_gem_path(gem.id, current_user.id), method: :put, class: "btn #{button} btn-sm active", id: "heart_#{gem.name}", remote: true do %>
+  <%= link_to like_gem_path(gem.id, current_user.id), method: :put, class: "btn #{button} btn-sm", id: "heart_#{gem.name}", remote: true do %>
     <span class="glyphicon glyphicon-heart"></span>
     <input type="hidden" value="<%= gem.id %>" name="popular_gem_id">
     <input type="hidden" value="<%= current_user.id %>" name="user_id">
