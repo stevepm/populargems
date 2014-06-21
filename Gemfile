@@ -36,6 +36,7 @@ group :test, :development do
   gem 'better_errors'
   gem 'selenium-webdriver'
   gem 'byebug'
+  gem 'jazz_hands'
 end
 
 group :test do
