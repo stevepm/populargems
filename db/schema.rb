@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622032151) do
+ActiveRecord::Schema.define(version: 20140622050110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20140622032151) do
     t.integer  "gh_forks"
     t.integer  "gh_issues"
     t.datetime "gh_updated_at"
+    t.string   "source_code_url"
   end
 
   add_index "popular_gems", ["cached_votes_down"], name: "index_popular_gems_on_cached_votes_down", using: :btree

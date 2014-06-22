@@ -30,7 +30,8 @@ class GemImporter
                  version_downloads: body["version_downloads"],
                  url: body["project_uri"],
                  project_url: body["homepage_uri"],
-                 description: body["info"])
+                 description: body["info"],
+                source_code_url: body["source_code_uri"])
       github_info(gem)
     end
 
