@@ -26,7 +26,8 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
     PopularGem.without_timestamps do
       GemImporter.update_gem(gem.name)
     end
-    redirect_to gem
+    updated_gem = PopularGem.friendly.find(params[:id])
+    render json: {gem: updated_gem}
   end
 
   def most_downloaded

@@ -10,7 +10,7 @@
       <p class="break-word"><strong>About: </strong><%= @gem.description %></p>
     </div>
     <div class="col-md-4 col-xs-4 pull-right">
-      <%= link_to 'Update Gem', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block" %>
+      <%= link_to 'Update Gem', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block", id: "update_gem", remote: true %>
     </div>
   </div>
   <div class="well profile col-xs-12">
@@ -133,7 +133,11 @@
         $(elem).wysihtml5();
       });
 
-
+      $('#update_gem').click(function(){
+        return $("a[data-remote]").on("ajax:success", function(e, data, status, xhr) {
+          location.reload();
+        })
+      });
     })
   </script>
 </div>
