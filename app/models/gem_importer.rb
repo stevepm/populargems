@@ -31,6 +31,17 @@ class GemImporter
                  url: body["project_uri"],
                  project_url: body["homepage_uri"],
                  description: body["info"])
+      github_info(gem)
+    end
+
+    def github_info(gem)
+      gh_info = GithubInfo.gather(gem)
+      if gh_info
+        gem.update(gh_stars: gh_info[:stars],
+        gh_forks: gh_info[:forks],
+        gh_issues: gh_info[:issues],
+        gh_updated_at: gh_info[:updated_at])
+      end
     end
   end
 end

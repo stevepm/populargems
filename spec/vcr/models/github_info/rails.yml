@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rails.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 21 Jun 2014 23:45:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"6e470f22a1d64d08a519aed8d9da4073"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Sun, 21-Jun-2015 23:45:13 GMT; secure
+      X-Request-Id:
+      - 676499c379653e7c0edb9bce0c5f7205
+      X-Runtime:
+      - '0.089325'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rails","downloads":36384857,"version":"4.1.1","version_downloads":339023,"platform":"ruby","authors":"David
+        Heinemeier Hansson","info":"Ruby on Rails is a full-stack web framework optimized
+        for programmer happiness and sustainable productivity. It encourages beautiful
+        code by favoring convention over configuration.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rails","gem_uri":"http://rubygems.org/gems/rails-4.1.1.gem","homepage_uri":"http://www.rubyonrails.org","wiki_uri":"http://wiki.rubyonrails.org","documentation_uri":"http://api.rubyonrails.org","mailing_list_uri":"http://groups.google.com/group/rubyonrails-talk","source_code_uri":"http://github.com/rails/rails","bug_tracker_uri":"http://github.com/rails/rails/issues","dependencies":{"development":[],"runtime":[{"name":"actionmailer","requirements":"=
+        4.1.1"},{"name":"actionpack","requirements":"= 4.1.1"},{"name":"actionview","requirements":"=
+        4.1.1"},{"name":"activemodel","requirements":"= 4.1.1"},{"name":"activerecord","requirements":"=
+        4.1.1"},{"name":"activesupport","requirements":"= 4.1.1"},{"name":"bundler","requirements":"<
+        2.0, >= 1.3.0"},{"name":"railties","requirements":"= 4.1.1"},{"name":"sprockets-rails","requirements":"~>
+        2.0"}]}}'
+    http_version: 
+  recorded_at: Sat, 21 Jun 2014 23:45:13 GMT
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/rspec.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 21 Jun 2014 23:46:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"daabffdc3340d36c6b843b1ccbd9b403"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Sun, 21-Jun-2015 23:46:15 GMT; secure
+      X-Request-Id:
+      - 1e41056727d3bcbb96b92d62dfca98ca
+      X-Runtime:
+      - '0.032962'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"rspec","downloads":15700702,"version":"3.0.0","version_downloads":130590,"platform":"ruby","authors":"Steven
+        Baker, David Chelimsky, Myron Marston","info":"BDD for Ruby","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/rspec","gem_uri":"http://rubygems.org/gems/rspec-3.0.0.gem","homepage_uri":"http://github.com/rspec","wiki_uri":"","documentation_uri":"http://relishapp.com/rspec","mailing_list_uri":"http://rubyforge.org/mailman/listinfo/rspec-users","source_code_uri":"http://github.com/rspec/rspec","bug_tracker_uri":"","dependencies":{"development":[],"runtime":[{"name":"rspec-core","requirements":"~>
+        3.0.0"},{"name":"rspec-expectations","requirements":"~> 3.0.0"},{"name":"rspec-mocks","requirements":"~>
+        3.0.0"}]}}'
+    http_version: 
+  recorded_at: Sat, 21 Jun 2014 23:46:15 GMT
+- request:
+    method: get
+    uri: http://github.com/rspec
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Content-Length:
+      - '0'
+      Location:
+      - https://github.com/rspec
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Sat, 21 Jun 2014 23:46:19 GMT
+recorded_with: VCR 2.9.0

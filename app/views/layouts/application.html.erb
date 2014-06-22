@@ -41,7 +41,7 @@
               <% if logged_in? %>
                 <li>
                   <%= link_to current_user, id: 'user_profile' do %>
-                    <%= current_user.name %> <span class="badge danger"><%= current_user.points %></span>
+                    <%= current_user.name %> <span class="badge danger" id="points"><%= current_user.points %></span>
                   <% end %>
                 </li>
                 <li>

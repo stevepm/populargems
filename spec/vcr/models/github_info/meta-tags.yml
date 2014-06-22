@@ -1,0 +1,264 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://rubygems.org/api/v1/gems/meta-tags.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 22 Jun 2014 00:11:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      - IE=Edge,chrome=1
+      Etag:
+      - '"f0c0f0ab0cc12ec226772966e6a3581d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Set-Cookie:
+      - remember_token=; path=/; expires=Mon, 22-Jun-2015 00:11:58 GMT; secure
+      X-Request-Id:
+      - 34ebb4db29df3645ab07ab2a41cea050
+      X-Runtime:
+      - '0.080722'
+      X-Rack-Cache:
+      - miss
+    body:
+      encoding: UTF-8
+      string: '{"name":"meta-tags","downloads":158749,"version":"2.0.0","version_downloads":8526,"platform":"ruby","authors":"Dmytro
+        Shteflyuk","info":"Search Engine Optimization (SEO) plugin for Ruby on Rails
+        applications.","licenses":[],"project_uri":"http://rubygems.org/gems/meta-tags","gem_uri":"http://rubygems.org/gems/meta-tags-2.0.0.gem","homepage_uri":"http://github.com/kpumuk/meta-tags","wiki_uri":"","documentation_uri":"http://rdoc.info/projects/kpumuk/meta-tags","mailing_list_uri":"","source_code_uri":"http://github.com/kpumuk/meta-tags","bug_tracker_uri":"http://github.com/kpumuk/meta-tags/issues","dependencies":{"development":[{"name":"bluecloth","requirements":">=
+        0"},{"name":"rake","requirements":">= 0"},{"name":"rspec","requirements":">=
+        0"},{"name":"yard","requirements":">= 0"}],"runtime":[{"name":"actionpack","requirements":">=
+        3.0.0"}]}}'
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 00:11:58 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/kpumuk/meta-tags
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sun, 22 Jun 2014 00:11:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '53'
+      X-Ratelimit-Reset:
+      - '1403398626'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Sat, 21 Jun 2014 17:50:26 GMT
+      Etag:
+      - '"87331223276b98b94d4a775ae43e9d46"'
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 32C9BB81:6288:1374C0D8:53A61F4E
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - c436b2b44345c72ff906059f604991e7
+    body:
+      encoding: UTF-8
+      string: '{"id":53374,"name":"meta-tags","full_name":"kpumuk/meta-tags","owner":{"login":"kpumuk","id":10163,"avatar_url":"https://avatars.githubusercontent.com/u/10163?","gravatar_id":"7fd8114f07629abb06a0cd7b3a2b979a","url":"https://api.github.com/users/kpumuk","html_url":"https://github.com/kpumuk","followers_url":"https://api.github.com/users/kpumuk/followers","following_url":"https://api.github.com/users/kpumuk/following{/other_user}","gists_url":"https://api.github.com/users/kpumuk/gists{/gist_id}","starred_url":"https://api.github.com/users/kpumuk/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/kpumuk/subscriptions","organizations_url":"https://api.github.com/users/kpumuk/orgs","repos_url":"https://api.github.com/users/kpumuk/repos","events_url":"https://api.github.com/users/kpumuk/events{/privacy}","received_events_url":"https://api.github.com/users/kpumuk/received_events","type":"User","site_admin":false},"private":false,"html_url":"https://github.com/kpumuk/meta-tags","description":"Search
+        Engine Optimization (SEO) plugin for Ruby on Rails applications.","fork":false,"url":"https://api.github.com/repos/kpumuk/meta-tags","forks_url":"https://api.github.com/repos/kpumuk/meta-tags/forks","keys_url":"https://api.github.com/repos/kpumuk/meta-tags/keys{/key_id}","collaborators_url":"https://api.github.com/repos/kpumuk/meta-tags/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/kpumuk/meta-tags/teams","hooks_url":"https://api.github.com/repos/kpumuk/meta-tags/hooks","issue_events_url":"https://api.github.com/repos/kpumuk/meta-tags/issues/events{/number}","events_url":"https://api.github.com/repos/kpumuk/meta-tags/events","assignees_url":"https://api.github.com/repos/kpumuk/meta-tags/assignees{/user}","branches_url":"https://api.github.com/repos/kpumuk/meta-tags/branches{/branch}","tags_url":"https://api.github.com/repos/kpumuk/meta-tags/tags","blobs_url":"https://api.github.com/repos/kpumuk/meta-tags/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/kpumuk/meta-tags/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/kpumuk/meta-tags/git/refs{/sha}","trees_url":"https://api.github.com/repos/kpumuk/meta-tags/git/trees{/sha}","statuses_url":"https://api.github.com/repos/kpumuk/meta-tags/statuses/{sha}","languages_url":"https://api.github.com/repos/kpumuk/meta-tags/languages","stargazers_url":"https://api.github.com/repos/kpumuk/meta-tags/stargazers","contributors_url":"https://api.github.com/repos/kpumuk/meta-tags/contributors","subscribers_url":"https://api.github.com/repos/kpumuk/meta-tags/subscribers","subscription_url":"https://api.github.com/repos/kpumuk/meta-tags/subscription","commits_url":"https://api.github.com/repos/kpumuk/meta-tags/commits{/sha}","git_commits_url":"https://api.github.com/repos/kpumuk/meta-tags/git/commits{/sha}","comments_url":"https://api.github.com/repos/kpumuk/meta-tags/comments{/number}","issue_comment_url":"https://api.github.com/repos/kpumuk/meta-tags/issues/comments/{number}","contents_url":"https://api.github.com/repos/kpumuk/meta-tags/contents/{+path}","compare_url":"https://api.github.com/repos/kpumuk/meta-tags/compare/{base}...{head}","merges_url":"https://api.github.com/repos/kpumuk/meta-tags/merges","archive_url":"https://api.github.com/repos/kpumuk/meta-tags/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/kpumuk/meta-tags/downloads","issues_url":"https://api.github.com/repos/kpumuk/meta-tags/issues{/number}","pulls_url":"https://api.github.com/repos/kpumuk/meta-tags/pulls{/number}","milestones_url":"https://api.github.com/repos/kpumuk/meta-tags/milestones{/number}","notifications_url":"https://api.github.com/repos/kpumuk/meta-tags/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/kpumuk/meta-tags/labels{/name}","releases_url":"https://api.github.com/repos/kpumuk/meta-tags/releases{/id}","created_at":"2008-09-17T01:41:59Z","updated_at":"2014-06-21T17:50:26Z","pushed_at":"2014-04-15T15:08:43Z","git_url":"git://github.com/kpumuk/meta-tags.git","ssh_url":"git@github.com:kpumuk/meta-tags.git","clone_url":"https://github.com/kpumuk/meta-tags.git","svn_url":"https://github.com/kpumuk/meta-tags","homepage":"","size":956,"stargazers_count":655,"watchers_count":655,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":94,"mirror_url":null,"open_issues_count":2,"forks":94,"open_issues":2,"watchers":655,"default_branch":"master","network_count":94,"subscribers_count":21}'
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 00:11:58 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/awostenberg/faraday
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sun, 22 Jun 2014 03:30:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 404 Not Found
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '57'
+      X-Ratelimit-Reset:
+      - '1403410986'
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 328688E5:6288:13BC6C8C:53A64DCE
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"message":"Not Found","documentation_url":"https://developer.github.com/v3"}'
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 03:30:22 GMT
+- request:
+    method: get
+    uri: https://api.github.com/repos/lostisland/faraday
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Sun, 22 Jun 2014 03:31:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '55'
+      X-Ratelimit-Reset:
+      - '1403410986'
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Last-Modified:
+      - Fri, 20 Jun 2014 02:27:37 GMT
+      Etag:
+      - '"ef9a5f5bec0e8228cfab625a943a0611"'
+      Vary:
+      - Accept
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 328688E5:4018:109C05DD:53A64E17
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 03d91026ad8428f4d9966d7434f9d82e
+    body:
+      encoding: UTF-8
+      string: '{"id":417389,"name":"faraday","full_name":"lostisland/faraday","owner":{"login":"lostisland","id":2613464,"avatar_url":"https://avatars.githubusercontent.com/u/2613464?","gravatar_id":"2cac6a53fb519390129fb847ca365f31","url":"https://api.github.com/users/lostisland","html_url":"https://github.com/lostisland","followers_url":"https://api.github.com/users/lostisland/followers","following_url":"https://api.github.com/users/lostisland/following{/other_user}","gists_url":"https://api.github.com/users/lostisland/gists{/gist_id}","starred_url":"https://api.github.com/users/lostisland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lostisland/subscriptions","organizations_url":"https://api.github.com/users/lostisland/orgs","repos_url":"https://api.github.com/users/lostisland/repos","events_url":"https://api.github.com/users/lostisland/events{/privacy}","received_events_url":"https://api.github.com/users/lostisland/received_events","type":"Organization","site_admin":false},"private":false,"html_url":"https://github.com/lostisland/faraday","description":"Simple,
+        but flexible HTTP client library, with support for multiple backends.","fork":false,"url":"https://api.github.com/repos/lostisland/faraday","forks_url":"https://api.github.com/repos/lostisland/faraday/forks","keys_url":"https://api.github.com/repos/lostisland/faraday/keys{/key_id}","collaborators_url":"https://api.github.com/repos/lostisland/faraday/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/lostisland/faraday/teams","hooks_url":"https://api.github.com/repos/lostisland/faraday/hooks","issue_events_url":"https://api.github.com/repos/lostisland/faraday/issues/events{/number}","events_url":"https://api.github.com/repos/lostisland/faraday/events","assignees_url":"https://api.github.com/repos/lostisland/faraday/assignees{/user}","branches_url":"https://api.github.com/repos/lostisland/faraday/branches{/branch}","tags_url":"https://api.github.com/repos/lostisland/faraday/tags","blobs_url":"https://api.github.com/repos/lostisland/faraday/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/lostisland/faraday/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/lostisland/faraday/git/refs{/sha}","trees_url":"https://api.github.com/repos/lostisland/faraday/git/trees{/sha}","statuses_url":"https://api.github.com/repos/lostisland/faraday/statuses/{sha}","languages_url":"https://api.github.com/repos/lostisland/faraday/languages","stargazers_url":"https://api.github.com/repos/lostisland/faraday/stargazers","contributors_url":"https://api.github.com/repos/lostisland/faraday/contributors","subscribers_url":"https://api.github.com/repos/lostisland/faraday/subscribers","subscription_url":"https://api.github.com/repos/lostisland/faraday/subscription","commits_url":"https://api.github.com/repos/lostisland/faraday/commits{/sha}","git_commits_url":"https://api.github.com/repos/lostisland/faraday/git/commits{/sha}","comments_url":"https://api.github.com/repos/lostisland/faraday/comments{/number}","issue_comment_url":"https://api.github.com/repos/lostisland/faraday/issues/comments/{number}","contents_url":"https://api.github.com/repos/lostisland/faraday/contents/{+path}","compare_url":"https://api.github.com/repos/lostisland/faraday/compare/{base}...{head}","merges_url":"https://api.github.com/repos/lostisland/faraday/merges","archive_url":"https://api.github.com/repos/lostisland/faraday/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/lostisland/faraday/downloads","issues_url":"https://api.github.com/repos/lostisland/faraday/issues{/number}","pulls_url":"https://api.github.com/repos/lostisland/faraday/pulls{/number}","milestones_url":"https://api.github.com/repos/lostisland/faraday/milestones{/number}","notifications_url":"https://api.github.com/repos/lostisland/faraday/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/lostisland/faraday/labels{/name}","releases_url":"https://api.github.com/repos/lostisland/faraday/releases{/id}","created_at":"2009-12-10T17:14:55Z","updated_at":"2014-06-20T02:27:37Z","pushed_at":"2014-06-06T12:17:51Z","git_url":"git://github.com/lostisland/faraday.git","ssh_url":"git@github.com:lostisland/faraday.git","clone_url":"https://github.com/lostisland/faraday.git","svn_url":"https://github.com/lostisland/faraday","homepage":"","size":4332,"stargazers_count":1955,"watchers_count":1955,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":274,"mirror_url":null,"open_issues_count":53,"forks":274,"open_issues":53,"watchers":1955,"default_branch":"master","organization":{"login":"lostisland","id":2613464,"avatar_url":"https://avatars.githubusercontent.com/u/2613464?","gravatar_id":"2cac6a53fb519390129fb847ca365f31","url":"https://api.github.com/users/lostisland","html_url":"https://github.com/lostisland","followers_url":"https://api.github.com/users/lostisland/followers","following_url":"https://api.github.com/users/lostisland/following{/other_user}","gists_url":"https://api.github.com/users/lostisland/gists{/gist_id}","starred_url":"https://api.github.com/users/lostisland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lostisland/subscriptions","organizations_url":"https://api.github.com/users/lostisland/orgs","repos_url":"https://api.github.com/users/lostisland/repos","events_url":"https://api.github.com/users/lostisland/events{/privacy}","received_events_url":"https://api.github.com/users/lostisland/received_events","type":"Organization","site_admin":false},"network_count":274,"subscribers_count":61}'
+    http_version: 
+  recorded_at: Sun, 22 Jun 2014 03:31:35 GMT
+recorded_with: VCR 2.9.0
