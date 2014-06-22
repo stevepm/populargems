@@ -1,17 +1,18 @@
-<div class="col-md-9">
+<div class="col-md-10">
   <div class="well profile col-xs-12">
-    <div class="col-md-8 col-xs-8">
+    <div class="col-xs-12">
       <%= render partial: 'shared/heart_button', locals: {gem: @gem} %>
       <%= render partial: 'shared/gem_likes_label', locals: {gem: @gem} %>
+      <div class="col-md-4 col-xs-4 pull-right">
+        <%= link_to 'Update Gem', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block", id: "update_gem", remote: true %>
+      </div>
       <h2 class="break-word"><%= @gem.name %></h2>
 
       <p><strong>Version: </strong><%= @gem.version %></p>
 
       <p class="break-word"><strong>About: </strong><%= @gem.description %></p>
     </div>
-    <div class="col-md-4 col-xs-4 pull-right">
-      <%= link_to 'Update Gem', edit_popular_gem_path(@gem), class: "btn btn-warning btn-block", id: "update_gem", remote: true %>
-    </div>
+
   </div>
   <div class="well col-xs-12">
     <h1>Install</h1>
