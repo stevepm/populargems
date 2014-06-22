@@ -1,9 +1,7 @@
-<div class="container">
-  <%= render(partial: 'popular_gems/gem_table', locals: {gem_id: 'search_results',
-                                            path_for_gems: nil,
-                                            gems: @results,
-                                            view_more: false,
-                                            title: "Results for #{params[:gem_name]}",
-                                            use_pagination: true})
-  %>
-</div>
+<%= render(partial: 'popular_gems/gem_table', locals: {gem_id: 'search_results',
+                                                       path_for_gems: nil,
+                                                       gems: @results,
+                                                       view_more: false,
+                                                       title: "Results for #{params[:gem_name]}",
+                                                       use_pagination: true})
+%>
