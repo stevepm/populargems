@@ -4,7 +4,7 @@ class GithubInfo
       url = gem.project_url
       info = nil
       if url
-        if url_match = url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)\/?/)
+        if url_match = url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
           username = url_match[1]
           repo = url_match[2]
           response = Faraday.get("https://api.github.com/repos/#{username}/#{repo}")
