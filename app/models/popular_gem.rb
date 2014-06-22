@@ -12,6 +12,9 @@ class PopularGem < ActiveRecord::Base
       indexes :name, analyzer: 'standard', index_options: 'offsets'
       indexes :description, analyzer: 'standard', index_options: 'offsets'
       indexes :total_downloads, type: 'long'
+      indexes :gh_stars, type: 'long'
+      indexes :gh_forks, type: 'long'
+      indexes :gh_issues, type: 'long'
     end
   end
 
@@ -37,7 +40,7 @@ class PopularGem < ActiveRecord::Base
                       },
                       functions: [
                         script_score: {
-                          script: "_score * doc['total_downloads'].value / 2**3.1"
+                          script: "_score * (doc['total_downloads'].value + doc['gh_stars'].value * 5 + doc['gh_forks'].value * 5 + doc['gh_issues'].value *3) / 2**3.1"
                         }
                       ],
                       score_mode: "sum"
