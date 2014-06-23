@@ -4,6 +4,7 @@
   <%= display_meta_tags :site => 'GemBundle' %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
   <%= csrf_meta_tags %>
 </head>
@@ -16,7 +17,7 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">GemBundle</a>
+          <a class="navbar-brand" id="logo" href="/">GEMBUNDLE</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

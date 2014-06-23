@@ -27,6 +27,11 @@ html {
 .change-width{
   width: 100px;
 }
+#logo{
+  color: rgba(0, 0, 0, 0);
+  background: image_url('download.png') no-repeat left;
+  background-size: 100%;
+}
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: font-url('glyphicons-halflings-regular.eot');
