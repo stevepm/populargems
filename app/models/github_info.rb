@@ -26,7 +26,7 @@ class GithubInfo
           stars: json["stargazers_count"],
           forks: json["forks"],
           issues: json["open_issues"],
-          updated_at: json["updated_at"]
+          updated_at: json["pushed_at"]
         }
       end
       info

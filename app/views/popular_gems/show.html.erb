@@ -50,7 +50,7 @@
             <td><strong><%= number_with_delimiter(@gem.gh_issues, :delimiter => ',') %></strong></td>
           </tr>
           <tr>
-            <td class="col-xs-6">Date last updated:</td>
+            <td class="col-xs-6">Last push:</td>
             <td>
               <strong><%= "#{@gem.gh_updated_at.year}-#{@gem.gh_updated_at.month}-#{@gem.gh_updated_at.day}" %></strong>
             </td>
