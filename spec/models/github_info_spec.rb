@@ -8,7 +8,7 @@ describe GithubInfo do
       puts faraday.project_url
 
       faraday_info = GithubInfo.gather(faraday)
-      expect(faraday_info).to eq({forks: 274, issues: 53, stars: 1955, updated_at: "2014-06-20T02:27:37Z"})
+      expect(faraday_info).to eq({forks: 274, issues: 53, stars: 1955, updated_at: "2014-06-06T12:17:51Z"})
     end
   end
 end

@@ -25,11 +25,11 @@ describe GemImporter do
     VCR.use_cassette('models/gem_importer/update_gem') do
       GemImporter.seed_db('rails')
       rails = PopularGem.find_by_name('rails')
-      expect(rails.total_downloads).to eq(35467693)
+      expect(rails.total_downloads).to eq(36407249)
       VCR.use_cassette('models/gem_importer/update_gem_again') do
         GemImporter.update_gem('rails')
         rails.reload
-        expect(rails.total_downloads).to eq(35349156)
+        expect(rails.total_downloads).to eq(36407278)
       end
     end
   end
