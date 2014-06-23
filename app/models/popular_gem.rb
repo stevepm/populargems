@@ -40,7 +40,7 @@ class PopularGem < ActiveRecord::Base
                       },
                       functions: [
                         script_score: {
-                          script: "_score * (doc['total_downloads'].value + doc['gh_stars'].value * 5 + doc['gh_forks'].value * 5 + doc['gh_issues'].value *3) / 2**3.1"
+                          script: "_score * (doc['total_downloads'].value + doc['gh_stars'].value * 400  + doc['gh_forks'].value * 150 + doc['gh_issues'].value * 300) / 2**3.1"
                         }
                       ],
                       score_mode: "sum"
