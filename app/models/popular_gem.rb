@@ -44,19 +44,8 @@ class PopularGem < ActiveRecord::Base
                         }
                       ],
                       score_mode: "sum"
-                    }},
-                    {term: {name:
-                              {value: query,
-                               boost: 2.0}}
-                    }
+                    }}
                   ]
-                }
-              },
-              filter: {
-                range: {
-                  total_downloads: {
-                    from: 1000
-                  }
                 }
               }
             }
