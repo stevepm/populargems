@@ -33,6 +33,7 @@ class GemImporter
                  project_url: body["homepage_uri"],
                  description: body["info"],
                  source_code_url: body["source_code_uri"])
+      gem.reload
       gh_info = GithubInfo.gather(gem)
       if gh_info
         gem.update(gh_stars: gh_info[:stars],

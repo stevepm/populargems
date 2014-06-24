@@ -1,9 +1,9 @@
 class GithubInfo
   class << self
     def gather(gem)
-      url = URI.parse(URI.encode(gem.project_url)) if gem.project_url
-      source = URI.parse(URI.encode(gem.source_code_url)) if gem.source_code_url
-      home = URI.parse(URI.encode(gem.url)) if gem.url
+      url = Addressable::URI.parse(URI.encode(gem.project_url)) if gem.project_url
+      source = Addressable::URI.parse(URI.encode(gem.source_code_url)) if gem.source_code_url
+      home = Addressable::URI.parse(URI.encode(gem.url)) if gem.url
       info = nil
       if url && gem.project_url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(url)
@@ -16,6 +16,7 @@ class GithubInfo
     end
 
     private
+
 
     def get_info(url)
       info = nil
