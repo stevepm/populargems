@@ -23,9 +23,14 @@
       <% end %>
     <% else %>
       <tr class="info">
-        <td><strong>You haven't loved any gems yet!</strong></td>
+        <% if @user == current_user %>
+          <td><strong>You haven't loved any gems yet!</strong></td>
+        <% else %>
+          <td><strong><%= @user.name %> hasn't loved any gems yet!</strong></td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <%= paginate(@loved_gems) %>
 </div>
