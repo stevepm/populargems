@@ -1,3 +1,5 @@
+require "addressable/uri"
+
 class GithubInfo
   class << self
     def gather(gem)
