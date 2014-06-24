@@ -18,6 +18,7 @@ class GemImporter
       if response.status >= 300
         false
       else
+        puts "Updating data for #{name}....."
         update_info(JSON.parse(response.body), PopularGem.find_by_name(name))
       end
     end
@@ -25,29 +26,22 @@ class GemImporter
     private
 
     def update_info(body, gem)
+      gem.update(total_downloads: body["downloads"],
+                 version: body["version"],
+                 version_downloads: body["version_downloads"],
+                 url: body["project_uri"],
+                 project_url: body["homepage_uri"],
+                 description: body["info"],
+                 source_code_url: body["source_code_uri"])
       gh_info = GithubInfo.gather(gem)
       if gh_info
-        gem.update(total_downloads: body["downloads"],
-                   version: body["version"],
-                   version_downloads: body["version_downloads"],
-                   url: body["project_uri"],
-                   project_url: body["homepage_uri"],
-                   description: body["info"],
-                   source_code_url: body["source_code_uri"],
-                   gh_stars: gh_info[:stars],
+        gem.update(gh_stars: gh_info[:stars],
                    gh_forks: gh_info[:forks],
                    gh_issues: gh_info[:issues],
                    gh_updated_at: gh_info[:updated_at],
                    score: gem.calculate_score)
       else
-        gem.update(total_downloads: body["downloads"],
-                   version: body["version"],
-                   version_downloads: body["version_downloads"],
-                   url: body["project_uri"],
-                   project_url: body["homepage_uri"],
-                   description: body["info"],
-                   source_code_url: body["source_code_uri"],
-                   score: gem.calculate_score)
+        gem.update(score: gem.calculate_score)
       end
     end
 
