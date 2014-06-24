@@ -1,15 +1,15 @@
 class GithubInfo
   class << self
     def gather(gem)
-      url = gem.project_url
-      source = gem.source_code_url
-      home = gem.url
+      url = URI.parse(URI.encode(gem.project_url)) if gem.project_url
+      source = URI.parse(URI.encode(gem.source_code_url)) if gem.source_code_url
+      home = URI.parse(URI.encode(gem.url)) if gem.url
       info = nil
-      if url && url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+      if url && gem.project_url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(url)
-      elsif source && source.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+      elsif source && gem.source_code_url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(source)
-      elsif home && home.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+      elsif home && gem.url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(home)
       end
       info
@@ -19,7 +19,7 @@ class GithubInfo
 
     def get_info(url)
       info = nil
-      url_match = url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+      url_match = url.path.match(/([^\/]+)\/([^\/]+)/)
       username = url_match[1]
       repo = url_match[2]
       response = Faraday.get("https://api.github.com/repos/#{username}/#{repo}")
