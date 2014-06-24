@@ -33,7 +33,7 @@
                 <div class="form-group">
                   <%= text_field_tag 'gem_name', nil, class: "form-control", placeholder: 'Search for a gem' %>
                 </div>
-                <%= submit_tag :Search, class: "btn btn-default active" %>
+                <%= submit_tag :Search, class: "btn btn-default" %>
               <% end %>
             </li>
           </ul>
@@ -42,7 +42,7 @@
               <% if logged_in? %>
                 <li>
                   <%= link_to current_user, id: 'user_profile' do %>
-                    <%= current_user.name %> <span class="badge danger" id="points"><%= current_user.points %></span>
+                    <%= current_user.name %> <span class="badge alert-info" id="points"><%= current_user.points %></span>
                   <% end %>
                 </li>
                 <li>

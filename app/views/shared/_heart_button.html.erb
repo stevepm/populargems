@@ -6,9 +6,9 @@
       likes = data.likes;
       if (likes) {
         $("#" + id).removeClass("btn-default");
-        $("#" + id).addClass("btn-warning");
+        $("#" + id).addClass("btn-danger");
       } else {
-        $("#" + id).removeClass("btn-warning");
+        $("#" + id).removeClass("btn-danger");
         $("#" + id).addClass("btn-default");
       }
     });
@@ -19,7 +19,7 @@
   <% if !(current_user.voted_up_on? gem) %>
     <% button = 'btn-default' %>
   <% else %>
-    <% button = 'btn-warning' %>
+    <% button = 'btn-danger' %>
   <% end %>
   <%= link_to like_gem_path(gem.id, current_user.id), method: :put, class: "btn #{button} btn-sm", id: "heart_#{gem.name}", remote: true do %>
     <span class="glyphicon glyphicon-heart"></span>
