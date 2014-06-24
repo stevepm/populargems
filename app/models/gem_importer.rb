@@ -33,17 +33,16 @@ class GemImporter
                  project_url: body["homepage_uri"],
                  description: body["info"],
                  source_code_url: body["source_code_uri"])
-      updated_gem = PopularGem.find_by_name(gem.name)
-      gh_info = GithubInfo.gather(updated_gem)
+      gem = PopularGem.find_by_name(gem.name)
+      gh_info = GithubInfo.gather(gem)
       if gh_info
-        updated_gem.update(gh_stars: gh_info[:stars],
+        gem.update(gh_stars: gh_info[:stars],
                    gh_forks: gh_info[:forks],
                    gh_issues: gh_info[:issues],
-                   gh_updated_at: gh_info[:updated_at],
-                   score: updated_gem.calculate_score)
-      else
-        updated_gem.update(score: updated_gem.calculate_score)
+                   gh_updated_at: gh_info[:updated_at])
       end
+      gem = PopularGem.find_by_name(gem.name)
+      gem.update(score: gem.calculate_score)
     end
   end
 end
