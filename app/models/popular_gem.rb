@@ -62,8 +62,8 @@ class PopularGem < ActiveRecord::Base
       order(cached_votes_score: :desc).limit(limit)
     end
 
-    def top_weekly_downloads(limit = nil)
-      where('created_at >= ?', 1.week.ago.utc).order('version_downloads desc').limit(limit)
+    def most_active(limit = nil)
+      where("score > ?", 0).order(score: :desc).limit(limit)
     end
 
     def recently_liked(limit = nil)
@@ -73,5 +73,24 @@ class PopularGem < ActiveRecord::Base
     def featured
       where(featured: true).order(updated_at: :desc)
     end
+
+  end
+
+  def calculate_score
+    score = ((self.gh_stars.to_f*3.0) + (self.gh_forks.to_f*10.0)
+    +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 15.0) +
+      (self.total_downloads.to_f/1000.0))
+    if self.gh_updated_at
+      if self.gh_updated_at > 1.week.ago
+        score += 1000
+      elsif self.gh_updated_at > 2.weeks.ago
+        score += 500
+      elsif self.gh_updated_at > 3.weeks.ago
+        score += 250
+      elsif self.gh_updated_at > 4.weeks.ago
+        score += 100
+      end
+    end
+    score
   end
 end

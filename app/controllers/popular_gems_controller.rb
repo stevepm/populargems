@@ -1,7 +1,5 @@
 class PopularGemsController < ApplicationController
   def index
-    @top_downloaded_gems = PopularGem.top_downloaded(10)
-    @top_hearted_gems = PopularGem.top_hearted(10)
     @recent_comments = Comment.recent_comments
     @featured_gems = PopularGem.featured
     set_meta_tags :title => 'Ruby Gem discovery engine',
@@ -34,6 +32,14 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
     @top_downloaded_gems = PopularGem.top_downloaded.pagination(params[:page])
     set_meta_tags :title => 'Most downloaded ruby gems',
                   :description => 'Discover the most downloaded ruby gems',
+                  :keywords => 'Ruby, gems, ruby gems, rails',
+                  :reverse => true
+  end
+
+  def most_active
+    @most_active_gems = PopularGem.most_active.pagination(params[:page])
+    set_meta_tags :title => 'Most active ruby gems',
+                  :description => 'Discover the most active ruby gems',
                   :keywords => 'Ruby, gems, ruby gems, rails',
                   :reverse => true
   end

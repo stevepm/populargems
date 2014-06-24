@@ -3,11 +3,14 @@ class GithubInfo
     def gather(gem)
       url = gem.project_url
       source = gem.source_code_url
+      home = gem.url
       info = nil
       if url && url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(url)
       elsif source && source.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(source)
+      elsif home && home.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+        info = get_info(home)
       end
       info
     end

@@ -1,0 +1,10 @@
+<div class="">
+  <%= render(partial: 'gem_table', locals: {
+    gem_id: 'most_active',
+    path_for_gems: nil,
+    gems: @most_active_gems,
+    view_more: false,
+    title: 'Most active gems',
+    use_pagination: true})
+  %>
+</div>

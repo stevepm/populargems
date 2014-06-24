@@ -25,23 +25,24 @@ class GemImporter
     private
 
     def update_info(body, gem)
+      github_info(gem)
       gem.update(total_downloads: body["downloads"],
                  version: body["version"],
                  version_downloads: body["version_downloads"],
                  url: body["project_uri"],
                  project_url: body["homepage_uri"],
                  description: body["info"],
-                source_code_url: body["source_code_uri"])
-      github_info(gem)
+                 source_code_url: body["source_code_uri"],
+                 score: gem.calculate_score)
     end
 
     def github_info(gem)
       gh_info = GithubInfo.gather(gem)
       if gh_info
         gem.update(gh_stars: gh_info[:stars],
-        gh_forks: gh_info[:forks],
-        gh_issues: gh_info[:issues],
-        gh_updated_at: gh_info[:updated_at])
+                   gh_forks: gh_info[:forks],
+                   gh_issues: gh_info[:issues],
+                   gh_updated_at: gh_info[:updated_at])
       end
     end
   end

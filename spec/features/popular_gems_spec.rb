@@ -16,27 +16,20 @@ feature 'Popular gems' do
   end
   scenario 'a user can view a gem' do
     visit '/'
-    click_on 'Most downloaded gems'
+    click_on 'Most liked gems'
     expect(page).to have_content('thor')
     expect(page).to have_content('12,345')
   end
 
   scenario 'a user can click on a gem' do
     visit '/'
-    click_on 'Most downloaded gems'
-    within '#most_downloaded' do
+    click_on 'Most liked gems'
+    within '#most_hearted' do
       click_link 'thor'
     end
     expect(page).to have_content('Version Downloads')
   end
 
-  scenario 'a user can view all popular gems based on downloads' do
-    visit '/'
-    click_on 'Most downloaded gems'
-    within '#most_downloaded' do
-      expect(page).to have_content('Most downloaded gems')
-    end
-  end
 
   scenario 'a user can view all popular gems based on hearts' do
     visit '/'

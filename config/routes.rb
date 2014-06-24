@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   put '/popular_gems/:id/unlike/:user_id', to: 'popular_gems#unlike', as: :unlike_gem
   root to: 'popular_gems#index'
   get '/downloads/', to: 'popular_gems#most_downloaded', as: :most_downloaded
+  get '/active/', to: 'popular_gems#most_active', as: :most_active
   get '/hearts/', to: 'popular_gems#most_hearted', as: :most_hearted
   get '/popular_gems/:id/likes', to: 'popular_gems#likes', as: :gem_likes
 

@@ -5,8 +5,8 @@ feature 'User Profile' do
     mock_gem
     mock_gem('rails')
     log_in
-    click_on 'Most downloaded gems'
-    within '#most_downloaded' do
+    click_on 'Most liked gems'
+    within '#most_hearted' do
       click_link 'faraday'
     end
     click_on 'user_profile'
