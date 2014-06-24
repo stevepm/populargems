@@ -22,7 +22,7 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
   def edit
     gem = PopularGem.friendly.find(params[:id])
     PopularGem.without_timestamps do
-      GemImporter.update_gem(gem.name)
+      UpdateGemJob.new.async.perform(gem)
     end
     updated_gem = PopularGem.friendly.find(params[:id])
     render json: {gem: updated_gem}

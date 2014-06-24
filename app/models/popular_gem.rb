@@ -79,7 +79,7 @@ class PopularGem < ActiveRecord::Base
   def calculate_score
     score = ((self.gh_stars.to_f*3.0) + (self.gh_forks.to_f*10.0)
     +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 15.0) +
-      (self.total_downloads.to_f/1000.0))
+      (self.total_downloads.to_f/100000.0))
     if self.gh_updated_at
       if self.gh_updated_at > 1.week.ago
         score += 1000

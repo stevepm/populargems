@@ -27,6 +27,7 @@ gem 'acts_as_commentable_with_threading'
 gem "awesome_nested_set", "~> 3.0.0.rc.3"
 gem 'bootstrap-wysihtml5-rails'
 gem 'addressable', '~> 2.3.6'
+gem 'sucker_punch', '~> 1.0'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
