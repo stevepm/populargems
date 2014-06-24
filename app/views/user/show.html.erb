@@ -1,11 +1,12 @@
 <div class="col-xs-10" id="loved_gems">
-  <table class="table table-striped table-bordered table-responsive table-hover well">
+  <table class="table table-striped table-hover well">
     <thead>
     <tr>
-      <th class="col-xs-3">Likes</th>
-      <th class="col-xs-10">
-        <small><%= link_to('View more', user_likes_path) %></small>
-      </th>
+      <% if @user == current_user %>
+        <th class="col-xs-3">Your likes</th>
+      <% else %>
+        <th class="col-xs-3"><%= @user.name %>'s likes</th>
+      <% end %>
     </tr>
     </thead>
     <tbody>
