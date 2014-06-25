@@ -18,3 +18,4 @@ ngrok
 .env
 latest.dump
 latest.sql
+dump.rdb

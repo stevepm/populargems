@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="panel panel-default" id="<%= gem_id %>">
+  <div class="panel <%= color -%>" id="<%= gem_id -%>">
     <div class="panel-heading">
       <h2 class="panel-title">
         <strong><%= title %></strong>
@@ -8,7 +8,7 @@
     <div class="panel-body">
       <table class="table table-hover table-striped well">
         <tbody>
-        <% gems.each do |gem| %>
+        <% gems.each do |gem| -%>
           <tr>
             <td>
               <%= link_to "#{gem.name}", gem %>

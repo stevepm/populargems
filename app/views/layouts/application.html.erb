@@ -42,7 +42,8 @@
               <% if logged_in? %>
                 <li>
                   <%= link_to current_user, id: 'user_profile' do %>
-                    <%= current_user.name %> <span class="badge alert-info" id="points"><%= current_user.points %></span>
+                    <%= current_user.name %>
+                    <span class="badge alert-info" id="points"><%= current_user.points %></span>
                   <% end %>
                 </li>
                 <li>
@@ -68,17 +69,19 @@
             <%= render(partial: 'shared/sidebar_table', locals: {
               gem_id: 'recently_liked',
               gems: @recently_liked,
-              title: 'Recently liked gems'})
+              title: 'Recent likes',
+              color: 'panel-primary'})
             %>
           </div>
           <div>
             <%= render(partial: 'shared/sidebar_table', locals: {
               gem_id: 'recently_updated',
               gems: @recently_updated,
-              title: 'Recently updated gems'})
+              title: 'Recent updates',
+              color: 'panel-success'})
             %>
           </div>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
