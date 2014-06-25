@@ -11,7 +11,9 @@ namespace :gem do
   task :update_all => :environment do
     require_dependency 'github_info'
     PopularGem.all.each do |gem|
-      UpdateGemJob.new.async.later(10,gem)
+      PopularGem.without_timestamps do
+        UpdateGemJob.new.async.later(10, gem)
+      end
       sleep 5
     end
   end
@@ -19,10 +21,8 @@ namespace :gem do
   desc('Update score for all gems')
   task :set_score => :environment do
     PopularGem.all.each do |gem|
-      PopularGem.without_timestamps do
-        puts "Setting score for #{gem.name}"
-        gem.set_score
-      end
+      puts "Setting score for #{gem.name}"
+      gem.set_score
     end
   end
 end
