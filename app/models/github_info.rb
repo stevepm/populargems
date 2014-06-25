@@ -2,7 +2,7 @@ require "addressable/uri"
 
 class GithubInfo
   class << self
-    def gather(url, project_url, source_code_url)
+    def gather(url, project_url = nil, source_code_url = nil)
       home = Addressable::URI.parse(URI.encode(url)) if url
       source = Addressable::URI.parse(URI.encode(source_code_url)) if source_code_url
       project = Addressable::URI.parse(URI.encode(project_url)) if project_url
@@ -25,7 +25,7 @@ class GithubInfo
       url_match = url.path.match(/([^\/]+)\/([^\/]+)/)
       username = url_match[1]
       repo = url_match[2]
-      response = Faraday.get("https://api.github.com/repos/#{username}/#{repo}")
+      response = Faraday.get("https://api.github.com/repos/#{username}/#{repo}?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}")
       unless response.status >= 300
         json = JSON.parse(response.body)
         info = {
