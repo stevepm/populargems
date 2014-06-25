@@ -21,7 +21,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 22 Jun 2014 04:46:40 GMT
+      - Wed, 25 Jun 2014 19:24:11 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -36,27 +36,27 @@ http_interactions:
       - IE=Edge,chrome=1
       - IE=Edge,chrome=1
       Etag:
-      - '"528a97a456a3861766277d0996e0fc43"'
+      - '"e4e2580adaccbda75179b89658a82f27"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       Set-Cookie:
-      - remember_token=; path=/; expires=Mon, 22-Jun-2015 04:46:40 GMT; secure
+      - remember_token=; path=/; expires=Thu, 25-Jun-2015 19:24:11 GMT; secure
       X-Request-Id:
-      - cdcd9e3fab1155128b4f4e5ebe47f842
+      - c88d803d37a7d99a2d02913c53b781d3
       X-Runtime:
-      - '0.027915'
+      - '0.029376'
       X-Rack-Cache:
       - miss
     body:
       encoding: UTF-8
-      string: '{"name":"faraday","downloads":9217901,"version":"0.9.0","version_downloads":973495,"platform":"ruby","authors":"Rick
+      string: '{"name":"faraday","downloads":9278401,"version":"0.9.0","version_downloads":1010668,"platform":"ruby","authors":"Rick
         Olson","info":"HTTP/REST API client library.","licenses":["MIT"],"project_uri":"http://rubygems.org/gems/faraday","gem_uri":"http://rubygems.org/gems/faraday-0.9.0.gem","homepage_uri":"https://github.com/lostisland/faraday","wiki_uri":null,"documentation_uri":null,"mailing_list_uri":null,"source_code_uri":null,"bug_tracker_uri":null,"dependencies":{"development":[{"name":"bundler","requirements":"~>
         1.0"}],"runtime":[{"name":"multipart-post","requirements":"< 3, >= 1.2"}]}}'
     http_version: 
-  recorded_at: Sun, 22 Jun 2014 04:46:41 GMT
+  recorded_at: Wed, 25 Jun 2014 19:24:12 GMT
 - request:
     method: get
-    uri: https://api.github.com/repos/lostisland/faraday
+    uri: https://api.github.com/repos/lostisland/faraday?client_id=<GITHUB-KEY>&client_secret=<GITHUB-SECRET>
     body:
       encoding: US-ASCII
       string: ''
@@ -75,7 +75,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Sun, 22 Jun 2014 04:46:41 GMT
+      - Wed, 25 Jun 2014 19:24:13 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -83,17 +83,17 @@ http_interactions:
       Status:
       - 200 OK
       X-Ratelimit-Limit:
-      - '60'
+      - '5000'
       X-Ratelimit-Remaining:
-      - '58'
+      - '4989'
       X-Ratelimit-Reset:
-      - '1403415864'
+      - '1403726342'
       Cache-Control:
       - public, max-age=60, s-maxage=60
       Last-Modified:
-      - Fri, 20 Jun 2014 02:27:37 GMT
+      - Wed, 25 Jun 2014 02:59:02 GMT
       Etag:
-      - '"ef9a5f5bec0e8228cfab625a943a0611"'
+      - '"d865e192c2fef2aee27793640645d4d1"'
       Vary:
       - Accept
       - Accept-Encoding
@@ -113,17 +113,17 @@ http_interactions:
       Access-Control-Allow-Origin:
       - "*"
       X-Github-Request-Id:
-      - 328688E5:4017:D72DF62:53A65FB1
+      - 4B917539:6285:BE234FF:53AB21DD
       Strict-Transport-Security:
       - max-age=31536000
       X-Content-Type-Options:
       - nosniff
       X-Served-By:
-      - a8d8e492d6966f0c23dee2eed64c678a
+      - 971af40390ac4398fcdd45c8dab0fbe7
     body:
       encoding: UTF-8
       string: '{"id":417389,"name":"faraday","full_name":"lostisland/faraday","owner":{"login":"lostisland","id":2613464,"avatar_url":"https://avatars.githubusercontent.com/u/2613464?","gravatar_id":"2cac6a53fb519390129fb847ca365f31","url":"https://api.github.com/users/lostisland","html_url":"https://github.com/lostisland","followers_url":"https://api.github.com/users/lostisland/followers","following_url":"https://api.github.com/users/lostisland/following{/other_user}","gists_url":"https://api.github.com/users/lostisland/gists{/gist_id}","starred_url":"https://api.github.com/users/lostisland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lostisland/subscriptions","organizations_url":"https://api.github.com/users/lostisland/orgs","repos_url":"https://api.github.com/users/lostisland/repos","events_url":"https://api.github.com/users/lostisland/events{/privacy}","received_events_url":"https://api.github.com/users/lostisland/received_events","type":"Organization","site_admin":false},"private":false,"html_url":"https://github.com/lostisland/faraday","description":"Simple,
-        but flexible HTTP client library, with support for multiple backends.","fork":false,"url":"https://api.github.com/repos/lostisland/faraday","forks_url":"https://api.github.com/repos/lostisland/faraday/forks","keys_url":"https://api.github.com/repos/lostisland/faraday/keys{/key_id}","collaborators_url":"https://api.github.com/repos/lostisland/faraday/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/lostisland/faraday/teams","hooks_url":"https://api.github.com/repos/lostisland/faraday/hooks","issue_events_url":"https://api.github.com/repos/lostisland/faraday/issues/events{/number}","events_url":"https://api.github.com/repos/lostisland/faraday/events","assignees_url":"https://api.github.com/repos/lostisland/faraday/assignees{/user}","branches_url":"https://api.github.com/repos/lostisland/faraday/branches{/branch}","tags_url":"https://api.github.com/repos/lostisland/faraday/tags","blobs_url":"https://api.github.com/repos/lostisland/faraday/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/lostisland/faraday/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/lostisland/faraday/git/refs{/sha}","trees_url":"https://api.github.com/repos/lostisland/faraday/git/trees{/sha}","statuses_url":"https://api.github.com/repos/lostisland/faraday/statuses/{sha}","languages_url":"https://api.github.com/repos/lostisland/faraday/languages","stargazers_url":"https://api.github.com/repos/lostisland/faraday/stargazers","contributors_url":"https://api.github.com/repos/lostisland/faraday/contributors","subscribers_url":"https://api.github.com/repos/lostisland/faraday/subscribers","subscription_url":"https://api.github.com/repos/lostisland/faraday/subscription","commits_url":"https://api.github.com/repos/lostisland/faraday/commits{/sha}","git_commits_url":"https://api.github.com/repos/lostisland/faraday/git/commits{/sha}","comments_url":"https://api.github.com/repos/lostisland/faraday/comments{/number}","issue_comment_url":"https://api.github.com/repos/lostisland/faraday/issues/comments/{number}","contents_url":"https://api.github.com/repos/lostisland/faraday/contents/{+path}","compare_url":"https://api.github.com/repos/lostisland/faraday/compare/{base}...{head}","merges_url":"https://api.github.com/repos/lostisland/faraday/merges","archive_url":"https://api.github.com/repos/lostisland/faraday/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/lostisland/faraday/downloads","issues_url":"https://api.github.com/repos/lostisland/faraday/issues{/number}","pulls_url":"https://api.github.com/repos/lostisland/faraday/pulls{/number}","milestones_url":"https://api.github.com/repos/lostisland/faraday/milestones{/number}","notifications_url":"https://api.github.com/repos/lostisland/faraday/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/lostisland/faraday/labels{/name}","releases_url":"https://api.github.com/repos/lostisland/faraday/releases{/id}","created_at":"2009-12-10T17:14:55Z","updated_at":"2014-06-20T02:27:37Z","pushed_at":"2014-06-06T12:17:51Z","git_url":"git://github.com/lostisland/faraday.git","ssh_url":"git@github.com:lostisland/faraday.git","clone_url":"https://github.com/lostisland/faraday.git","svn_url":"https://github.com/lostisland/faraday","homepage":"","size":4332,"stargazers_count":1955,"watchers_count":1955,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":274,"mirror_url":null,"open_issues_count":53,"forks":274,"open_issues":53,"watchers":1955,"default_branch":"master","organization":{"login":"lostisland","id":2613464,"avatar_url":"https://avatars.githubusercontent.com/u/2613464?","gravatar_id":"2cac6a53fb519390129fb847ca365f31","url":"https://api.github.com/users/lostisland","html_url":"https://github.com/lostisland","followers_url":"https://api.github.com/users/lostisland/followers","following_url":"https://api.github.com/users/lostisland/following{/other_user}","gists_url":"https://api.github.com/users/lostisland/gists{/gist_id}","starred_url":"https://api.github.com/users/lostisland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lostisland/subscriptions","organizations_url":"https://api.github.com/users/lostisland/orgs","repos_url":"https://api.github.com/users/lostisland/repos","events_url":"https://api.github.com/users/lostisland/events{/privacy}","received_events_url":"https://api.github.com/users/lostisland/received_events","type":"Organization","site_admin":false},"network_count":274,"subscribers_count":61}'
+        but flexible HTTP client library, with support for multiple backends.","fork":false,"url":"https://api.github.com/repos/lostisland/faraday","forks_url":"https://api.github.com/repos/lostisland/faraday/forks","keys_url":"https://api.github.com/repos/lostisland/faraday/keys{/key_id}","collaborators_url":"https://api.github.com/repos/lostisland/faraday/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/lostisland/faraday/teams","hooks_url":"https://api.github.com/repos/lostisland/faraday/hooks","issue_events_url":"https://api.github.com/repos/lostisland/faraday/issues/events{/number}","events_url":"https://api.github.com/repos/lostisland/faraday/events","assignees_url":"https://api.github.com/repos/lostisland/faraday/assignees{/user}","branches_url":"https://api.github.com/repos/lostisland/faraday/branches{/branch}","tags_url":"https://api.github.com/repos/lostisland/faraday/tags","blobs_url":"https://api.github.com/repos/lostisland/faraday/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/lostisland/faraday/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/lostisland/faraday/git/refs{/sha}","trees_url":"https://api.github.com/repos/lostisland/faraday/git/trees{/sha}","statuses_url":"https://api.github.com/repos/lostisland/faraday/statuses/{sha}","languages_url":"https://api.github.com/repos/lostisland/faraday/languages","stargazers_url":"https://api.github.com/repos/lostisland/faraday/stargazers","contributors_url":"https://api.github.com/repos/lostisland/faraday/contributors","subscribers_url":"https://api.github.com/repos/lostisland/faraday/subscribers","subscription_url":"https://api.github.com/repos/lostisland/faraday/subscription","commits_url":"https://api.github.com/repos/lostisland/faraday/commits{/sha}","git_commits_url":"https://api.github.com/repos/lostisland/faraday/git/commits{/sha}","comments_url":"https://api.github.com/repos/lostisland/faraday/comments{/number}","issue_comment_url":"https://api.github.com/repos/lostisland/faraday/issues/comments/{number}","contents_url":"https://api.github.com/repos/lostisland/faraday/contents/{+path}","compare_url":"https://api.github.com/repos/lostisland/faraday/compare/{base}...{head}","merges_url":"https://api.github.com/repos/lostisland/faraday/merges","archive_url":"https://api.github.com/repos/lostisland/faraday/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/lostisland/faraday/downloads","issues_url":"https://api.github.com/repos/lostisland/faraday/issues{/number}","pulls_url":"https://api.github.com/repos/lostisland/faraday/pulls{/number}","milestones_url":"https://api.github.com/repos/lostisland/faraday/milestones{/number}","notifications_url":"https://api.github.com/repos/lostisland/faraday/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/lostisland/faraday/labels{/name}","releases_url":"https://api.github.com/repos/lostisland/faraday/releases{/id}","created_at":"2009-12-10T17:14:55Z","updated_at":"2014-06-25T02:59:02Z","pushed_at":"2014-06-06T12:17:51Z","git_url":"git://github.com/lostisland/faraday.git","ssh_url":"git@github.com:lostisland/faraday.git","clone_url":"https://github.com/lostisland/faraday.git","svn_url":"https://github.com/lostisland/faraday","homepage":"","size":4332,"stargazers_count":1962,"watchers_count":1962,"language":"Ruby","has_issues":true,"has_downloads":true,"has_wiki":true,"forks_count":274,"mirror_url":null,"open_issues_count":54,"forks":274,"open_issues":54,"watchers":1962,"default_branch":"master","organization":{"login":"lostisland","id":2613464,"avatar_url":"https://avatars.githubusercontent.com/u/2613464?","gravatar_id":"2cac6a53fb519390129fb847ca365f31","url":"https://api.github.com/users/lostisland","html_url":"https://github.com/lostisland","followers_url":"https://api.github.com/users/lostisland/followers","following_url":"https://api.github.com/users/lostisland/following{/other_user}","gists_url":"https://api.github.com/users/lostisland/gists{/gist_id}","starred_url":"https://api.github.com/users/lostisland/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lostisland/subscriptions","organizations_url":"https://api.github.com/users/lostisland/orgs","repos_url":"https://api.github.com/users/lostisland/repos","events_url":"https://api.github.com/users/lostisland/events{/privacy}","received_events_url":"https://api.github.com/users/lostisland/received_events","type":"Organization","site_admin":false},"network_count":274,"subscribers_count":61}'
     http_version: 
-  recorded_at: Sun, 22 Jun 2014 04:46:41 GMT
+  recorded_at: Wed, 25 Jun 2014 19:24:13 GMT
 recorded_with: VCR 2.9.0

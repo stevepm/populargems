@@ -22,7 +22,7 @@ class GithubInfo
 
     def get_info(url)
       info = nil
-      url_match = url.path.match(/([^\/]+)\/([^\/]+)/)
+      url_match = url.to_s.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
       username = url_match[1]
       repo = url_match[2]
       response = Faraday.get("https://api.github.com/repos/#{username}/#{repo}?client_id=#{ENV['GITHUB_KEY']}&client_secret=#{ENV['GITHUB_SECRET']}")

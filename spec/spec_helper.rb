@@ -21,7 +21,8 @@ RSpec.configure do |config|
   VCR.configure do |c|
     c.cassette_library_dir = 'spec/vcr'
     c.hook_into :webmock # or :fakeweb
-    c.filter_sensitive_data('<TRACKER-TOKEN>') { ENV['STEVE_PIVOTAL'] }
+    c.filter_sensitive_data('<GITHUB-KEY>') { ENV['GITHUB_KEY'] }
+    c.filter_sensitive_data('<GITHUB-SECRET>') { ENV['GITHUB_SECRET'] }
     c.ignore_localhost = true
   end
   config.before(:suite) do
