@@ -21,7 +21,7 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
 
   def edit
     gem = PopularGem.friendly.find(params[:id])
-    UpdateGemJob.new.async.perform(gem)
+    UpdateGemJob.new.async.later(5,gem)
     updated_gem = PopularGem.friendly.find(params[:id])
     render json: {gem: updated_gem}
   end
