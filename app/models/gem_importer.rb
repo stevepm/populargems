@@ -26,23 +26,33 @@ class GemImporter
     private
 
     def update_info(body, gem)
-      gem.update(total_downloads: body["downloads"],
-                 version: body["version"],
-                 version_downloads: body["version_downloads"],
-                 url: body["project_uri"],
-                 project_url: body["homepage_uri"],
-                 description: body["info"],
-                 source_code_url: body["source_code_uri"])
-      gem = PopularGem.find_by_name(gem.name)
-      gh_info = GithubInfo.gather(gem)
+      url = body["project_uri"]
+      project_url = body["homepage_uri"]
+      source_code_url = body["source_code_uri"]
+      gh_info = GithubInfo.gather(url, project_url, source_code_url)
       if gh_info
-        gem.update(gh_stars: gh_info[:stars],
+        gem.update(total_downloads: body["downloads"],
+                   version: body["version"],
+                   version_downloads: body["version_downloads"],
+                   url: url,
+                   project_url: project_url,
+                   description: body["info"],
+                   source_code_url: source_code_url,
+                   gh_stars: gh_info[:stars],
                    gh_forks: gh_info[:forks],
                    gh_issues: gh_info[:issues],
                    gh_updated_at: gh_info[:updated_at])
+      else
+        gem.update(total_downloads: body["downloads"],
+                   version: body["version"],
+                   version_downloads: body["version_downloads"],
+                   url: url,
+                   project_url: project_url,
+                   description: body["info"],
+                   source_code_url: source_code_url)
       end
       gem = PopularGem.find_by_name(gem.name)
-      gem.update(score: gem.calculate_score)
+      gem.set_score
     end
   end
 end

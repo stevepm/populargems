@@ -2,17 +2,17 @@ require "addressable/uri"
 
 class GithubInfo
   class << self
-    def gather(gem)
-      url = Addressable::URI.parse(URI.encode(gem.project_url)) if gem.project_url
-      source = Addressable::URI.parse(URI.encode(gem.source_code_url)) if gem.source_code_url
-      home = Addressable::URI.parse(URI.encode(gem.url)) if gem.url
+    def gather(url, project_url, source_code_url)
+      home = Addressable::URI.parse(URI.encode(url)) if url
+      source = Addressable::URI.parse(URI.encode(source_code_url)) if source_code_url
+      project = Addressable::URI.parse(URI.encode(project_url)) if project_url
       info = nil
-      if url && gem.project_url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
-        info = get_info(url)
-      elsif source && gem.source_code_url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
-        info = get_info(source)
-      elsif home && gem.url.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+      if home && home.to_s.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
         info = get_info(home)
+      elsif source && source.to_s.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+        info = get_info(source)
+      elsif project && project.to_s.match(/^(?:https?:\/\/)?(?:www\.)?github.com\/([^\/]+)\/([^\/]+)/)
+        info = get_info(project)
       end
       info
     end
