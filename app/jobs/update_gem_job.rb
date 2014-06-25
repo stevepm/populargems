@@ -11,4 +11,8 @@ class UpdateGemJob
     puts "Ending #{gem.name}\n"
   end
 
+  def later(sec, data)
+    after(sec) { perform(data) }
+  end
+
 end

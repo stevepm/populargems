@@ -9,4 +9,8 @@ class CreateNewGemJob
     puts "Ending #{gem_name}\n"
   end
 
+  def later(sec, data)
+    after(sec) { perform(data) }
+  end
+
 end

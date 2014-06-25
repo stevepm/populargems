@@ -4,9 +4,9 @@ class WebhookController < ApplicationController
   def get_data
     @name = allowed_params[:name]
     if gem = PopularGem.find_by_name(@name)
-      UpdateGemJob.new.async.perform(gem)
+      UpdateGemJob.new.async.later(10,gem)
     else
-      CreateNewGemJob.new.async.perform(@name)
+      CreateNewGemJob.new.async.later(10,@name)
     end
     render text: ''
   end

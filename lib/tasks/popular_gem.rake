@@ -11,8 +11,8 @@ namespace :gem do
   task :update_all => :environment do
     require_dependency 'github_info'
     PopularGem.all.each do |gem|
-      UpdateGemJob.new.async.perform(gem)
-      sleep 1
+      UpdateGemJob.new.async.later(10,gem)
+      sleep 5
     end
   end
 
