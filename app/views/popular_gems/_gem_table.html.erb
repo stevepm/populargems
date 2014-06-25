@@ -8,6 +8,9 @@
       </h2>
     </div>
     <div class="panel-body">
+      <% if use_pagination %>
+        <div class="text-center"><%= paginate gems, :theme => 'twitter-bootstrap-3' %></div>
+      <% end %>
       <table class="table table-hover table-striped">
         <thead>
         <tr>
@@ -54,7 +57,7 @@
         </tbody>
       </table>
       <% if use_pagination %>
-        <%= paginate(gems) %>
+        <div class="text-center"><%= paginate gems, :theme => 'twitter-bootstrap-3' %></div>
       <% end %>
     </div>
   </div>
