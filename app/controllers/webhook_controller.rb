@@ -3,11 +3,10 @@ class WebhookController < ApplicationController
 
   def get_data
     @name = allowed_params[:name]
-
-    if PopularGem.find_by_name(@name)
-      GemImporter.update_gem(@name)
+    if gem = PopularGem.find_by_name(@name)
+      UpdateGemJob.new.async.perform(gem)
     else
-      GemImporter.seed_db(@name)
+      CreateNewGemJob.new.async.perform(@name)
     end
     render text: ''
   end
