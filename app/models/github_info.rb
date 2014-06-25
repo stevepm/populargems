@@ -3,6 +3,7 @@ require "addressable/uri"
 class GithubInfo
   class << self
     def gather(url, project_url = nil, source_code_url = nil)
+      sleep 1
       home = Addressable::URI.parse(URI.encode(url)) if url
       source = Addressable::URI.parse(URI.encode(source_code_url)) if source_code_url
       project = Addressable::URI.parse(URI.encode(project_url)) if project_url
@@ -18,7 +19,6 @@ class GithubInfo
     end
 
     private
-
 
     def get_info(url)
       info = nil

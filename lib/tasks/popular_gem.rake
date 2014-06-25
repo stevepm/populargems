@@ -10,11 +10,10 @@ namespace :gem do
   desc('Update all gems')
   task :update_all => :environment do
     require_dependency 'github_info'
-    PopularGem.all.each do |gem|
+    PopularGem.where(gh_stars: nil).where("updated_at < ?", 1.day.ago).each do |gem|
       PopularGem.without_timestamps do
-        UpdateGemJob.new.async.later(10, gem)
+        GemImporter.update_gem(gem.name)
       end
-      sleep 5
     end
   end
 
