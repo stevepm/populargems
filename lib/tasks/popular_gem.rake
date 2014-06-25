@@ -21,8 +21,10 @@ namespace :gem do
   desc('Update score for all gems')
   task :set_score => :environment do
     PopularGem.all.each do |gem|
-      puts "Setting score for #{gem.name}"
-      gem.set_score
+      PopularGem.without_timestamps do
+        puts "Setting score for #{gem.name}"
+        gem.set_score
+      end
     end
   end
 end
