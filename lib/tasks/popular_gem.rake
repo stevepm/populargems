@@ -15,4 +15,14 @@ namespace :gem do
       sleep 1
     end
   end
+
+  desc('Update score for all gems')
+  task :set_score => :environment do
+    PopularGem.all.each do |gem|
+      PopularGem.without_timestamps do
+        puts "Setting score for #{gem.name}"
+        gem.set_score
+      end
+    end
+  end
 end
