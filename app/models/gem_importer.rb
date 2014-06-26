@@ -6,9 +6,13 @@ class GemImporter
         if response.status >= 300
           false
         else
-          puts "Gather data for #{name}....."
-          update_info(JSON.parse(response.body), new_gem)
-          new_gem
+          if response.body["downloads"] < 10000
+            false
+          else
+            puts "Gather data for #{name}....."
+            update_info(JSON.parse(response.body), new_gem)
+            new_gem
+          end
         end
       end
     end
