@@ -95,8 +95,6 @@ class PopularGem < ActiveRecord::Base
     self.update(score: score)
   end
 
-  private
-
   def recently_updated?(week_number)
     self.gh_updated_at > week_number.week.ago && self.updated_at > week_number.week.ago
   end
