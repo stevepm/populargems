@@ -6,7 +6,7 @@ class GemImporter
         if response.status >= 300
           false
         else
-          if response.body["downloads"] < 10000
+          if JSON.parse(response.body)["downloads"] < 10000
             false
           else
             puts "Gather data for #{name}....."
