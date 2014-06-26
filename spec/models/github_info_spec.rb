@@ -12,8 +12,10 @@ describe GithubInfo do
         gh_stars: faraday_info[:stars],
         gh_updated_at: faraday_info[:updated_at]
       )
-      expect(faraday.recently_updated?(1)).to eq(false)
-      expect(faraday.recently_updated?(3)).to eq(true)
+      Timecop.freeze(Time.local(2014, 06, 26)) do
+        expect(faraday.recently_updated?(1)).to eq(false)
+        expect(faraday.recently_updated?(3)).to eq(true)
+      end
     end
   end
 end

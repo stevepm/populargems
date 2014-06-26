@@ -284,6 +284,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timecop (0.7.1)
     timers (1.1.0)
     treetop (1.4.15)
       polyglot
@@ -346,6 +347,7 @@ DEPENDENCIES
   selenium-webdriver
   sitemap_generator
   sucker_punch (~> 1.0)
+  timecop (~> 0.7.1)
   turbolinks
   uglifier (>= 1.3.0)
   vcr (~> 2.9.0)

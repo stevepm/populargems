@@ -45,6 +45,7 @@ end
 group :test do
   gem 'webmock', '~> 1.18.0'
   gem 'database_cleaner', '~> 1.3.0'
+  gem 'timecop', '~> 0.7.1'
 end
 
 gem 'rails_12factor', group: :production
