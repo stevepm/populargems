@@ -78,8 +78,8 @@ class PopularGem < ActiveRecord::Base
 
   def set_score
 
-    score = ((self.gh_stars.to_f*3.0) + (self.gh_forks.to_f*10.0)
-    +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 15.0) +
+    score = ((self.gh_stars.to_f*1.5) + (self.gh_forks.to_f*3.5)
+    +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 5.5) +
       (self.total_downloads.to_f/10000.0))
     if self.gh_updated_at
       if recently_updated?(1)
