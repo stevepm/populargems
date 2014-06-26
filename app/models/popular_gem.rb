@@ -77,22 +77,27 @@ class PopularGem < ActiveRecord::Base
   end
 
   def set_score
-    # high_score = PopularGem.where("score > ?", 0).order(score: :desc).limit(1).first.score
+
     score = ((self.gh_stars.to_f*3.0) + (self.gh_forks.to_f*10.0)
     +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 15.0) +
-      (self.total_downloads.to_f/100000.0))
+      (self.total_downloads.to_f/10000.0))
     if self.gh_updated_at
-      if self.gh_updated_at > 1.week.ago
+      if recently_updated?(1)
         score*=1.5
-      elsif self.gh_updated_at > 2.weeks.ago
+      elsif recently_updated?(2)
         score*=1.25
-      elsif self.gh_updated_at > 3.weeks.ago
+      elsif recently_updated?(3)
         score*=1.15
-      elsif self.gh_updated_at > 4.weeks.ago
+      elsif recently_updated?(4)
         score*=1.1
       end
     end
-    # score_percentage = (score/high_score)*100.0
     self.update(score: score)
+  end
+
+  private
+
+  def recently_updated?(week_number)
+    self.gh_updated_at > week_number.week.ago && self.updated_at > week_number.week.ago
   end
 end
