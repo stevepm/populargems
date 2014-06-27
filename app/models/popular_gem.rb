@@ -78,9 +78,9 @@ class PopularGem < ActiveRecord::Base
 
   def set_score
 
-    score = ((self.gh_stars.to_f*1.5) + (self.gh_forks.to_f*3.5)
+    score = ((gh_star_score(self.gh_stars.to_f)) + (gh_fork_score(self.gh_forks.to_f))
     +(self.cached_votes_up.to_f * 20.0) + (self.gh_issues.to_f * 5.5) +
-      (self.total_downloads.to_f/10000.0))
+      (total_downloads_score(self.total_downloads.to_f)))
     if self.gh_updated_at
       if recently_updated?(1)
         score*=1.5
@@ -96,6 +96,71 @@ class PopularGem < ActiveRecord::Base
   end
 
   def recently_updated?(week_number)
-    self.gh_updated_at > week_number.week.ago && self.updated_at > week_number.week.ago
+    if self.gh_updated_at
+      self.gh_updated_at > week_number.week.ago && self.updated_at > week_number.week.ago
+    else
+      self.updated_at > week_number.week.ago
+    end
   end
+
+  private
+
+  def gh_star_score(stars)
+    case stars
+      when stars > 10000
+        score = stars*0.9
+      when 3000..9999
+        score = stars
+      when 2000..2999
+        score = stars * 1.1
+      when 1000..1999
+        score = stars *1.2
+      when 700..999
+        score = stars * 1.35
+      when 500..699
+        score = stars * 1.7
+      when 300..499
+        score = stars * 2
+      else
+        score = stars * 3
+    end
+    score
+  end
+
+  def gh_fork_score(forks)
+    case forks
+      when forks > 3000
+        score = forks*0.9
+      when 2000..2999
+        score = forks
+      when 1000..1999
+        score = forks * 1.1
+      when 500..999
+        score = forks *1.5
+      when 300..499
+        score = forks * 2
+      else
+        score = forks * 3
+    end
+    score
+  end
+
+  def total_downloads_score(total_downloads)
+    case total_downloads
+      when total_downloads > 15000000
+        score = total_downloads*0.01
+      when 10000000..14999999
+        score = total_downloads*0.02
+      when 5000000..9999999
+        score = total_downloads * 0.04
+      when 2000000..4999999
+        score = total_downloads *0.07
+      when 1000000..1999999
+        score = total_downloads * 0.1
+      else
+        score = total_downloads * 1
+    end
+    score
+  end
+
 end
