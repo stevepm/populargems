@@ -1,6 +1,5 @@
 class PopularGemsController < ApplicationController
   def index
-    @recent_comments = Comment.recent_comments
     @featured_gems = PopularGem.featured
     set_meta_tags :title => 'Ruby Gem discovery engine',
                   :description => 'Discover the most downloaded and most loved Ruby Gems',
@@ -11,11 +10,9 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
 
   def show
     @gem = PopularGem.friendly.find(params[:id])
-    @comments = @gem.comment_threads.order(cached_votes_score: :desc)
-    @comment = Comment.new
     set_meta_tags :title => "#{@gem.name}",
                   :description => "#{@gem.description}",
-                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}",
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}, #{@gem.name} gem",
                   :reverse => true
   end
 
@@ -73,7 +70,7 @@ list of top gems, list of top ruby gems, list of top rubygems, list of top rails
     @users = @gem.votes_for.up.by_type(User).voters
     set_meta_tags :title => "#{@gem.name} likes",
                   :description => "Users that like #{@gem.name}",
-                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}",
+                  :keywords => "Ruby, gems, ruby gems, rails, #{@gem.name}, #{@gem.name} gem",
                   :reverse => true
   end
 

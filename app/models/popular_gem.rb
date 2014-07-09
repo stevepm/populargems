@@ -4,7 +4,6 @@ class PopularGem < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   acts_as_votable
-  acts_as_commentable
   validates :name, uniqueness: true
 
   settings index: {number_of_shards: 1} do

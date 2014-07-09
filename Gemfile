@@ -14,20 +14,16 @@ gem 'faraday', '~> 0.9.0'
 gem 'kaminari', '~> 0.15.1'
 gem 'omniauth-github', '~> 1.1.2'
 gem 'redcarpet', '~> 3.1.2'
-gem 'yard', '~> 0.8.7.4'
 gem 'pygments.rb', '~> 0.5.4'
 gem 'meta-tags'
 gem 'sitemap_generator'
 gem 'friendly_id', '~> 5.0.3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'embedly'
 gem 'seed_dump'
-gem 'acts_as_commentable_with_threading'
 gem "awesome_nested_set", "~> 3.0.0.rc.3"
 gem 'bootstrap-wysihtml5-rails'
 gem 'addressable', '~> 2.3.6'
-gem 'sucker_punch', '~> 1.0'
 gem 'bootstrap-kaminari-views'
 
 group :test, :development do
@@ -46,6 +42,7 @@ group :test do
   gem 'webmock', '~> 1.18.0'
   gem 'database_cleaner', '~> 1.3.0'
   gem 'timecop', '~> 0.7.1'
+  gem 'simplecov'
 end
 
 gem 'rails_12factor', group: :production
