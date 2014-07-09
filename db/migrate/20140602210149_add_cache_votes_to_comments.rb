@@ -12,7 +12,7 @@ class AddCacheVotesToComments < ActiveRecord::Migration
     add_index  :comments, :cached_weighted_score
 
     # Uncomment this line to force caching of existing votes
-    Comment.find_each(&:update_cached_votes)
+    # Comment.find_each(&:update_cached_votes)
   end
 
   def self.down
