@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     @recently_liked = PopularGem.recently_liked(10)
     @recently_updated = PopularGem.all.limit(10).order(updated_at: :desc)
   end
+
+  def meta_tag_setter(title, description, keywords, reverse)
+    set_meta_tags({title: title, description: description, keywords: keywords, reverse: reverse})
+  end
 end

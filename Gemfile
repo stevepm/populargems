@@ -34,7 +34,6 @@ group :test, :development do
   gem 'launchy', '~> 2.4.2'
   gem 'better_errors'
   gem 'selenium-webdriver'
-  gem 'byebug'
   gem 'jazz_hands'
 end
 
@@ -42,8 +41,9 @@ group :test do
   gem 'webmock', '~> 1.18.0'
   gem 'database_cleaner', '~> 1.3.0'
   gem 'timecop', '~> 0.7.1'
-  gem 'simplecov'
 end
+
+gem 'simplecov', :require => false, :group => :test
 
 gem 'rails_12factor', group: :production
 gem 'merit'
