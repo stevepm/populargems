@@ -17,6 +17,8 @@ Setup Instructions
 1. `bundle`
 1. Create databases: `rake db:create`
 1. Run migrations: `rake db:migrate`
+1. Create `.env` file in working directory - Add `GITHUB_KEY`, `GITHUB_SECRET`, and `RUBYGEMS_API`
+1. Install elasticsearch and run it - `brew install elasticsearch`
 1. Run Specs `rspec`
 1. Run Local Server `rails s`
 
