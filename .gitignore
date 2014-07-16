@@ -19,3 +19,4 @@ ngrok
 latest.dump
 latest.sql
 dump.rdb
+/coverage

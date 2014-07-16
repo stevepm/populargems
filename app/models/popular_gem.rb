@@ -73,6 +73,14 @@ class PopularGem < ActiveRecord::Base
       where(featured: true).order(updated_at: :desc)
     end
 
+    def created_yesterday
+      where("created_at > ?", 1.day.ago).length
+    end
+
+    def updated_yesterday
+      where("updated_at > ?", 1.day.ago).length
+    end
+
   end
 
   def set_score

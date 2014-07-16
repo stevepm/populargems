@@ -20,4 +20,24 @@ describe PopularGem do
     adam.likes test
     expect(PopularGem.order('cached_votes_score').reverse[0..1]).to eq([test, rails])
   end
+
+  it 'can return the number gems created in the last day' do
+    faraday
+    rails
+    test
+    expect(PopularGem.created_yesterday).to eq(3)
+    test.update(created_at: 2.days.ago)
+    test.reload
+    expect(PopularGem.created_yesterday).to eq(2)
+  end
+
+  it 'can return the number of gems updated in the last day' do
+    faraday
+    rails
+    test
+    expect(PopularGem.updated_yesterday).to eq(3)
+    faraday.update(updated_at: 2.days.ago)
+    faraday.reload
+    expect(PopularGem.updated_yesterday).to eq(2)
+  end
 end
