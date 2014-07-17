@@ -25,9 +25,12 @@ describe PopularGem do
     faraday
     rails
     test
+    expect(faraday.created_at).to be >= 1.day.ago
+    expect(rails.created_at).to be >= 1.day.ago
+    expect(test.created_at).to be >= 1.day.ago
     expect(PopularGem.created_yesterday).to eq(3)
     test.update(created_at: 2.days.ago)
-    test.reload
+    expect(test.created_at).to be <= 2.day.ago
     expect(PopularGem.created_yesterday).to eq(2)
   end
 
@@ -35,9 +38,12 @@ describe PopularGem do
     faraday
     rails
     test
-    expect(PopularGem.updated_yesterday).to eq(3)
-    faraday.update(updated_at: 2.days.ago)
-    faraday.reload
-    expect(PopularGem.updated_yesterday).to eq(2)
+    expect(faraday.updated_at).to be >= 1.day.ago
+    expect(rails.updated_at).to be >= 1.day.ago
+    expect(test.updated_at).to be >= 1.day.ago
+    expect(PopularGem.updated_yesterday).to eq(0)
+    faraday.update(updated_at: 2.days.ago, created_at: 2.days.ago)
+    test.update(created_at: 2.days.ago)
+    expect(PopularGem.updated_yesterday).to eq(1)
   end
 end

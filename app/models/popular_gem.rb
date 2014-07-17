@@ -74,11 +74,11 @@ class PopularGem < ActiveRecord::Base
     end
 
     def created_yesterday
-      where("created_at > ?", 1.day.ago).length
+      where("created_at >= ?", 1.day.ago).length
     end
 
     def updated_yesterday
-      where("updated_at > ?", 1.day.ago).length
+      where("updated_at >= ? AND created_at < ?", 1.day.ago, 1.day.ago).length
     end
 
   end
