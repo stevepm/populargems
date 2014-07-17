@@ -46,4 +46,14 @@ describe PopularGem do
     test.update(created_at: 2.days.ago)
     expect(PopularGem.updated_yesterday).to eq(1)
   end
+
+  it 'can create stat logs for most recently updated and most recently created' do
+    faraday
+    rails
+    test
+    test.update(created_at: 2.days.ago)
+    PopularGem.create_stat_logs
+    expect(CreatedStat.recent_stats_hash.first[1]).to eq(2)
+    expect(UpdatedStat.recent_stats_hash.first[1]).to eq(1)
+  end
 end

@@ -26,4 +26,10 @@ namespace :gem do
       end
     end
   end
+
+  desc('Add recently updated and created at stats')
+  task :set_stats => :environment do
+    puts 'Created stat logs'
+    PopularGem.create_stat_logs
+  end
 end

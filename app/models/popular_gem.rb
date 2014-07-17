@@ -81,6 +81,11 @@ class PopularGem < ActiveRecord::Base
       where("updated_at >= ? AND created_at < ?", 1.day.ago, 1.day.ago).length
     end
 
+    def create_stat_logs
+      CreatedStat.create(count: created_yesterday)
+      UpdatedStat.create(count: updated_yesterday)
+    end
+
   end
 
   def set_score
