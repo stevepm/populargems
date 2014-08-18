@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :popular_gems
+  resources :popular_gems, path: 'gems'
   put '/popular_gems/:id/like/:user_id', to: 'popular_gems#like', as: :like_gem
   put '/popular_gems/:id/unlike/:user_id', to: 'popular_gems#unlike', as: :unlike_gem
   root to: 'popular_gems#index'
