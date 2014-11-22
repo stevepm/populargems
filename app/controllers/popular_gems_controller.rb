@@ -1,6 +1,6 @@
 class PopularGemsController < ApplicationController
   def index
-    @featured_gems = PopularGem.featured
+    @recently_updated_gems = PopularGem.all.order(updated_at: :desc).pagination(params[:page])
     meta_tag_setter(
       'Ruby Gem discovery engine',
       'Discover the most downloaded and most loved Ruby Gems',

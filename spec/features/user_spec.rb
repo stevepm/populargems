@@ -6,7 +6,9 @@ feature 'User Profile' do
   end
   scenario 'a user can view their loved gems', js: true do
     log_in
-    click_on 'faraday'
+    within("#recently_updated_gems") do
+      click_on 'faraday'
+    end
     click_on 'heart_faraday'
     click_on 'user_profile'
     within '#loved_gems' do

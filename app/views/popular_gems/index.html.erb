@@ -4,11 +4,11 @@
 
 <div class="">
   <%= render(partial: 'gem_table', locals: {
-    gem_id: 'featured_gems',
+    gem_id: 'recently_updated_gems',
     path_for_gems: nil,
-    gems: @featured_gems,
+    gems: @recently_updated_gems,
     view_more: false,
-    title: 'Featured gems of the week',
-    use_pagination: false})
+    title: 'Recently updated gems',
+    use_pagination: true})
   %>
 </div>
