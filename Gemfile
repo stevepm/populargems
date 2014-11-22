@@ -26,10 +26,11 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'addressable', '~> 2.3.6'
 gem 'bootstrap-kaminari-views'
 gem 'chartkick'
+gem 'fuubar'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.14.2'
-  gem 'capybara', '~> 2.2.1'
+  gem 'capybara'
   gem 'vcr', '~> 2.9.0'
   gem 'dotenv-rails'
   gem 'launchy', '~> 2.4.2'
